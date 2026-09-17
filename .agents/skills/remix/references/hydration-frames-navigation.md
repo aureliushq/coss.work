@@ -22,14 +22,14 @@ When server state changes after a mutation, prefer reloading a `<Frame>` when th
 
 ```tsx
 on('submit', async (event, signal) => {
-  event.preventDefault()
-  await fetch(routes.cart.add.href(), {
-    method: 'POST',
-    body: new FormData(event.currentTarget),
-    signal,
-  })
-  if (signal.aborted) return
-  await handle.frames.get('cart-summary')?.reload()
+	event.preventDefault()
+	await fetch(routes.cart.add.href(), {
+		method: 'POST',
+		body: new FormData(event.currentTarget),
+		signal,
+	})
+	if (signal.aborted) return
+	await handle.frames.get('cart-summary')?.reload()
 })
 ```
 
@@ -43,26 +43,26 @@ Use `clientEntry` to mark a component for client-side hydration. In source-serve
 import { clientEntry, on, type Handle } from 'remix/ui'
 
 export const Counter = clientEntry(
-  import.meta.url,
-  function Counter(handle: Handle<{ initialCount: number; label: string }>) {
-    let count = handle.props.initialCount
+	import.meta.url,
+	function Counter(handle: Handle<{ initialCount: number; label: string }>) {
+		let count = handle.props.initialCount
 
-    return () => (
-      <div>
-        <span>
-          {handle.props.label}: {count}
-        </span>
-        <button
-          mix={on('click', () => {
-            count++
-            handle.update()
-          })}
-        >
-          +
-        </button>
-      </div>
-    )
-  },
+		return () => (
+			<div>
+				<span>
+					{handle.props.label}: {count}
+				</span>
+				<button
+					mix={on('click', () => {
+						count++
+						handle.update()
+					})}
+				>
+					+
+				</button>
+			</div>
+		)
+	},
 )
 ```
 
@@ -72,7 +72,7 @@ On the server, pass the asset server to the standard render middleware so source
 import { render } from 'remix/middleware/render'
 
 let router = createRouter({
-  middleware: [render({ assets: assetServer })],
+	middleware: [render({ assets: assetServer })],
 })
 ```
 
@@ -92,31 +92,31 @@ Client entries introduced by later frame responses may depend on import map entr
 
 ```tsx
 import {
-  detectMultipleImportMapSupport,
-  importModule,
-  preloadShim,
+	detectMultipleImportMapSupport,
+	importModule,
+	preloadShim,
 } from 'remix/multiple-import-maps-polyfill'
 import { run } from 'remix/ui'
 
 const app = run({
-  async loadModule(moduleUrl, exportName) {
-    let mod = await importModule(moduleUrl)
-    let Component = mod[exportName]
-    if (typeof Component !== 'function') {
-      throw new Error(`Unknown component: ${moduleUrl}#${exportName}`)
-    }
-    return Component
-  },
-  async processClientEntryPreloads(preloads) {
-    if (await detectMultipleImportMapSupport()) return preloads
+	async loadModule(moduleUrl, exportName) {
+		let mod = await importModule(moduleUrl)
+		let Component = mod[exportName]
+		if (typeof Component !== 'function') {
+			throw new Error(`Unknown component: ${moduleUrl}#${exportName}`)
+		}
+		return Component
+	},
+	async processClientEntryPreloads(preloads) {
+		if (await detectMultipleImportMapSupport()) return preloads
 
-    preloadShim(preloads)
-    return []
-  },
+		preloadShim(preloads)
+		return []
+	},
 })
 
 app.addEventListener('error', (event) => {
-  console.error('Component error:', event.error)
+	console.error('Component error:', event.error)
 })
 
 await app.ready()
@@ -128,14 +128,14 @@ The support check keeps native imports and modulepreload links in browsers that 
 import { run } from 'remix/ui'
 
 const app = run({
-  async loadModule(moduleUrl, exportName) {
-    let mod = await import(moduleUrl)
-    return mod[exportName]
-  },
+	async loadModule(moduleUrl, exportName) {
+		let mod = await import(moduleUrl)
+		return mod[exportName]
+	},
 })
 
 app.addEventListener('error', (event) => {
-  console.error('Component error:', event.error)
+	console.error('Component error:', event.error)
 })
 
 await app.ready()
@@ -172,10 +172,10 @@ When `remix/node-hmr` reports a server update, reload the top frame to apply the
 
 ```tsx
 if (import.meta.hot) {
-  import.meta.hot.on('server:update', async () => {
-    await app.ready()
-    await app.frames.top.reload()
-  })
+	import.meta.hot.on('server:update', async () => {
+		await app.ready()
+		await app.frames.top.reload()
+	})
 }
 ```
 
@@ -187,12 +187,12 @@ A `<Frame>` renders server content into the page. Frames stream after the initia
 import { Frame } from 'remix/ui'
 
 function App() {
-  return () => (
-    <div>
-      <Frame src="/sidebar" fallback={<div>Loading...</div>} />
-      <Frame name="main" src="/main-content" />
-    </div>
-  )
+	return () => (
+		<div>
+			<Frame src='/sidebar' fallback={<div>Loading...</div>} />
+			<Frame name='main' src='/main-content' />
+		</div>
+	)
 }
 ```
 
@@ -266,18 +266,18 @@ Use this low-level API when replacing the standard response pipeline. It renders
 import { renderToStream } from 'remix/ui/server'
 
 let stream = renderToStream(<App />, {
-  frameSrc: request.url,
-  resolveFrame(src, target, context) {
-    let frameUrl = new URL(src, context?.currentFrameSrc ?? request.url)
-    return fetchHtml(frameUrl)
-  },
-  onError(error) {
-    console.error(error)
-  },
+	frameSrc: request.url,
+	resolveFrame(src, target, context) {
+		let frameUrl = new URL(src, context?.currentFrameSrc ?? request.url)
+		return fetchHtml(frameUrl)
+	},
+	onError(error) {
+		console.error(error)
+	},
 })
 
 return new Response(stream, {
-  headers: { 'Content-Type': 'text/html; charset=utf-8' },
+	headers: { 'Content-Type': 'text/html; charset=utf-8' },
 })
 ```
 
@@ -323,18 +323,18 @@ Manage document head with an explicit `<head>` in your document structure:
 
 ```tsx
 function App() {
-  return () => (
-    <html>
-      <head>
-        <title>Dashboard</title>
-        <meta name="description" content="Team dashboard" />
-        <link rel="stylesheet" href="/styles/app.css" />
-      </head>
-      <body>
-        <main>...</main>
-      </body>
-    </html>
-  )
+	return () => (
+		<html>
+			<head>
+				<title>Dashboard</title>
+				<meta name='description' content='Team dashboard' />
+				<link rel='stylesheet' href='/styles/app.css' />
+			</head>
+			<body>
+				<main>...</main>
+			</body>
+		</html>
+	)
 }
 ```
 

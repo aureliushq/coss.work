@@ -19,11 +19,11 @@ Animates an element when inserted. Config specifies the **starting** style the e
 
 ```tsx
 <div
-  mix={animateEntrance({
-    opacity: 0,
-    transform: 'translateY(8px)',
-    ...spring('smooth'),
-  })}
+	mix={animateEntrance({
+		opacity: 0,
+		transform: 'translateY(8px)',
+		...spring('smooth'),
+	})}
 />
 ```
 
@@ -33,15 +33,15 @@ Animates an element when removed. Config specifies the **ending** style the elem
 
 ```tsx
 {
-  isVisible && (
-    <div
-      key="panel"
-      mix={[
-        animateEntrance({ opacity: 0, transform: 'scale(0.98)', ...spring('smooth') }),
-        animateExit({ opacity: 0, duration: 120, easing: 'ease-in' }),
-      ]}
-    />
-  )
+	isVisible && (
+		<div
+			key='panel'
+			mix={[
+				animateEntrance({ opacity: 0, transform: 'scale(0.98)', ...spring('smooth') }),
+				animateExit({ opacity: 0, duration: 120, easing: 'ease-in' }),
+			]}
+		/>
+	)
 }
 ```
 
@@ -51,9 +51,9 @@ Animates layout changes (position/size) using FLIP-style transforms:
 
 ```tsx
 {
-  items.map((item) => (
-    <li key={item.id} mix={animateLayout({ ...spring({ duration: 500, bounce: 0.2 }) })} />
-  ))
+	items.map((item) => (
+		<li key={item.id} mix={animateLayout({ ...spring({ duration: 500, bounce: 0.2 }) })} />
+	))
 }
 ```
 
@@ -63,24 +63,24 @@ Options: `duration` (default 200ms), `easing` (default spring snappy), `size` (d
 
 ```tsx
 <div
-  key="card"
-  mix={[
-    animateEntrance({ opacity: 0, transform: 'scale(0.95)', ...spring('snappy') }),
-    animateExit({ opacity: 0, transform: 'scale(0.98)', duration: 120, easing: 'ease-in' }),
-    animateLayout({ duration: 220, easing: 'ease-out' }),
-  ]}
+	key='card'
+	mix={[
+		animateEntrance({ opacity: 0, transform: 'scale(0.95)', ...spring('snappy') }),
+		animateExit({ opacity: 0, transform: 'scale(0.98)', duration: 120, easing: 'ease-in' }),
+		animateLayout({ duration: 220, easing: 'ease-out' }),
+	]}
 />
 ```
 
 ### Shared-layout swap
 
 ```tsx
-<div mix={css({ display: 'grid', '& > *': { gridArea: '1 / 1' } })}>
-  {stateA ? (
-    <div key="a" mix={[animateEntrance({ opacity: 0 }), animateExit({ opacity: 0 })]} />
-  ) : (
-    <div key="b" mix={[animateEntrance({ opacity: 0 }), animateExit({ opacity: 0 })]} />
-  )}
+<div mix={css({ 'display': 'grid', '& > *': { gridArea: '1 / 1' } })}>
+	{stateA ? (
+		<div key='a' mix={[animateEntrance({ opacity: 0 }), animateExit({ opacity: 0 })]} />
+	) : (
+		<div key='b' mix={[animateEntrance({ opacity: 0 }), animateExit({ opacity: 0 })]} />
+	)}
 </div>
 ```
 
@@ -145,9 +145,9 @@ The iterator yields position values from 0 to 1, one per frame:
 
 ```tsx
 for (let t of spring('bouncy')) {
-  let x = from + (to - from) * t
-  updateSomething(x)
-  await nextFrame()
+	let x = from + (to - from) * t
+	updateSomething(x)
+	await nextFrame()
 }
 ```
 
@@ -159,18 +159,18 @@ Generator-based tween for animating values over time with cubic bezier easing. P
 import { tween, easings } from 'remix/ui/animation'
 
 let animation = tween({
-  from: 0,
-  to: 100,
-  duration: 300,
-  curve: easings.easeOut,
+	from: 0,
+	to: 100,
+	duration: 300,
+	curve: easings.easeOut,
 })
 
 animation.next() // initialize
 function tick(timestamp: number) {
-  if (handle.signal.aborted) return
-  let { value, done } = animation.next(timestamp)
-  element.style.transform = `translateX(${value}px)`
-  if (!done) requestAnimationFrame(tick)
+	if (handle.signal.aborted) return
+	let { value, done } = animation.next(timestamp)
+	element.style.transform = `translateX(${value}px)`
+	if (!done) requestAnimationFrame(tick)
 }
 requestAnimationFrame(tick)
 ```

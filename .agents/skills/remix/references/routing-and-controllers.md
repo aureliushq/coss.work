@@ -24,19 +24,19 @@ Adds a URL prefix to all children. Can also be called as `route(map)` without a 
 import { route, get, post } from 'remix/routes'
 
 export const routes = route({
-  home: '/',
+	home: '/',
 
-  // Plain object — no shared prefix, each leaf has an absolute path.
-  books: {
-    index: '/books',
-    show: '/books/:slug',
-  },
+	// Plain object — no shared prefix, each leaf has an absolute path.
+	books: {
+		index: '/books',
+		show: '/books/:slug',
+	},
 
-  // route('auth', ...) — every leaf is prefixed with /auth.
-  auth: route('auth', {
-    login: get('login'),
-    logout: post('logout'),
-  }),
+	// route('auth', ...) — every leaf is prefixed with /auth.
+	auth: route('auth', {
+		login: get('login'),
+		logout: post('logout'),
+	}),
 })
 ```
 
@@ -198,7 +198,7 @@ headers.contentType = { mediaType: 'application/json', charset: 'utf-8' }
 headers.cacheControl = { noStore: true }
 
 return new Response(JSON.stringify({ results }), {
-  headers,
+	headers,
 })
 ```
 
@@ -312,10 +312,8 @@ The `middleware` array on a controller runs only for the direct actions in that 
 
 ```typescript
 export default createController(routes.admin, {
-  middleware: [requireAuth(), requireAdmin()],
-  actions: {
-    /* all actions require auth + admin */
-  },
+	middleware: [requireAuth(), requireAdmin()],
+	actions: {/* all actions require auth + admin */},
 })
 ```
 
@@ -347,15 +345,15 @@ Define an `AppContext` type from your router, then make it the default context u
 import { createRouter, type RouterContext } from 'remix/router'
 
 export const router = createRouter({
-  middleware: [formData(), session(cookie, storage), loadDatabase(), loadAuth()],
+	middleware: [formData(), session(cookie, storage), loadDatabase(), loadAuth()],
 })
 
 export type AppContext = RouterContext<typeof router>
 
 declare module 'remix/router' {
-  interface RouterTypes {
-    context: AppContext
-  }
+	interface RouterTypes {
+		context: AppContext
+	}
 }
 ```
 

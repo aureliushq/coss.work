@@ -299,20 +299,20 @@ Use this map to find the right package quickly. Each entry says what the package
 import { form, get, post, resources, route } from 'remix/routes'
 
 export const routes = route({
-  home: '/',
-  contact: form('contact'),
-  books: {
-    index: '/books',
-    show: '/books/:slug',
-  },
-  auth: route('auth', {
-    login: form('login'),
-    logout: post('logout'),
-  }),
-  admin: route('admin', {
-    index: get('/'),
-    books: resources('books', { param: 'bookId' }),
-  }),
+	home: '/',
+	contact: form('contact'),
+	books: {
+		index: '/books',
+		show: '/books/:slug',
+	},
+	auth: route('auth', {
+		login: form('login'),
+		logout: post('logout'),
+	}),
+	admin: route('admin', {
+		index: get('/'),
+		books: resources('books', { param: 'bookId' }),
+	}),
 })
 ```
 
@@ -374,7 +374,7 @@ import { createRouter } from 'remix/router'
 let middleware = []
 
 if (process.env.NODE_ENV === 'development') {
-  middleware.push(logger())
+	middleware.push(logger())
 }
 
 middleware.push(compression())
@@ -434,18 +434,18 @@ This shape works without JavaScript, returns a `Response` for every outcome, and
 import { on, type Handle } from 'remix/ui'
 
 function Counter(handle: Handle<{ initialCount?: number; label: string }>) {
-  let count = handle.props.initialCount ?? 0
+	let count = handle.props.initialCount ?? 0
 
-  return () => (
-    <button
-      mix={on('click', () => {
-        count++
-        handle.update()
-      })}
-    >
-      {handle.props.label}: {count}
-    </button>
-  )
+	return () => (
+		<button
+			mix={on('click', () => {
+				count++
+				handle.update()
+			})}
+		>
+			{handle.props.label}: {count}
+		</button>
+	)
 }
 ```
 

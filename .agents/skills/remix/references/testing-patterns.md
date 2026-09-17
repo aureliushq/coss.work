@@ -32,13 +32,13 @@ import { createBookstoreRouter } from '../app/router.ts'
 import { routes } from '../app/routes.ts'
 
 describe('home', () => {
-  it('responds 200 with the home page', async () => {
-    let router = createBookstoreRouter()
-    let response = await router.fetch(new Request('http://localhost' + routes.home.href()))
+	it('responds 200 with the home page', async () => {
+		let router = createBookstoreRouter()
+		let response = await router.fetch(new Request('http://localhost' + routes.home.href()))
 
-    assert.equal(response.status, 200)
-    assert.match(await response.text(), /Welcome to the Bookstore/)
-  })
+		assert.equal(response.status, 200)
+		assert.match(await response.text(), /Welcome to the Bookstore/)
+	})
 })
 ```
 
@@ -49,8 +49,8 @@ import { createMemorySessionStorage } from 'remix/session-storage/memory'
 import { createCookie } from 'remix/cookie'
 
 let router = createBookstoreRouter({
-  sessionCookie: createCookie('session', { secrets: ['test'] }),
-  sessionStorage: createMemorySessionStorage(),
+	sessionCookie: createCookie('session', { secrets: ['test'] }),
+	sessionStorage: createMemorySessionStorage(),
 })
 ```
 
@@ -61,10 +61,10 @@ import { createTestServer } from 'remix/node-fetch-server/test'
 
 let server = await createTestServer((request) => router.fetch(request))
 try {
-  let response = await fetch(new URL(routes.home.href(), server.baseUrl))
-  assert.equal(response.status, 200)
+	let response = await fetch(new URL(routes.home.href(), server.baseUrl))
+	assert.equal(response.status, 200)
 } finally {
-  await server.close()
+	await server.close()
 }
 ```
 
@@ -74,21 +74,21 @@ Configure discovery and coverage in the `test` section of `remix.json` or with C
 
 ```jsonc
 {
-  "$schema": "./node_modules/remix/schema/remix.json",
-  "test": {
-    "files": ["**/*.test{,.e2e}.{ts,tsx}"],
-    "e2eFiles": ["**/*.test.e2e.{ts,tsx}"],
-    "exclude": ["node_modules/**"],
-    "coverage": {
-      "dir": ".coverage",
-      "include": ["app/**/*.{ts,tsx}"],
-      "exclude": ["app/**/*.test.{ts,tsx}"],
-      "statements": 80,
-      "lines": 80,
-      "branches": 70,
-      "functions": 80,
-    },
-  },
+	"$schema": "./node_modules/remix/schema/remix.json",
+	"test": {
+		"files": ["**/*.test{,.e2e}.{ts,tsx}"],
+		"e2eFiles": ["**/*.test.e2e.{ts,tsx}"],
+		"exclude": ["node_modules/**"],
+		"coverage": {
+			"dir": ".coverage",
+			"include": ["app/**/*.{ts,tsx}"],
+			"exclude": ["app/**/*.test.{ts,tsx}"],
+			"statements": 80,
+			"lines": 80,
+			"branches": 70,
+			"functions": 80,
+		},
+	},
 }
 ```
 

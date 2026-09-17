@@ -26,31 +26,31 @@ import { createController } from 'remix/router'
 import { get, route } from 'remix/routes'
 
 export const routes = route({
-  assets: get('/assets/*path'),
+	assets: get('/assets/*path'),
 })
 
 let assets = createAssetServer({
-  basePath: '/assets',
-  rootDir: process.cwd(),
-  allowFiles: ['app/routes.ts', 'app/**/public/**'],
-  allowPackages: ['remix'],
-  denyFiles: ['app/**/*.test.*'],
-  target: { es: '2020', chrome: '109', safari: '16.4' },
-  sourceMaps: process.env.NODE_ENV === 'development' ? 'external' : undefined,
-  minify: process.env.NODE_ENV === 'production',
-  scripts: {
-    define: {
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV ?? 'development'),
-    },
-  },
+	basePath: '/assets',
+	rootDir: process.cwd(),
+	allowFiles: ['app/routes.ts', 'app/**/public/**'],
+	allowPackages: ['remix'],
+	denyFiles: ['app/**/*.test.*'],
+	target: { es: '2020', chrome: '109', safari: '16.4' },
+	sourceMaps: process.env.NODE_ENV === 'development' ? 'external' : undefined,
+	minify: process.env.NODE_ENV === 'production',
+	scripts: {
+		define: {
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV ?? 'development'),
+		},
+	},
 })
 
 export default createController(routes, {
-  actions: {
-    async assets({ request }) {
-      return (await assets.fetch(request)) ?? new Response('Not Found', { status: 404 })
-    },
-  },
+	actions: {
+		async assets({ request }) {
+			return (await assets.fetch(request)) ?? new Response('Not Found', { status: 404 })
+		},
+	},
 })
 ```
 
@@ -116,19 +116,20 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const isHmr = Boolean(isDevelopment && process.env.REMIX_NODE_HMR)
 
 const assetServer = createAssetServer({
-  basePath: '/assets',
-  allowFiles: ['app/routes.ts', 'app/**/public/**'],
-  denyFiles: ['app/**/*.test.*'],
-  watch: isDevelopment,
-  hmr: isHmr
-    ? {
-        channel: async () => (await import('remix/node-hmr/runtime')).createBrowserHmrChannel(),
-        moduleImporter: 'remix/multiple-import-maps-polyfill',
-      }
-    : undefined,
-  scripts: {
-    loaders: isHmr ? [uiHmr()] : undefined,
-  },
+	basePath: '/assets',
+	allowFiles: ['app/routes.ts', 'app/**/public/**'],
+	denyFiles: ['app/**/*.test.*'],
+	watch: isDevelopment,
+	hmr: isHmr
+		? {
+				channel: async () =>
+					(await import('remix/node-hmr/runtime')).createBrowserHmrChannel(),
+				moduleImporter: 'remix/multiple-import-maps-polyfill',
+			}
+		: undefined,
+	scripts: {
+		loaders: isHmr ? [uiHmr()] : undefined,
+	},
 })
 ```
 

@@ -20,30 +20,30 @@ import { belongsTo, column as c, hasMany, table } from 'remix/data-table'
 import type { TableRow, TableRowWith } from 'remix/data-table'
 
 export const books = table({
-  name: 'books',
-  columns: {
-    id: c.integer().primaryKey().autoIncrement(),
-    slug: c.text().notNull().unique(),
-    title: c.text().notNull(),
-    author: c.text().notNull(),
-    price: c.decimal(10, 2).notNull(),
-    genre: c.text().notNull(),
-    in_stock: c.boolean(),
-  },
+	name: 'books',
+	columns: {
+		id: c.integer().primaryKey().autoIncrement(),
+		slug: c.text().notNull().unique(),
+		title: c.text().notNull(),
+		author: c.text().notNull(),
+		price: c.decimal(10, 2).notNull(),
+		genre: c.text().notNull(),
+		in_stock: c.boolean(),
+	},
 })
 
 export const orders = table({
-  name: 'orders',
-  columns: {
-    id: c.integer().primaryKey().autoIncrement(),
-    user_id: c.integer().notNull().references('users', 'id'),
-    total: c.decimal(10, 2).notNull(),
-    created_at: c.integer().notNull(),
-  },
-  relations: {
-    user: belongsTo('users', 'user_id'),
-    items: hasMany('order_items', 'order_id'),
-  },
+	name: 'orders',
+	columns: {
+		id: c.integer().primaryKey().autoIncrement(),
+		user_id: c.integer().notNull().references('users', 'id'),
+		total: c.decimal(10, 2).notNull(),
+		created_at: c.integer().notNull(),
+	},
+	relations: {
+		user: belongsTo('users', 'user_id'),
+		items: hasMany('order_items', 'order_id'),
+	},
 })
 
 export type Book = TableRow<typeof books>
@@ -88,26 +88,24 @@ Tables can define validation and lifecycle hooks:
 
 ```typescript
 export const books = table({
-  name: 'books',
-  columns: {
-    /* ... */
-  },
-  beforeWrite({ value }) {
-    if (typeof value.slug === 'string') {
-      return { value: { ...value, slug: value.slug.trim().toLowerCase() } }
-    }
-    return { value }
-  },
-  validate({ operation, value }) {
-    let issues = []
-    if (operation === 'create' && !value.slug) {
-      issues.push({ message: 'Slug is required.', path: ['slug'] })
-    }
-    return issues.length > 0 ? { issues } : { value }
-  },
-  afterRead({ value }) {
-    return { value }
-  },
+	name: 'books',
+	columns: {/* ... */},
+	beforeWrite({ value }) {
+		if (typeof value.slug === 'string') {
+			return { value: { ...value, slug: value.slug.trim().toLowerCase() } }
+		}
+		return { value }
+	},
+	validate({ operation, value }) {
+		let issues = []
+		if (operation === 'create' && !value.slug) {
+			issues.push({ message: 'Slug is required.', path: ['slug'] })
+		}
+		return issues.length > 0 ? { issues } : { value }
+	},
+	afterRead({ value }) {
+		return { value }
+	},
 })
 ```
 
@@ -135,10 +133,10 @@ import { createContextKey, type Middleware } from 'remix/router'
 export const databaseContext = createContextKey<Database>()
 
 export function loadDatabase(): Middleware {
-  return async (context, next) => {
-    context.set(databaseContext, db)
-    return next()
-  }
+	return async (context, next) => {
+		context.set(databaseContext, db)
+		return next()
+	}
 }
 ```
 
@@ -178,7 +176,7 @@ await db.delete(books, bookId)
 import { inList } from 'remix/data-table/operators'
 
 let featured = await db.findMany(books, {
-  where: inList('slug', ['book-a', 'book-b', 'book-c']),
+	where: inList('slug', ['book-a', 'book-b', 'book-c']),
 })
 ```
 
@@ -253,9 +251,9 @@ import * as s from 'remix/data-schema'
 import { email, minLength, maxLength } from 'remix/data-schema/checks'
 
 let userSchema = s.object({
-  name: s.string().pipe(minLength(1)),
-  email: s.string().pipe(email()),
-  age: s.optional(s.number()),
+	name: s.string().pipe(minLength(1)),
+	email: s.string().pipe(email()),
+	age: s.optional(s.number()),
 })
 
 let result = s.parse(userSchema, data)
@@ -271,9 +269,9 @@ import * as f from 'remix/data-schema/form-data'
 import { email, minLength } from 'remix/data-schema/checks'
 
 let signupSchema = f.object({
-  name: f.field(s.string().pipe(minLength(1))),
-  email: f.field(s.string().pipe(email())),
-  password: f.field(s.string().pipe(minLength(8))),
+	name: f.field(s.string().pipe(minLength(1))),
+	email: f.field(s.string().pipe(email())),
+	password: f.field(s.string().pipe(minLength(8))),
 })
 
 // In a controller action:
@@ -291,7 +289,7 @@ The recommended way: register `formData()` middleware in the root stack and read
 import { formData } from 'remix/middleware/form-data'
 
 let router = createRouter({
-  middleware: [, /* ... */ formData() /* ... */],
+	middleware: [, /* ... */ formData() /* ... */],
 })
 
 // In an action:
@@ -322,13 +320,13 @@ Use `.transform(...)` when a schema should validate one shape but return another
 import * as coerce from 'remix/data-schema/coerce'
 
 let slugSchema = s
-  .string()
-  .pipe(minLength(1))
-  .transform((value) => value.trim().toLowerCase().replace(/\s+/g, '-'))
+	.string()
+	.pipe(minLength(1))
+	.transform((value) => value.trim().toLowerCase().replace(/\s+/g, '-'))
 
 let pageSchema = f.object({
-  page: f.field(s.defaulted(coerce.coerceNumber(), 1).refine(Number.isInteger)),
-  q: f.field(s.defaulted(s.string(), '').transform((value) => value.trim())),
+	page: f.field(s.defaulted(coerce.coerceNumber(), 1).refine(Number.isInteger)),
+	q: f.field(s.defaulted(s.string(), '').transform((value) => value.trim())),
 })
 
 let { page, q } = s.parse(pageSchema, formData)

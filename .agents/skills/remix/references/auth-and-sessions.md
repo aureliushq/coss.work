@@ -38,16 +38,16 @@ import { createCookie } from 'remix/cookie'
 
 let sessionSecret = process.env.SESSION_SECRET
 if (!sessionSecret && process.env.NODE_ENV !== 'test') {
-  throw new Error('SESSION_SECRET is required')
+	throw new Error('SESSION_SECRET is required')
 }
 
 export let sessionCookie = createCookie('session', {
-  secrets: [sessionSecret ?? 'test-only-secret'],
-  httpOnly: true,
-  sameSite: 'Lax',
-  secure: process.env.NODE_ENV === 'production',
-  maxAge: 2592000, // 30 days
-  path: '/',
+	secrets: [sessionSecret ?? 'test-only-secret'],
+	httpOnly: true,
+	sameSite: 'Lax',
+	secure: process.env.NODE_ENV === 'production',
+	maxAge: 2592000, // 30 days
+	path: '/',
 })
 ```
 
@@ -71,10 +71,10 @@ export let sessionStorage = createMemorySessionStorage()
 import { session } from 'remix/middleware/session'
 
 let router = createRouter({
-  middleware: [
-    session(sessionCookie, sessionStorage),
-    // ... other middleware
-  ],
+	middleware: [
+		session(sessionCookie, sessionStorage),
+		// ... other middleware
+	],
 })
 ```
 
@@ -84,23 +84,23 @@ let router = createRouter({
 import { Session } from 'remix/session'
 
 async function handler({ get }) {
-  let session = get(Session)
+	let session = get(Session)
 
-  // Read
-  let userId = session.get('userId')
+	// Read
+	let userId = session.get('userId')
 
-  // Write
-  session.set('userId', 42)
+	// Write
+	session.set('userId', 42)
 
-  // Flash (read once, then cleared)
-  session.flash('message', 'Settings saved!')
-  let message = session.get('message') // returns and clears
+	// Flash (read once, then cleared)
+	session.flash('message', 'Settings saved!')
+	let message = session.get('message') // returns and clears
 
-  // Remove a key
-  session.unset('userId')
+	// Remove a key
+	session.unset('userId')
 
-  // Regenerate session ID (after login/logout)
-  session.regenerateId(true)
+	// Regenerate session ID (after login/logout)
+	session.regenerateId(true)
 }
 ```
 
@@ -140,23 +140,23 @@ import { Session } from 'remix/session'
 import { databaseContext } from '~/middleware/database.ts'
 
 export function loadAuth() {
-  return auth({
-    schemes: [
-      createSessionAuthScheme({
-        read(session) {
-          let data = session.get('auth')
-          return data ?? null
-        },
-        async verify(value, context) {
-          let db = context.get(databaseContext)
-          return (await db.find(users, value.userId)) ?? null
-        },
-        invalidate(session) {
-          session.unset('auth')
-        },
-      }),
-    ],
-  })
+	return auth({
+		schemes: [
+			createSessionAuthScheme({
+				read(session) {
+					let data = session.get('auth')
+					return data ?? null
+				},
+				async verify(value, context) {
+					let db = context.get(databaseContext)
+					return (await db.find(users, value.userId)) ?? null
+				},
+				invalidate(session) {
+					session.unset('auth')
+				},
+			}),
+		],
+	})
 }
 ```
 
@@ -166,12 +166,12 @@ export function loadAuth() {
 import { Auth } from 'remix/middleware/auth'
 
 function handler({ get }) {
-  let auth = get(Auth)
+	let auth = get(Auth)
 
-  if (auth.ok) {
-    // User is authenticated
-    let user = auth.identity
-  }
+	if (auth.ok) {
+		// User is authenticated
+		let user = auth.identity
+	}
 }
 ```
 
@@ -185,23 +185,23 @@ import * as s from 'remix/data-schema'
 import * as f from 'remix/data-schema/form-data'
 
 let loginSchema = f.object({
-  email: f.field(s.defaulted(s.string(), '')),
-  password: f.field(s.defaulted(s.string(), '')),
+	email: f.field(s.defaulted(s.string(), '')),
+	password: f.field(s.defaulted(s.string(), '')),
 })
 
 export let passwordProvider = createCredentialsAuthProvider({
-  parse(context) {
-    let formData = context.get(FormData)
-    return s.parse(loginSchema, formData)
-  },
-  async verify({ email, password }, context) {
-    let db = context.get(databaseContext)
-    let user = await db.findOne(users, { where: { email } })
-    if (!user || !(await verifyPassword(password, user.password_hash))) {
-      return null
-    }
-    return user
-  },
+	parse(context) {
+		let formData = context.get(FormData)
+		return s.parse(loginSchema, formData)
+	},
+	async verify({ email, password }, context) {
+		let db = context.get(databaseContext)
+		let user = await db.findOne(users, { where: { email } })
+		if (!user || !(await verifyPassword(password, user.password_hash))) {
+			return null
+		}
+		return user
+	},
 })
 ```
 
@@ -234,10 +234,10 @@ import { Session } from 'remix/session'
 import { redirect } from 'remix/response/redirect'
 
 function logout(context) {
-  let session = context.get(Session)
-  session.unset('auth')
-  session.regenerateId(true)
-  return redirect(routes.home.href())
+	let session = context.get(Session)
+	session.unset('auth')
+	session.regenerateId(true)
+	return redirect(routes.home.href())
 }
 ```
 
@@ -247,24 +247,24 @@ function logout(context) {
 
 ```typescript
 import {
-  createGoogleAuthProvider,
-  createGitHubAuthProvider,
-  startExternalAuth,
-  finishExternalAuth,
-  completeAuth,
-  refreshExternalAuth,
+	createGoogleAuthProvider,
+	createGitHubAuthProvider,
+	startExternalAuth,
+	finishExternalAuth,
+	completeAuth,
+	refreshExternalAuth,
 } from 'remix/auth'
 
 let googleProvider = createGoogleAuthProvider({
-  clientId: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  redirectUri: new URL(routes.auth.google.callback.href(), origin),
+	clientId: process.env.GOOGLE_CLIENT_ID,
+	clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+	redirectUri: new URL(routes.auth.google.callback.href(), origin),
 })
 
 let githubProvider = createGitHubAuthProvider({
-  clientId: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  redirectUri: new URL(routes.auth.github.callback.href(), origin),
+	clientId: process.env.GITHUB_CLIENT_ID,
+	clientSecret: process.env.GITHUB_CLIENT_SECRET,
+	redirectUri: new URL(routes.auth.github.callback.href(), origin),
 })
 ```
 
@@ -274,31 +274,31 @@ let githubProvider = createGitHubAuthProvider({
 import { createController } from 'remix/router'
 
 export default createController(routes.auth.google, {
-  actions: {
-    // GET /auth/google — redirect to Google
-    async index(context) {
-      return await startExternalAuth(googleProvider, context, {
-        returnTo: context.url.searchParams.get('returnTo'),
-      })
-    },
+	actions: {
+		// GET /auth/google — redirect to Google
+		async index(context) {
+			return await startExternalAuth(googleProvider, context, {
+				returnTo: context.url.searchParams.get('returnTo'),
+			})
+		},
 
-    // GET /auth/google/callback — handle redirect back
-    async callback(context) {
-      let { result, returnTo } = await finishExternalAuth(googleProvider, context)
+		// GET /auth/google/callback — handle redirect back
+		async callback(context) {
+			let { result, returnTo } = await finishExternalAuth(googleProvider, context)
 
-      let db = context.get(databaseContext)
-      let { user, authAccount } = await resolveExternalAuth(db, result)
+			let db = context.get(databaseContext)
+			let { user, authAccount } = await resolveExternalAuth(db, result)
 
-      let session = completeAuth(context)
-      session.set('auth', {
-        userId: user.id,
-        loginMethod: result.provider,
-        authAccountId: authAccount.id,
-      })
+			let session = completeAuth(context)
+			session.set('auth', {
+				userId: user.id,
+				loginMethod: result.provider,
+				authAccountId: authAccount.id,
+			})
 
-      return redirect(returnTo ?? routes.account.index.href())
-    },
-  },
+			return redirect(returnTo ?? routes.account.index.href())
+		},
+	},
 })
 ```
 
@@ -308,14 +308,14 @@ Use `refreshExternalAuth(provider, tokens)` when an app has stored OAuth/OIDC to
 
 ```typescript
 async function refreshGoogleTokens({ get }) {
-  let db = get(databaseContext)
-  let account = await db.findOne(authAccounts, { where: { provider: 'google' } })
-  if (!account) return null
+	let db = get(databaseContext)
+	let account = await db.findOne(authAccounts, { where: { provider: 'google' } })
+	if (!account) return null
 
-  let refreshed = await refreshExternalAuth(googleProvider, account.tokens)
-  await db.update(authAccounts, account.id, { tokens: refreshed.tokens })
+	let refreshed = await refreshExternalAuth(googleProvider, account.tokens)
+	await db.update(authAccounts, account.id, { tokens: refreshed.tokens })
 
-  return refreshed.tokens
+	return refreshed.tokens
 }
 ```
 
@@ -330,12 +330,12 @@ import { createController } from 'remix/router'
 import { requireAuth } from 'remix/middleware/auth'
 
 export default createController(routes.account, {
-  middleware: [requireAuth()],
-  actions: {
-    index() {
-      /* guaranteed authenticated */
-    },
-  },
+	middleware: [requireAuth()],
+	actions: {
+		index() {
+			/* guaranteed authenticated */
+		},
+	},
 })
 ```
 
@@ -348,15 +348,15 @@ router.map(routes.account.settings, accountSettingsController)
 
 // app/actions/account/settings/controller.tsx
 export default createController(routes.account.settings, {
-  middleware: [requireAuth()],
-  actions: {
-    index() {
-      /* guaranteed authenticated */
-    },
-    update() {
-      /* guaranteed authenticated */
-    },
-  },
+	middleware: [requireAuth()],
+	actions: {
+		index() {
+			/* guaranteed authenticated */
+		},
+		update() {
+			/* guaranteed authenticated */
+		},
+	},
 })
 ```
 
@@ -366,12 +366,12 @@ Combine auth checks with role checks:
 
 ```typescript
 export default createController(routes.admin, {
-  middleware: [requireAuth(), requireAdmin()],
-  actions: {
-    index() {
-      /* requires auth + admin */
-    },
-  },
+	middleware: [requireAuth(), requireAdmin()],
+	actions: {
+		index() {
+			/* requires auth + admin */
+		},
+	},
 })
 ```
 
@@ -398,11 +398,11 @@ import { requireAuth } from 'remix/middleware/auth'
 import { redirect } from 'remix/response/redirect'
 
 export function requireAuthRedirect() {
-  return requireAuth({
-    onFailure(context) {
-      let returnTo = encodeURIComponent(context.url.pathname)
-      return redirect(routes.auth.login.href() + `?returnTo=${returnTo}`, 303)
-    },
-  })
+	return requireAuth({
+		onFailure(context) {
+			let returnTo = encodeURIComponent(context.url.pathname)
+			return redirect(routes.auth.login.href() + `?returnTo=${returnTo}`, 303)
+		},
+	})
 }
 ```

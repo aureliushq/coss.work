@@ -21,19 +21,19 @@ Attaches a typed DOM event handler. The handler receives the event and an `Abort
 
 ```tsx
 <input
-  mix={on('input', async (event, signal) => {
-    let query = event.currentTarget.value
-    loading = true
-    handle.update()
+	mix={on('input', async (event, signal) => {
+		let query = event.currentTarget.value
+		loading = true
+		handle.update()
 
-    let response = await fetch(`/search?q=${query}`, { signal })
-    let data = await response.json()
-    if (signal.aborted) return
+		let response = await fetch(`/search?q=${query}`, { signal })
+		let data = await response.json()
+		if (signal.aborted) return
 
-    results = data.results
-    loading = false
-    handle.update()
-  })}
+		results = data.results
+		loading = false
+		handle.update()
+	})}
 />
 ```
 
@@ -54,19 +54,19 @@ Applies generated class names for CSS object styles. Produces static CSS rules i
 
 ```tsx
 <button
-  mix={css({
-    color: 'white',
-    backgroundColor: 'blue',
-    padding: '12px 24px',
-    borderRadius: '4px',
-    border: 'none',
-    cursor: 'pointer',
-    '&:hover': { backgroundColor: 'darkblue' },
-    '&:active': { transform: 'scale(0.98)' },
-    '&:disabled': { opacity: 0.5, cursor: 'not-allowed' },
-    '& .title': { fontSize: '20px', fontWeight: 'bold' },
-    '@media (max-width: 768px)': { width: '100%' },
-  })}
+	mix={css({
+		'color': 'white',
+		'backgroundColor': 'blue',
+		'padding': '12px 24px',
+		'borderRadius': '4px',
+		'border': 'none',
+		'cursor': 'pointer',
+		'&:hover': { backgroundColor: 'darkblue' },
+		'&:active': { transform: 'scale(0.98)' },
+		'&:disabled': { opacity: 0.5, cursor: 'not-allowed' },
+		'& .title': { fontSize: '20px', fontWeight: 'bold' },
+		'@media (max-width: 768px)': { width: '100%' },
+	})}
 />
 ```
 
@@ -76,11 +76,11 @@ Use `css(...)` for static styles, selectors, and media queries. Use `style` for 
 
 ```tsx
 <div
-  mix={css({
-    backgroundColor: 'blue', // static
-    '&:hover': { '& .title': { color: 'blue' } }, // parent hover → child
-  })}
-  style={{ width: `${progress}%` }} // dynamic
+	mix={css({
+		'backgroundColor': 'blue', // static
+		'&:hover': { '& .title': { color: 'blue' } }, // parent hover → child
+	})}
+	style={{ width: `${progress}%` }} // dynamic
 />
 ```
 
@@ -109,7 +109,7 @@ Adds client-side navigation behavior to any element. Makes non-anchor elements b
 
 ```tsx
 <article mix={link('/courses/intro')}>
-  <h3>Introduction</h3>
+	<h3>Introduction</h3>
 </article>
 ```
 
@@ -168,15 +168,15 @@ Animates an element when it is removed. Config specifies the **ending** style. T
 
 ```tsx
 {
-  isVisible && (
-    <div
-      key="panel"
-      mix={[
-        animateEntrance({ opacity: 0, transform: 'scale(0.98)', ...spring('smooth') }),
-        animateExit({ opacity: 0, duration: 120, easing: 'ease-in' }),
-      ]}
-    />
-  )
+	isVisible && (
+		<div
+			key='panel'
+			mix={[
+				animateEntrance({ opacity: 0, transform: 'scale(0.98)', ...spring('smooth') }),
+				animateExit({ opacity: 0, duration: 120, easing: 'ease-in' }),
+			]}
+		/>
+	)
 }
 ```
 
@@ -186,9 +186,9 @@ Animates layout changes (position/size) using FLIP-style transforms:
 
 ```tsx
 {
-  items.map((item) => (
-    <li key={item.id} mix={animateLayout({ duration: 220, easing: 'ease-out' })} />
-  ))
+	items.map((item) => (
+		<li key={item.id} mix={animateLayout({ duration: 220, easing: 'ease-out' })} />
+	))
 }
 ```
 

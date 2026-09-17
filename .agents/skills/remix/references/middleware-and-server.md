@@ -32,7 +32,7 @@ import { asyncContext } from 'remix/middleware/async-context'
 let middleware = []
 
 if (process.env.NODE_ENV === 'development') {
-  middleware.push(logger())
+	middleware.push(logger())
 }
 
 middleware.push(compression())
@@ -92,9 +92,9 @@ let router = createRouter({ middleware })
 ```typescript
 // Static files with cache headers
 staticFiles('./public', {
-  cacheControl: 'no-store, must-revalidate',
-  etag: false,
-  lastModified: false,
+	cacheControl: 'no-store, must-revalidate',
+	etag: false,
+	lastModified: false,
 })
 
 // Form data with upload handler
@@ -104,9 +104,9 @@ import { createFsFileStorage } from 'remix/file-storage/fs'
 let fileStorage = createFsFileStorage('./tmp/uploads')
 
 formData({
-  uploadHandler(fileUpload: FileUpload) {
-    return fileStorage.set(fileUpload.name, fileUpload)
-  },
+	uploadHandler(fileUpload: FileUpload) {
+		return fileStorage.set(fileUpload.name, fileUpload)
+	},
 })
 ```
 
@@ -125,10 +125,10 @@ import type { Middleware } from 'remix/router'
 import { databaseContext } from '~/middleware/database.ts'
 
 export function loadDatabase(): Middleware {
-  return async (context, next) => {
-    context.set(databaseContext, db)
-    return next()
-  }
+	return async (context, next) => {
+		context.set(databaseContext, db)
+		return next()
+	}
 }
 ```
 
@@ -138,13 +138,13 @@ export function loadDatabase(): Middleware {
 import { Auth } from 'remix/middleware/auth'
 
 export function requireAdmin(): Middleware {
-  return (context, next) => {
-    let auth = context.get(Auth)
-    if (auth.identity?.role !== 'admin') {
-      return new Response('Forbidden', { status: 403 })
-    }
-    return next()
-  }
+	return (context, next) => {
+		let auth = context.get(Auth)
+		if (auth.identity?.role !== 'admin') {
+			return new Response('Forbidden', { status: 403 })
+		}
+		return next()
+	}
 }
 ```
 
@@ -160,24 +160,24 @@ import { databaseContext } from '~/middleware/database.ts'
 import { Session } from 'remix/session'
 
 export function getCurrentDb() {
-  return getContext().get(databaseContext)
+	return getContext().get(databaseContext)
 }
 
 export function getCurrentSession() {
-  return getContext().get(Session)
+	return getContext().get(Session)
 }
 
 export function getCurrentUser() {
-  let auth = getContext().get(Auth)
-  if (!auth.ok) {
-    throw new Error('Expected an authenticated user. Run requireAuth() before this code.')
-  }
-  return auth.identity
+	let auth = getContext().get(Auth)
+	if (!auth.ok) {
+		throw new Error('Expected an authenticated user. Run requireAuth() before this code.')
+	}
+	return auth.identity
 }
 
 export function getCurrentUserSafely() {
-  let auth = getContext().get(Auth)
-  return auth.ok ? auth.identity : null
+	let auth = getContext().get(Auth)
+	return auth.ok ? auth.identity : null
 }
 ```
 
@@ -187,31 +187,31 @@ Middleware has three API-owned forms:
 
 1. **Router middleware** — runs for every request:
 
-   ```typescript
-   let router = createRouter({ middleware: [logger(), session(cookie, storage)] })
-   ```
+    ```typescript
+    let router = createRouter({ middleware: [logger(), session(cookie, storage)] })
+    ```
 
 2. **Controller middleware** — runs for the direct actions in one controller:
 
-   ```typescript
-   export default createController(routes.account, {
-     middleware: [requireAuth()],
-     actions: { ... },
-   })
-   ```
+    ```typescript
+    export default createController(routes.account, {
+      middleware: [requireAuth()],
+      actions: { ... },
+    })
+    ```
 
-   Controller middleware does not flow into other controllers. Add the middleware to each controller that needs it.
+    Controller middleware does not flow into other controllers. Add the middleware to each controller that needs it.
 
 3. **Action middleware** — runs for a single action:
 
-   ```typescript
-   router.get(routes.account.index, {
-     middleware: [requireAuth()],
-     handler(context) {
-       return render(<AccountPage identity={context.auth.identity} />)
-     },
-   })
-   ```
+    ```typescript
+    router.get(routes.account.index, {
+      middleware: [requireAuth()],
+      handler(context) {
+        return render(<AccountPage identity={context.auth.identity} />)
+      },
+    })
+    ```
 
 Prefer inline arrays for `middleware` options. Use `RouterContext<typeof router>` to derive an app context from a router that uses inline middleware. Use `createMiddleware()` only when a chain is stored in a variable and its exact tuple type needs to be preserved, such as when deriving `MiddlewareContext<typeof rootMiddleware>` without a router value, exporting a reusable chain, or returning a chain from a factory.
 
@@ -241,17 +241,17 @@ const hmrEventPort = 44101
 const appPort = 44102
 
 const hmrRunner = run('./server.ts', {
-  env: {
-    ...process.env,
-    PORT: String(appPort),
-    HMR_PROXY_PORT: String(hmrProxyPort),
-  },
-  nodeArgs: ['--import', 'remix/node-tsx', '--import', 'remix/ui-hmr/node'],
-  browserHmrChannel: { port: hmrEventPort },
+	env: {
+		...process.env,
+		PORT: String(appPort),
+		HMR_PROXY_PORT: String(hmrProxyPort),
+	},
+	nodeArgs: ['--import', 'remix/node-tsx', '--import', 'remix/ui-hmr/node'],
+	browserHmrChannel: { port: hmrEventPort },
 })
 
 let proxyFetch = createFetchProxy(`http://127.0.0.1:${appPort}`, {
-  xForwardedHeaders: true,
+	xForwardedHeaders: true,
 })
 
 let server = http.createServer(createRequestListener(createHmrReadyFetch(hmrRunner, proxyFetch)))
@@ -267,9 +267,9 @@ In the child `server.ts`, report readiness after the server is listening:
 
 ```typescript
 server.listen(port, () => {
-  if (process.env.REMIX_NODE_HMR) {
-    import('remix/node-hmr/runtime').then((nodeHmr) => nodeHmr.emitServerReady())
-  }
+	if (process.env.REMIX_NODE_HMR) {
+		import('remix/node-hmr/runtime').then((nodeHmr) => nodeHmr.emitServerReady())
+	}
 })
 ```
 
