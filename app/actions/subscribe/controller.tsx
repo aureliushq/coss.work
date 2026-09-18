@@ -6,8 +6,9 @@ import { createController } from 'remix/router'
 import { routes } from '../../routes.ts'
 
 const subscribeFormSchema = f.object({
-	name: f.field(s.string()),
 	email: f.field(s.string().pipe(c.email())),
+	stack: f.field(s.defaulted(s.string(), 'any')),
+	salary: f.field(s.defaulted(s.string(), '100k')),
 })
 
 export default createController(routes.subscribe, {
@@ -16,15 +17,10 @@ export default createController(routes.subscribe, {
 			const result = s.parseSafe(subscribeFormSchema, formData)
 
 			if (!result.success) {
-				return new Response('Invalid company data', { status: 400 })
+				return new Response('Invalid subscription', { status: 400 })
 			}
-			const email = result.value.email
-			const name = result.value.name
 
-			console.log(name)
-			console.log(email)
-
-			return Response.json({ name, email })
+			return Response.json(result.value)
 		},
 	},
 })

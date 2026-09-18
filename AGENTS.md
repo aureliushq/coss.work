@@ -20,8 +20,10 @@ Refer to ./.agents/skills/remix/SKILL.md
 ## Starter Layout
 
 - `app/actions/controller.tsx` owns the top-level route actions
-- `app/actions/home-page.tsx` and `app/actions/document.tsx` render the route-owned starter UI
-- `app/actions/public/` contains the browser runtime entry and interactive prompt button
+- `app/actions/home-page.tsx` and `app/actions/document.tsx` render the home page and shared document
+- `app/actions/public/` contains the browser runtime entry
+- `app/ui/` holds shared atomic UI (theme tokens, fields, badges, sparkline, icons)
+- `app/data/` holds data modules shared across routes
 - `app/routes.ts` defines the shared route contract used by server and browser modules for type-safe hrefs
 - `app/router.ts` wires routes to route handlers and installs the standard Remix UI renderer used by actions
 - `app/assets.ts` owns the server-side asset pipeline used by the asset route and render middleware
