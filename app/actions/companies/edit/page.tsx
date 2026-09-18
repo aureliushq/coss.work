@@ -1,8 +1,8 @@
 import { css } from 'remix/ui'
 import type { Handle } from 'remix/ui'
 
+import type { Company } from '../../../data/companies.ts'
 import { Document } from '../../document.tsx'
-import type { Company } from '../data.ts'
 import { CompanyEditForm } from './public/company-edit-form.tsx'
 
 export function CompanyEditPage(handle: Handle<{ company: Company }>) {

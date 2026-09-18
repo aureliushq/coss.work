@@ -1,7 +1,7 @@
 import { createController } from 'remix/router'
 
+import { getCompany } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
-import { getCompany } from './data.ts'
 import { CompanyPage } from './show-page.tsx'
 
 export default createController(routes.companies, {

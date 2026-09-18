@@ -1,7 +1,7 @@
 import { clientEntry, css, on, type Handle } from 'remix/ui'
 
+import type { Company } from '../../../../data/companies.ts'
 import { routes } from '../../../../routes.ts'
-import type { Company } from '../../data.ts'
 
 export const CompanyEditForm = clientEntry(
 	import.meta.url,

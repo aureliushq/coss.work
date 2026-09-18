@@ -3,8 +3,8 @@ import * as f from 'remix/data-schema/form-data'
 import { redirect } from 'remix/response/redirect'
 import { createController } from 'remix/router'
 
+import { getCompany, updateCompany } from '../../../data/companies.ts'
 import { routes } from '../../../routes.ts'
-import { getCompany, updateCompany } from '../data.ts'
 import { CompanyEditPage } from './page.tsx'
 
 const companyFormSchema = f.object({

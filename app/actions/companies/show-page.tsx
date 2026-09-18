@@ -1,9 +1,9 @@
 import { css, type Handle } from 'remix/ui'
 
+import type { Company } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
 import { Document } from '../document.tsx'
 import { SubscribeForm } from '../subscribe/public/subscribe-form.tsx'
-import type { Company } from './data.ts'
 
 export function CompanyPage(handle: Handle<{ company: Company }>) {
 	return () => {
