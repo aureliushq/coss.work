@@ -4,6 +4,7 @@ import { css } from 'remix/ui'
 
 import { Document } from './document.tsx'
 import { PromptButton } from './public/prompt-button.tsx'
+import { SubscribeForm } from './subscribe/public/subscribe-form.tsx'
 
 const FONT_STACK =
 	"'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
@@ -56,6 +57,7 @@ export function HomePage() {
 				>
 					<Masthead />
 					<Columns />
+					<SubscribeForm />
 					<Footer />
 				</div>
 			</main>
