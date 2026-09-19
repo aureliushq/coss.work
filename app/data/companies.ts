@@ -71,13 +71,13 @@ let companies: Company[] = await Promise.all(
 )
 companies.sort((a, b) => b.updated.localeCompare(a.updated))
 
-// Unique tech names across all of a company's jobs.
+// Unique tech ids across all of a company's jobs.
 export function stackFor(company: Company) {
-	return [...new Set(company.jobs.flatMap(jobStack))]
+	return [...new Set(company.jobs.flatMap((job) => job.tech))]
 }
 
-export function jobStack(job: Job) {
-	return job.tech.map((id) => techNames[id] ?? id)
+export function techName(id: string) {
+	return techNames[id] ?? id
 }
 
 export function positionName(id: string) {
@@ -122,14 +122,17 @@ export async function listCompanies(query: string) {
 	let matches = (value: string) =>
 		exact ? value.toLowerCase() === needle : value.toLowerCase().includes(needle)
 
-	return companies.filter((company) => matches(company.name) || stackFor(company).some(matches))
+	return companies.filter(
+		(company) => matches(company.name) || stackFor(company).map(techName).some(matches),
+	)
 }
 
 // Tech names used by the most companies, for one-click searches.
 export function popularStacks(limit: number) {
 	let counts = new Map<string, number>()
 	for (let company of companies) {
-		for (let tech of stackFor(company)) counts.set(tech, (counts.get(tech) ?? 0) + 1)
+		for (let tech of stackFor(company).map(techName))
+			counts.set(tech, (counts.get(tech) ?? 0) + 1)
 	}
 	return [...counts]
 		.sort(([a, x], [b, y]) => y - x || a.localeCompare(b))
@@ -139,6 +142,21 @@ export function popularStacks(limit: number) {
 
 export async function getCompany(slug: string) {
 	return companies.find((company) => company.slug === slug)
+}
+
+// Companies hiring for a tech, trimmed to the jobs that use it, with that tech listed first.
+export async function getTech(slug: string) {
+	let name = techNames[slug]
+	if (name === undefined) return undefined
+
+	let hiring = companies.flatMap((company) => {
+		let jobs = company.jobs
+			.filter((job) => job.tech.includes(slug))
+			.map((job) => ({ ...job, tech: [slug, ...job.tech.filter((id) => id !== slug)] }))
+		return jobs.length > 0 ? [{ ...company, jobs }] : []
+	})
+
+	return { name, companies: hiring }
 }
 
 const ACTIVITY_POINTS = 24

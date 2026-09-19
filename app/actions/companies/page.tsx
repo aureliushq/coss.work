@@ -1,12 +1,12 @@
-import { css, type Handle, type RemixNode } from 'remix/ui'
+import { css, type Handle } from 'remix/ui'
 
 import {
 	categoryName,
 	currencySymbol,
 	editUrl,
-	jobStack,
 	jobTitle,
 	officeName,
+	techName,
 	type Company,
 	type Job,
 } from '../../data/companies.ts'
@@ -23,7 +23,8 @@ import {
 } from '../../ui/icons.tsx'
 import { SiteFooter } from '../../ui/site-footer.tsx'
 import { StatusDot } from '../../ui/status-dot.tsx'
-import { TableCard } from '../../ui/table-card.tsx'
+import { joinList, summaryStyle } from '../../ui/summary.ts'
+import { stackCellStyle, TableCard } from '../../ui/table-card.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { visuallyHidden } from '../../ui/visually-hidden.ts'
 import { Document } from '../document.tsx'
@@ -110,19 +111,7 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 		let count = company.jobs.length
 
 		return (
-			<p
-				mix={css({
-					'margin': 0,
-					'maxWidth': '70ch',
-					'& strong': { fontWeight: 700 },
-					'& a': { whiteSpace: 'nowrap' },
-					'& svg': {
-						width: '0.85em',
-						height: '0.85em',
-						verticalAlign: 'middle',
-					},
-				})}
-			>
+			<p mix={summaryStyle}>
 				{company.name} is building {company.building}
 				{company.products.length > 0 && (
 					<>
@@ -157,15 +146,6 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 	}
 }
 
-let listFormat = new Intl.ListFormat('en', { type: 'conjunction' })
-
-// "a, b and c" with nodes in place of strings: format the indexes, then swap the nodes back in.
-function joinList(nodes: RemixNode[]) {
-	return listFormat
-		.formatToParts(nodes.map((_, index) => String(index)))
-		.map((part) => (part.type === 'element' ? nodes[Number(part.value)] : part.value))
-}
-
 function JobsTable(handle: Handle<{ jobs: Job[] }>) {
 	return () => (
 		<TableCard label='Open positions'>
@@ -197,7 +177,6 @@ function JobsTable(handle: Handle<{ jobs: Job[] }>) {
 function JobRow(handle: Handle<{ job: Job }>) {
 	return () => {
 		let { job } = handle.props
-		let stack = jobStack(job).join(', ')
 
 		return (
 			<tr>
@@ -217,15 +196,15 @@ function JobRow(handle: Handle<{ job: Job }>) {
 				</td>
 				<td>{categoryName(job.category)}</td>
 				<td>{job.type.charAt(0).toUpperCase() + job.type.slice(1)}</td>
-				<td
-					title={stack}
-					mix={css({
-						maxWidth: '150px',
-						overflow: 'hidden',
-						textOverflow: 'ellipsis',
-					})}
-				>
-					{stack}
+				<td title={job.tech.map(techName).join(', ')} mix={stackCellStyle}>
+					{job.tech.map((id, index) => (
+						<span key={id}>
+							{index > 0 && ', '}
+							<TextLink href={routes.tech.show.href({ slug: id })}>
+								{techName(id)}
+							</TextLink>
+						</span>
+					))}
 				</td>
 				<td mix={css({ textAlign: 'right' })}>
 					<TextLink href={job.url} external underline>

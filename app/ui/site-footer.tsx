@@ -174,7 +174,7 @@ const DIRECTORY: DirectoryColumn[] = [
 		title: 'tech',
 		icon: <LaptopIcon />,
 		route: routes.tech.show,
-		links: ['React', 'Kubernetes', 'Terraform', 'Node', 'Redis', 'PostgreSQL', 'MySQL'],
+		links: ['React', 'Kubernetes', 'Terraform', 'Node.js', 'Redis', 'PostgreSQL', 'MySQL'],
 	},
 	{
 		title: 'type',
@@ -227,7 +227,11 @@ function Directory() {
 					>
 						{column.links.map((label) => (
 							<li key={label}>
-								<TextLink href={column.route.href({ slug: slugify(label) })}>
+								<TextLink
+									href={column.route.href({
+										slug: SLUGS[label] ?? slugify(label),
+									})}
+								>
 									<DirectoryLabel label={label} />
 								</TextLink>
 							</li>
@@ -250,6 +254,12 @@ function DirectoryLabel(handle: Handle<{ label: string }>) {
 			</>
 		)
 	}
+}
+
+// Labels that group several techs link to the main one.
+const SLUGS: Record<string, string> = {
+	'TypeScript/JavaScript': 'typescript',
+	'C & C++': 'cpp',
 }
 
 function slugify(label: string) {

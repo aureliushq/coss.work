@@ -30,3 +30,11 @@ const tableStyle = css({
 		borderTop: '1px solid var(--border)',
 	},
 })
+
+// A truncated list of tech links. Focus inside wraps the cell so a hidden link can be seen.
+export const stackCellStyle = css({
+	'maxWidth': '150px',
+	'overflow': 'hidden',
+	'textOverflow': 'ellipsis',
+	'&:focus-within': { whiteSpace: 'normal' },
+})
