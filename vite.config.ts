@@ -1,5 +1,3 @@
-import { cloudflare } from '@cloudflare/vite-plugin'
-import { remix } from '@pitlane/dev'
 import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
@@ -23,5 +21,4 @@ export default defineConfig({
 		rules: { 'vite-plus/prefer-vite-plus-imports': 'error' },
 		options: { typeAware: true, typeCheck: true },
 	},
-	plugins: [remix({ serverHandler: false }), cloudflare({ viteEnvironment: { name: 'ssr' } })],
 })
