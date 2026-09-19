@@ -1,6 +1,9 @@
 import { css, type Handle, type RemixNode } from 'remix/ui'
 
-import { activityFor, type Company } from '../data/companies.ts'
+import {
+	// activityFor,
+	type Company,
+} from '../data/companies.ts'
 import { routes } from '../routes.ts'
 import { Badge } from '../ui/badge.tsx'
 import { FieldLabel } from '../ui/field-label.tsx'
@@ -18,7 +21,7 @@ import {
 } from '../ui/icons.tsx'
 import { SearchField } from '../ui/search-field.tsx'
 import { solidButton } from '../ui/solid-button.ts'
-import { Sparkline } from '../ui/sparkline.tsx'
+// import { Sparkline } from "../ui/sparkline.tsx";
 import { StatusDot } from '../ui/status-dot.tsx'
 import { TextLink } from '../ui/text-link.tsx'
 import { themeStyle } from '../ui/theme.ts'
@@ -171,11 +174,12 @@ function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
 							</th>
 							<th>Company</th>
 							<th>
-								Stack <StatusDot />
+								Stack
+								{/* <StatusDot /> */}
 							</th>
-							<th>
-								Activity <StatusDot />
-							</th>
+							{/* <th> */}
+							{/* 	Activity <StatusDot /> */}
+							{/* </th> */}
 							<th>Hiring</th>
 							<th mix={css({ textAlign: 'right' })}>
 								<StatusDot /> <span aria-hidden='true'>⋯</span>
@@ -232,9 +236,9 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 				>
 					{company.stack.join(', ')}
 				</td>
-				<td>
-					<Sparkline values={activityFor(company.slug)} />
-				</td>
+				{/* <td> */}
+				{/* 	<Sparkline values={activityFor(company.slug)} /> */}
+				{/* </td> */}
 				<td>
 					<span
 						mix={css({
