@@ -17,13 +17,16 @@
 		"remix": "^3.0.0-rc.2"
 	},
 	"devDependencies": {
+		"@cloudflare/vite-plugin": "^1.56.0",
+		"@pitlane/dev": "^0.6.1",
 		"@types/node": "latest",
 		"ajv": "^8.20.0",
 		"ajv-formats": "^3.0.1",
 		"jsonc-parser": "^3.3.1",
 		"typescript": "latest",
 		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9",
-		"vite-plus": "0.2.9"
+		"vite-plus": "0.2.9",
+		"wrangler": "^4.135.0"
 	},
 	"overrides": {
 		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9"
