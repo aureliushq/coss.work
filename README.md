@@ -29,3 +29,12 @@ npm run preview
 npm test
 npm run typecheck
 ```
+
+## Deploying
+
+Cloudflare Workers Builds deploys every push to `main`. A failed build does not deploy. Set it up once in the Cloudflare dashboard:
+
+1. Go to **Workers & Pages**, open the `coss-work` Worker, then **Settings → Builds → Connect**. If the Worker does not exist yet, use **Create → Import a repository** and name it `coss-work`. The Worker name must match `name` in `wrangler.jsonc`.
+2. Pick the `aureliushq/coss.work` repository and the `main` branch.
+3. Set **Build command** to `bun run build`. Keep the default **Deploy command**, `npx wrangler deploy`.
+4. Under **Build variables**, add `BUN_VERSION` = `1.4.2` to match `devEngines` in `package.json`.
