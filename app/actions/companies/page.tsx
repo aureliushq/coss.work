@@ -17,7 +17,7 @@ import {
 	ArrowLeft,
 	ArrowUpRightIcon,
 	GitHubIcon,
-	GlobeIcon,
+	LinkIcon,
 	PenIcon,
 	XLogoIcon,
 } from '../../ui/icons.tsx'
@@ -36,8 +36,6 @@ export function CompanyPage(handle: Handle<{ company: Company }>) {
 			<Document title={`${company.name} Jobs`}>
 				<div
 					mix={css({
-						width: '100%',
-						maxWidth: '760px',
 						display: 'flex',
 						flexDirection: 'column',
 						flexGrow: 1,
@@ -80,7 +78,7 @@ function CompanyHeader(handle: Handle<{ company: Company }>) {
 					<IconLink href={routes.home.href()} icon={<ArrowLeft />}>
 						home
 					</IconLink>
-					<IconLink href={company.url} icon={<GlobeIcon />} external>
+					<IconLink href={company.url} icon={<LinkIcon />} external>
 						{new URL(company.url).hostname.replace(/^www\./, '')}
 					</IconLink>
 					{github && (
@@ -118,7 +116,11 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 					'maxWidth': '70ch',
 					'& strong': { fontWeight: 700 },
 					'& a': { whiteSpace: 'nowrap' },
-					'& svg': { width: '0.85em', height: '0.85em', verticalAlign: 'middle' },
+					'& svg': {
+						width: '0.85em',
+						height: '0.85em',
+						verticalAlign: 'middle',
+					},
 				})}
 			>
 				{company.name} is building {company.building}

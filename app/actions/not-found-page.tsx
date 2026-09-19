@@ -11,8 +11,6 @@ export function NotFoundPage() {
 		<Document title='not found · coss.work'>
 			<header
 				mix={css({
-					width: '100%',
-					maxWidth: '760px',
 					display: 'grid',
 					gap: '12px',
 				})}

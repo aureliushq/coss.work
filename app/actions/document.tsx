@@ -68,12 +68,14 @@ const bodyStyle = css({
 })
 
 const mainStyle = css({
-	minHeight: '100vh',
-	padding: '96px 16px 40px',
-	display: 'flex',
-	flexDirection: 'column',
-	alignItems: 'center',
-	gap: '64px',
+	// Every page section sits in the one centred column.
+	'& > *': { width: '100%', maxWidth: '760px' },
+	'minHeight': '100vh',
+	'padding': '96px 16px 40px',
+	'display': 'flex',
+	'flexDirection': 'column',
+	'alignItems': 'center',
+	'gap': '64px',
 })
 
 function readAppDisplayName(value: string): string {

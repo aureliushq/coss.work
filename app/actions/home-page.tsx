@@ -47,8 +47,6 @@ function Hero(handle: Handle<{ query: string; stacks: string[] }>) {
 	return () => (
 		<section
 			mix={css({
-				width: '100%',
-				maxWidth: '760px',
 				display: 'grid',
 				gap: '48px',
 			})}

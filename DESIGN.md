@@ -177,7 +177,7 @@ A near-monochrome grey ramp with one ink, one carbon action colour, and two smal
 - **Lede** (400, 0.875rem): the muted line under the hero headline.
 - **Body** (400, 0.75rem / 12px, 1.5): all running text, table cells, inputs, buttons. Paragraphs cap at 70ch.
 - **Table Head** (700, body size): table column headers. Weight, not size, sets them apart.
-- **Label** (500, 0.625rem / 10px, 0.02em, uppercase): field labels and directory headings. The only uppercase text.
+- **Label** (500, 0.625rem / 10px, 0.02em, uppercase): field labels and directory headings. The only uppercase text. One definition: `labelStyle` in `app/ui/field-label.tsx`.
 - **Micro** (400, 0.625rem / 10px, 1.4): badges, row index numbers, footer meta. Same size as Label; case and weight tell them apart.
 
 ### Named Rules
@@ -190,7 +190,7 @@ A near-monochrome grey ramp with one ink, one carbon action colour, and two smal
 
 ## Layout
 
-A single centred column, max 760px, with 16px side gutters. `main` pads 96px top and 40px bottom and stacks sections with a 64px gap. Inside sections, gaps step 4 / 8 / 12 / 32 / 40px.
+A single centred column, max 760px, with 16px side gutters. `main` owns the column: it caps every direct child at 760px, so sections never set their own width. It pads 96px top and 40px bottom and stacks sections with a 64px gap. Inside sections, gaps step 4 / 8 / 12 / 32 / 40px.
 
 The home page order is: hero (centred header + labelled search), company table, subscribe (parked until email alerts ship), post-a-job row, five-column directory, footer search and bar. Company pages and the 404 page replace the hero with a left-aligned header (headline + one line), then the same footer stack.
 

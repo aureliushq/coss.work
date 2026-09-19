@@ -3,7 +3,15 @@ import { css, type Handle, type RemixNode } from 'remix/ui'
 import { SubscribeForm } from '../actions/subscribe/public/subscribe-form.tsx'
 import { REPO_URL } from '../data/companies.ts'
 import { routes } from '../routes.ts'
-import { BookIcon, CloudIcon, CodeIcon, GitHubIcon, GlobeIcon, LaptopIcon } from './icons.tsx'
+import { labelStyle } from './field-label.tsx'
+import {
+	BookIcon,
+	BuildingComplexIcon,
+	CloudIcon,
+	CodeIcon,
+	GitHubIcon,
+	LaptopIcon,
+} from './icons.tsx'
 import { outlineButton } from './outline-button.ts'
 import { SearchForm } from './search-form.tsx'
 import { TextLink } from './text-link.tsx'
@@ -18,8 +26,6 @@ export function SiteFooter() {
 			<Directory />
 			<footer
 				mix={css({
-					width: '100%',
-					maxWidth: '760px',
 					display: 'grid',
 					gap: '40px',
 				})}
@@ -83,8 +89,6 @@ function SubscribeSection() {
 	return () => (
 		<section
 			mix={css({
-				width: '100%',
-				maxWidth: '760px',
 				display: 'grid',
 				gap: '40px',
 			})}
@@ -123,8 +127,6 @@ function PostJobSection() {
 	return () => (
 		<section
 			mix={css({
-				width: '100%',
-				maxWidth: '760px',
 				display: 'flex',
 				flexWrap: 'wrap',
 				justifyContent: 'space-between',
@@ -188,7 +190,7 @@ const DIRECTORY: DirectoryColumn[] = [
 	},
 	{
 		title: 'offices',
-		icon: <GlobeIcon />,
+		icon: <BuildingComplexIcon />,
 		route: routes.tech.show,
 		links: ['SF', 'NYC', 'Berlin', 'Paris', 'USA', 'Canada', 'India', 'Israel'],
 	},
@@ -199,8 +201,6 @@ function Directory() {
 		<nav
 			aria-label='Browse jobs'
 			mix={css({
-				'width': '100%',
-				'maxWidth': '760px',
 				'display': 'grid',
 				'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr',
 				'justifyContent': 'space-between',
@@ -214,7 +214,7 @@ function Directory() {
 		>
 			{DIRECTORY.map((column) => (
 				<div key={column.title}>
-					<h3 mix={directoryHeadingStyle}>
+					<h3 mix={[labelStyle, directoryHeadingStyle]}>
 						{column.title} {column.icon}
 					</h3>
 					<ul
@@ -264,11 +264,5 @@ const directoryHeadingStyle = css({
 	'display': 'flex',
 	'alignItems': 'center',
 	'gap': '4px',
-	'margin': '0 0 8px',
-	'color': 'var(--text-muted)',
-	'fontSize': 'var(--type-small)',
-	'fontWeight': 500,
-	'letterSpacing': '0.02em',
-	'textTransform': 'uppercase',
 	'& svg': { width: '0.85em', height: '0.85em' },
 })

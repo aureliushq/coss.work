@@ -5,8 +5,6 @@ export function TableCard(handle: Handle<{ children: RemixNode; label: string }>
 		<section
 			aria-label={handle.props.label}
 			mix={css({
-				width: '100%',
-				maxWidth: '760px',
 				overflowX: 'auto',
 				background: 'var(--card-bg)',
 				padding: '0 12px',
