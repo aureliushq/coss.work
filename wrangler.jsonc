@@ -1,4 +1,5 @@
 {
+	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "coss-work",
 	"main": "app/router.ts",
 	"assets": { "directory": "dist/client" },
