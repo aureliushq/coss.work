@@ -1,53 +1,55 @@
 {
-  "name": "coss-work",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "check": "vp check",
-    "check:fix": "vp check --fix",
-    "dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
-    "hmr": "NODE_ENV=development node hmr.ts",
-    "start": "NODE_ENV=production node --import remix/node-tsx server.ts",
-    "test": "NODE_ENV=test node --import remix/node-tsx --test",
-    "typecheck": "tsc --noEmit",
-    "validate:companies": "node app/data/validate-companies.ts",
-    "prepare": "vp config"
-  },
-  "dependencies": {
-    "@prisma/composer": "0.20.0",
-    "@prisma/composer-prisma-cloud": "0.20.0",
-    "alchemy": "2.0.0-beta.74",
-    "effect": "4.0.0-rc.112",
-    "remix": "^3.0.0-rc.2"
-  },
-  "devDependencies": {
-    "@types/node": "latest",
-    "ajv": "^8.20.0",
-    "ajv-formats": "^3.0.1",
-    "jsonc-parser": "^3.3.1",
-    "prisma": "8.0.0-rc.15",
-    "typescript": "latest",
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.2.9",
-    "vite-plus": "0.2.9"
-  },
-  "overrides": {
-    "@effect/platform-bun": "4.0.0-rc.112",
-    "@effect/platform-node": "4.0.0-rc.112",
-    "@effect/platform-node-shared": "4.0.0-rc.112",
-    "@effect/sql-d1": "4.0.0-rc.112",
-    "@effect/sql-pg": "4.0.0-rc.112",
-    "@effect/vitest": "4.0.0-rc.112",
-    "effect": "4.0.0-rc.112",
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.2.9"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "bun",
-      "version": "1.4.2",
-      "onFail": "download"
-    }
-  },
-  "engines": {
-    "node": ">=24.3.0"
-  }
+	"name": "coss-work",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"check": "vp check",
+		"check:fix": "vp check --fix",
+		"dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
+		"hmr": "NODE_ENV=development node hmr.ts",
+		"start": "NODE_ENV=production node --import remix/node-tsx server.ts",
+		"test": "NODE_ENV=test node --import remix/node-tsx --test",
+		"typecheck": "tsc --noEmit",
+		"validate:companies": "node app/data/validate-companies.ts",
+		"prepare": "vp config",
+		"build:compute": "rm -rf dist && mkdir dist && cp -R app public server.bun.ts package.json bun.lock bunfig.toml tsconfig.json dist/ && cd dist && bun install --production --frozen-lockfile --ignore-scripts"
+	},
+	"dependencies": {
+		"remix": "^3.0.0-rc.2"
+	},
+	"devDependencies": {
+		"@prisma/composer": "0.20.0",
+		"@prisma/composer-prisma-cloud": "0.20.0",
+		"@types/bun": "^1.4.2",
+		"@types/node": "latest",
+		"ajv": "^8.20.0",
+		"ajv-formats": "^3.0.1",
+		"alchemy": "2.0.0-beta.74",
+		"effect": "4.0.0-rc.112",
+		"jsonc-parser": "^3.3.1",
+		"prisma": "8.0.0-rc.15",
+		"typescript": "latest",
+		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9",
+		"vite-plus": "0.2.9"
+	},
+	"overrides": {
+		"@effect/platform-bun": "4.0.0-rc.112",
+		"@effect/platform-node": "4.0.0-rc.112",
+		"@effect/platform-node-shared": "4.0.0-rc.112",
+		"@effect/sql-d1": "4.0.0-rc.112",
+		"@effect/sql-pg": "4.0.0-rc.112",
+		"@effect/vitest": "4.0.0-rc.112",
+		"effect": "4.0.0-rc.112",
+		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9"
+	},
+	"devEngines": {
+		"packageManager": {
+			"name": "bun",
+			"version": "1.4.2",
+			"onFail": "download"
+		}
+	},
+	"engines": {
+		"node": ">=24.3.0"
+	}
 }

@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 import { formData } from 'remix/middleware/form-data'
 import { render } from 'remix/middleware/render'
 import { staticFiles } from 'remix/middleware/static'
@@ -23,7 +25,11 @@ declare module 'remix/router' {
 
 export const router = createRouter<AppContext>({
 	defaultHandler: notFound,
-	middleware: [staticFiles('./public', { index: false }), formDataMiddleware, renderMiddleware],
+	middleware: [
+		staticFiles(fileURLToPath(new URL('../public/', import.meta.url)), { index: false }),
+		formDataMiddleware,
+		renderMiddleware,
+	],
 })
 
 router.map(routes, controller)
