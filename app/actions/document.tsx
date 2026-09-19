@@ -3,6 +3,7 @@ import { css } from 'remix/ui'
 import { ImportMap } from 'remix/ui/server'
 
 import { scriptEntry } from '../assets.ts'
+import { themeStyle } from '../ui/theme.ts'
 
 export interface DocumentProps {
 	children?: RemixNode
@@ -24,6 +25,16 @@ export function Document(handle: Handle<DocumentProps>) {
 					<meta name='viewport' content='width=device-width, initial-scale=1' />
 					<meta name='color-scheme' content='light dark' />
 					<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+					<link rel='preconnect' href='https://fonts.googleapis.com' />
+					<link
+						rel='preconnect'
+						href='https://fonts.gstatic.com'
+						crossOrigin='anonymous'
+					/>
+					<link
+						rel='stylesheet'
+						href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;600&display=swap'
+					/>
 					<title>{title}</title>
 					{head}
 					<ImportMap value={importMap} />
@@ -32,11 +43,33 @@ export function Document(handle: Handle<DocumentProps>) {
 					))}
 					<script type='module' src={href}></script>
 				</head>
-				<body mix={css({ margin: 0 })}>{children}</body>
+				<body mix={[themeStyle, bodyStyle]}>
+					<main mix={mainStyle}>{children}</main>
+				</body>
 			</html>
 		)
 	}
 }
+
+const bodyStyle = css({
+	'& *, & *::before, & *::after': { boxSizing: 'border-box' },
+	'margin': 0,
+	'background': 'var(--page-bg)',
+	'color': 'var(--text)',
+	'fontFamily': 'var(--font-mono)',
+	'fontSize': '12px',
+	'lineHeight': 1.5,
+	'WebkitFontSmoothing': 'antialiased',
+})
+
+const mainStyle = css({
+	minHeight: '100vh',
+	padding: '96px 16px 40px',
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	gap: '64px',
+})
 
 function readAppDisplayName(value: string): string {
 	return value.startsWith('%%') ? 'Remix App' : decodeURIComponent(value)

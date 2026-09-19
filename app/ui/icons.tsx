@@ -37,14 +37,6 @@ export function LockIcon() {
 	)
 }
 
-export function ChevronDownIcon() {
-	return () => (
-		<Icon>
-			<path d='m6 9 6 6 6-6' />
-		</Icon>
-	)
-}
-
 export function BookIcon() {
 	return () => (
 		<Icon>
@@ -87,32 +79,6 @@ export function GitHubIcon() {
 	)
 }
 
-export function BirdIcon() {
-	return () => (
-		<Icon>
-			<path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' />
-		</Icon>
-	)
-}
-
-export function AtIcon() {
-	return () => (
-		<Icon>
-			<circle cx='12' cy='12' r='4' />
-			<path d='M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8' />
-		</Icon>
-	)
-}
-
-export function RssIcon() {
-	return () => (
-		<Icon>
-			<path d='M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16' />
-			<circle cx='5' cy='19' r='1' />
-		</Icon>
-	)
-}
-
 export function ContrastIcon() {
 	return () => (
 		<Icon>
@@ -144,6 +110,14 @@ export function ArrowLeft() {
 		<Icon>
 			<path d='m12 19-7-7 7-7' />
 			<path d='M19 12H5' />
+		</Icon>
+	)
+}
+
+export function ArrowUpRightIcon() {
+	return () => (
+		<Icon>
+			<path d='M7 17 17 7M8 7h9v9' />
 		</Icon>
 	)
 }

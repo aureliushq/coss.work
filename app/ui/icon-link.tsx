@@ -1,10 +1,10 @@
 import { css, type Handle, type RemixNode } from 'remix/ui'
 
-export function TextLink(
-	handle: Handle<{ children: RemixNode; href: string; external?: boolean; underline?: boolean }>,
+export function IconLink(
+	handle: Handle<{ children: RemixNode; href: string; icon: RemixNode; external?: boolean }>,
 ) {
 	return () => {
-		let { children, external = false, href, underline = false } = handle.props
+		let { children, external = false, href, icon } = handle.props
 
 		return (
 			<a
@@ -12,12 +12,17 @@ export function TextLink(
 				rel={external ? 'noopener noreferrer' : undefined}
 				target={external ? '_blank' : undefined}
 				mix={css({
+					'display': 'inline-flex',
+					'alignItems': 'center',
+					'gap': '4px',
 					'color': 'inherit',
-					'textDecoration': underline ? 'underline' : 'none',
+					'textDecoration': 'none',
 					'textUnderlineOffset': '2px',
+					'& svg': { width: '10px', height: '10px' },
 					'&:hover, &:focus-visible': { textDecoration: 'underline' },
 				})}
 			>
+				{icon}
 				{children}
 			</a>
 		)
