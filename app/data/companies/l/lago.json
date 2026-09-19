@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Lago",
+	"url": "https://getlago.com/",
+	"at": "jobs",
+	"building": "open-source usage-based billing",
+	"products": [
+		{
+			"name": "Lago",
+			"url": "https://getlago.com/"
+		}
+	],
+	"socials": ["https://github.com/getlago", "https://x.com/GetLago"],
+	"offices": ["paris", "san-francisco"],
+	"headcount": 35,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "ruby-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [80000, 110000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": ["ruby"],
+			"url": "https://getlago.com/careers/ruby-engineer"
+		}
+	],
+	"updated": "2026-09-18T02:00:00.000Z"
+}

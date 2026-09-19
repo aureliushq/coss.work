@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Massa Labs",
+	"url": "https://massa.network/",
+	"at": "jobs",
+	"building": "decentralised autonomous blockchain",
+	"products": [
+		{
+			"name": "Massa",
+			"url": "https://massa.network/"
+		},
+		{
+			"name": "Massa Station",
+			"url": "https://massa.network/"
+		}
+	],
+	"socials": ["https://github.com/massalabs", "https://x.com/massalabs"],
+	"offices": ["paris"],
+	"headcount": 60,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "blockchain-infrastructure-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["ethereum", "rust", "typescript"],
+			"url": "https://massa.network/careers/blockchain-infrastructure-engineer"
+		}
+	],
+	"updated": "2026-09-16T19:00:00.000Z"
+}

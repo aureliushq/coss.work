@@ -1,0 +1,37 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Uniswap Labs",
+	"url": "https://uniswap.org/",
+	"at": "jobs",
+	"building": "decentralised token exchange protocol",
+	"products": [
+		{
+			"name": "Uniswap Protocol",
+			"url": "https://uniswap.org/"
+		},
+		{
+			"name": "Uniswap Wallet",
+			"url": "https://uniswap.org/"
+		}
+	],
+	"socials": ["https://github.com/Uniswap", "https://x.com/Uniswap"],
+	"offices": ["new-york"],
+	"headcount": 200,
+	"founded": 2018,
+	"jobs": [
+		{
+			"position": "smart-contract-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [180000, 250000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"equity": [0.05, 0.2],
+			"tech": ["solidity", "typescript"],
+			"url": "https://uniswap.org/careers/smart-contract-engineer"
+		}
+	],
+	"updated": "2026-09-17T22:00:00.000Z"
+}

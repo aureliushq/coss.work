@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "QuestDB",
+	"url": "https://questdb.com/",
+	"at": "jobs",
+	"building": "high-performance time-series database",
+	"products": [
+		{
+			"name": "QuestDB",
+			"url": "https://questdb.com/"
+		},
+		{
+			"name": "QuestDB Enterprise",
+			"url": "https://questdb.com/"
+		}
+	],
+	"socials": ["https://github.com/questdb", "https://x.com/QuestDb"],
+	"offices": ["london", "remote"],
+	"headcount": 30,
+	"founded": 2019,
+	"jobs": [
+		{
+			"position": "core-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["c", "java", "cpp"],
+			"url": "https://questdb.com/careers/core-engineer"
+		}
+	],
+	"updated": "2026-09-17T20:00:00.000Z"
+}

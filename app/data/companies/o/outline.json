@@ -1,0 +1,27 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Outline",
+	"url": "https://getoutline.com/",
+	"at": "jobs",
+	"building": "team knowledge base",
+	"products": [
+		{
+			"name": "Outline",
+			"url": "https://getoutline.com/"
+		}
+	],
+	"socials": ["https://github.com/outline", "https://x.com/getoutline"],
+	"offices": ["remote"],
+	"headcount": 8,
+	"founded": 2017,
+	"jobs": [
+		{
+			"position": "javascript-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["javascript"],
+			"url": "https://getoutline.com/careers/javascript-engineer"
+		}
+	],
+	"updated": "2026-09-18T10:00:00.000Z"
+}

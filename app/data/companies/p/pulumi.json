@@ -1,0 +1,36 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Pulumi",
+	"url": "https://pulumi.com/",
+	"at": "jobs",
+	"building": "infrastructure as code",
+	"products": [
+		{
+			"name": "Pulumi IaC",
+			"url": "https://pulumi.com/"
+		},
+		{
+			"name": "Pulumi ESC",
+			"url": "https://pulumi.com/"
+		}
+	],
+	"socials": ["https://github.com/pulumi", "https://x.com/PulumiCorp"],
+	"offices": ["seattle", "remote"],
+	"headcount": 150,
+	"founded": 2017,
+	"jobs": [
+		{
+			"position": "principal-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [200000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["kubernetes", "go", "aws", "typescript"],
+			"url": "https://pulumi.com/careers/principal-engineer"
+		}
+	],
+	"updated": "2026-09-17T16:00:00.000Z"
+}

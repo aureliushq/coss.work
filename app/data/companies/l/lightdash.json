@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Lightdash",
+	"url": "https://lightdash.com/",
+	"at": "jobs",
+	"building": "open-source BI for dbt",
+	"products": [
+		{
+			"name": "Lightdash",
+			"url": "https://lightdash.com/"
+		}
+	],
+	"socials": ["https://github.com/lightdash", "https://x.com/lightdash_devs"],
+	"offices": ["london", "remote"],
+	"headcount": 30,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "full-stack-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [130000, 180000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "postgresql"],
+			"url": "https://lightdash.com/careers/full-stack-engineer"
+		}
+	],
+	"updated": "2026-09-16T12:00:00.000Z"
+}

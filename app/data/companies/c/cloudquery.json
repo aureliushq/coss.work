@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "CloudQuery",
+	"url": "https://cloudquery.io/",
+	"at": "jobs",
+	"building": "cloud asset inventory and ELT",
+	"products": [
+		{
+			"name": "CloudQuery CLI",
+			"url": "https://cloudquery.io/"
+		},
+		{
+			"name": "CloudQuery Platform",
+			"url": "https://cloudquery.io/"
+		}
+	],
+	"socials": ["https://github.com/cloudquery", "https://x.com/cloudqueryio"],
+	"offices": ["tel-aviv", "remote"],
+	"headcount": 40,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["postgresql", "go", "aws"],
+			"url": "https://cloudquery.io/careers/software-engineer"
+		}
+	],
+	"updated": "2026-09-16T20:00:00.000Z"
+}

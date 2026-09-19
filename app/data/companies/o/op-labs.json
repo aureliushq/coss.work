@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "OP Labs",
+	"url": "https://optimism.io/",
+	"at": "jobs",
+	"building": "Ethereum layer 2 scaling",
+	"products": [
+		{
+			"name": "OP Stack",
+			"url": "https://optimism.io/"
+		},
+		{
+			"name": "OP Mainnet",
+			"url": "https://optimism.io/"
+		}
+	],
+	"socials": ["https://github.com/ethereum-optimism", "https://x.com/optimism"],
+	"offices": ["remote"],
+	"headcount": 100,
+	"founded": 2019,
+	"jobs": [
+		{
+			"position": "protocol-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["ethereum", "kubernetes", "go"],
+			"url": "https://optimism.io/careers/protocol-engineer"
+		}
+	],
+	"updated": "2026-09-17T08:00:00.000Z"
+}

@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "dYdX",
+	"url": "https://dydx.xyz/",
+	"at": "jobs",
+	"building": "decentralised derivatives exchange",
+	"products": [
+		{
+			"name": "dYdX Chain",
+			"url": "https://dydx.xyz/"
+		}
+	],
+	"socials": ["https://github.com/dydxprotocol", "https://x.com/dydx"],
+	"offices": ["new-york", "remote"],
+	"headcount": 60,
+	"founded": 2017,
+	"jobs": [
+		{
+			"position": "staff-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [220000, 280000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "javascript", "solidity"],
+			"url": "https://dydx.xyz/careers/staff-engineer"
+		}
+	],
+	"updated": "2026-09-17T12:00:00.000Z"
+}

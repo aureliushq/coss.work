@@ -1,0 +1,35 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Automattic",
+	"url": "https://automattic.com/",
+	"at": "jobs",
+	"building": "WordPress.com and open web tools",
+	"products": [
+		{
+			"name": "WordPress.com",
+			"url": "https://automattic.com/"
+		},
+		{
+			"name": "WooCommerce",
+			"url": "https://automattic.com/"
+		},
+		{
+			"name": "Tumblr",
+			"url": "https://automattic.com/"
+		}
+	],
+	"socials": ["https://github.com/Automattic", "https://x.com/automattic"],
+	"offices": ["remote"],
+	"headcount": 1500,
+	"founded": 2005,
+	"jobs": [
+		{
+			"position": "system-administrator",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["node-js", "kubernetes", "php"],
+			"url": "https://automattic.com/careers/system-administrator"
+		}
+	],
+	"updated": "2026-09-17T04:00:00.000Z"
+}

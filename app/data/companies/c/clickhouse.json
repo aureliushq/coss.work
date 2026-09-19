@@ -1,0 +1,48 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Clickhouse",
+	"url": "https://clickhouse.com/",
+	"at": "jobs",
+	"building": "real-time analytics database",
+	"products": [
+		{
+			"name": "ClickHouse",
+			"url": "https://clickhouse.com/"
+		},
+		{
+			"name": "ClickHouse Cloud",
+			"url": "https://clickhouse.com/"
+		}
+	],
+	"socials": ["https://github.com/ClickHouse", "https://x.com/ClickHouseDB"],
+	"offices": ["san-francisco", "amsterdam", "remote"],
+	"headcount": 300,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "cloud-software-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [180000, 240000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["python", "cpp", "go"],
+			"url": "https://clickhouse.com/careers/cloud-software-engineer"
+		},
+		{
+			"position": "core-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [160000, 220000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["c", "cpp"],
+			"url": "https://clickhouse.com/careers/core-engineer"
+		}
+	],
+	"updated": "2026-09-17T09:00:00.000Z"
+}

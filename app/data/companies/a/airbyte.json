@@ -1,0 +1,36 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Airbyte",
+	"url": "https://airbyte.com/",
+	"at": "jobs",
+	"building": "open-source data integration",
+	"products": [
+		{
+			"name": "Airbyte",
+			"url": "https://airbyte.com/"
+		},
+		{
+			"name": "Airbyte Cloud",
+			"url": "https://airbyte.com/"
+		}
+	],
+	"socials": ["https://github.com/airbytehq", "https://x.com/AirbyteHQ"],
+	"offices": ["san-francisco", "remote"],
+	"headcount": 150,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [170000, 220000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["python", "java", "kubernetes"],
+			"url": "https://airbyte.com/careers/software-engineer"
+		}
+	],
+	"updated": "2026-09-17T14:00:00.000Z"
+}

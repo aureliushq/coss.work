@@ -1,0 +1,27 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Oven",
+	"url": "https://bun.com/",
+	"at": "jobs",
+	"building": "fast all-in-one JavaScript runtime",
+	"products": [
+		{
+			"name": "Bun",
+			"url": "https://bun.com/"
+		}
+	],
+	"socials": ["https://github.com/oven-sh", "https://x.com/bunjavascript"],
+	"offices": ["san-francisco"],
+	"headcount": 20,
+	"founded": 2022,
+	"jobs": [
+		{
+			"position": "runtime-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["c", "cpp", "zig"],
+			"url": "https://bun.com/careers/runtime-engineer"
+		}
+	],
+	"updated": "2026-09-17T19:00:00.000Z"
+}

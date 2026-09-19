@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Gradle",
+	"url": "https://gradle.com/",
+	"at": "jobs",
+	"building": "build automation for developers",
+	"products": [
+		{
+			"name": "Gradle Build Tool",
+			"url": "https://gradle.com/"
+		},
+		{
+			"name": "Develocity",
+			"url": "https://gradle.com/"
+		}
+	],
+	"socials": ["https://github.com/gradle", "https://x.com/gradle"],
+	"offices": ["san-francisco", "berlin", "remote"],
+	"headcount": 200,
+	"founded": 2011,
+	"jobs": [
+		{
+			"position": "frontend-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["javascript", "react"],
+			"url": "https://gradle.com/careers/frontend-engineer"
+		}
+	],
+	"updated": "2026-09-17T10:00:00.000Z"
+}

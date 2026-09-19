@@ -1,0 +1,36 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Foxglove",
+	"url": "https://foxglove.dev/",
+	"at": "jobs",
+	"building": "robotics data visualisation",
+	"products": [
+		{
+			"name": "Foxglove",
+			"url": "https://foxglove.dev/"
+		},
+		{
+			"name": "MCAP",
+			"url": "https://foxglove.dev/"
+		}
+	],
+	"socials": ["https://github.com/foxglove", "https://x.com/foxglove"],
+	"offices": ["san-francisco", "remote"],
+	"headcount": 30,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "software-engineering-lead",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [180000, 230000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["python", "cpp", "typescript"],
+			"url": "https://foxglove.dev/careers/software-engineering-lead"
+		}
+	],
+	"updated": "2026-09-16T15:00:00.000Z"
+}

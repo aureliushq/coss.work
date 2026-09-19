@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Carto",
+	"url": "https://carto.com/",
+	"at": "jobs",
+	"building": "cloud-native location intelligence",
+	"products": [
+		{
+			"name": "CARTO Builder",
+			"url": "https://carto.com/"
+		},
+		{
+			"name": "deck.gl",
+			"url": "https://carto.com/"
+		}
+	],
+	"socials": ["https://github.com/CartoDB"],
+	"offices": ["madrid", "new-york"],
+	"headcount": 150,
+	"founded": 2012,
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["typescript", "postgresql"],
+			"url": "https://carto.com/careers/backend-engineer"
+		}
+	],
+	"updated": "2026-09-17T11:00:00.000Z"
+}

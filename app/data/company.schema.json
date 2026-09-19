@@ -1,0 +1,109 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Company",
+	"description": "A company listed on coss.work. Save as app/data/companies/<first letter>/<slug>.json.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": [
+		"name",
+		"url",
+		"at",
+		"building",
+		"products",
+		"socials",
+		"offices",
+		"headcount",
+		"founded",
+		"jobs",
+		"updated"
+	],
+	"properties": {
+		"$schema": { "type": "string" },
+		"name": { "type": "string", "minLength": 1 },
+		"url": { "type": "string", "format": "uri", "description": "Company website." },
+		"at": { "type": "string" },
+		"building": {
+			"type": "string",
+			"description": "What the company is building, in 5 words or fewer.",
+			"pattern": "^\\S+(\\s+\\S+){0,4}$"
+		},
+		"products": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"required": ["name", "url"],
+				"properties": {
+					"name": { "type": "string", "minLength": 1 },
+					"url": { "type": "string", "format": "uri" }
+				}
+			}
+		},
+		"socials": {
+			"type": "array",
+			"description": "Profile URLs, e.g. https://github.com/<org> or https://x.com/<handle>.",
+			"items": { "type": "string", "format": "uri" }
+		},
+		"offices": {
+			"type": "array",
+			"description": "Location ids.",
+			"items": { "type": "string" }
+		},
+		"headcount": { "type": "integer", "minimum": 1 },
+		"founded": { "type": "integer", "minimum": 1900 },
+		"jobs": {
+			"type": "array",
+			"minItems": 1,
+			"items": { "$ref": "#/definitions/job" }
+		},
+		"updated": {
+			"type": "string",
+			"format": "date-time",
+			"description": "ISO 8601 timestamp of the last edit. Companies are listed newest first."
+		}
+	},
+	"definitions": {
+		"job": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["position", "level", "type", "tech", "url"],
+			"properties": {
+				"position": {
+					"type": "string",
+					"description": "Position id from app/data/positions.json."
+				},
+				"level": { "enum": ["any", "junior", "senior"] },
+				"type": { "enum": ["full-time", "part-time", "contract", "freelance"] },
+				"salary": {
+					"type": "object",
+					"description": "Leave out if the salary is not listed.",
+					"additionalProperties": false,
+					"required": ["amount", "range", "currency"],
+					"properties": {
+						"amount": { "$ref": "#/definitions/range" },
+						"range": { "enum": ["yearly", "monthly", "hourly"] },
+						"currency": { "enum": ["usd", "eur"] }
+					}
+				},
+				"equity": {
+					"$ref": "#/definitions/range",
+					"description": "Equity range in percent. Leave out if none."
+				},
+				"tech": {
+					"type": "array",
+					"description": "Tech ids from app/data/tech.json.",
+					"items": { "type": "string" },
+					"uniqueItems": true
+				},
+				"url": { "type": "string", "format": "uri", "description": "Where to apply." }
+			}
+		},
+		"range": {
+			"type": "array",
+			"description": "[min, max]",
+			"items": { "type": "number", "minimum": 0 },
+			"minItems": 2,
+			"maxItems": 2
+		}
+	}
+}

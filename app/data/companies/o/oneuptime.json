@@ -1,0 +1,56 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "OneUptime",
+	"url": "https://oneuptime.com/",
+	"at": "jobs",
+	"building": "open-source observability platform",
+	"products": [
+		{
+			"name": "OneUptime",
+			"url": "https://oneuptime.com/"
+		}
+	],
+	"socials": ["https://github.com/OneUptime"],
+	"offices": ["remote"],
+	"headcount": 10,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [100000, 150000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["postgresql", "typescript"],
+			"url": "https://oneuptime.com/careers/software-engineer"
+		},
+		{
+			"position": "devops-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [90000, 130000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["kubernetes", "docker"],
+			"url": "https://oneuptime.com/careers/devops-engineer"
+		},
+		{
+			"position": "frontend-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [90000, 130000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "react"],
+			"url": "https://oneuptime.com/careers/frontend-engineer"
+		}
+	],
+	"updated": "2026-09-17T18:00:00.000Z"
+}

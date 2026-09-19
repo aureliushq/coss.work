@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Genie",
+	"url": "https://example.com/",
+	"at": "jobs",
+	"building": "placeholder company description",
+	"products": [
+		{
+			"name": "Genie",
+			"url": "https://example.com/"
+		}
+	],
+	"socials": [],
+	"offices": ["remote"],
+	"headcount": 10,
+	"founded": 2022,
+	"jobs": [
+		{
+			"position": "devops-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [120000, 160000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["kubernetes", "pulumi", "aws"],
+			"url": "https://example.com/careers/devops-engineer"
+		}
+	],
+	"updated": "2026-09-17T01:00:00.000Z"
+}

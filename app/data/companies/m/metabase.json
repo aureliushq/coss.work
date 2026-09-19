@@ -1,0 +1,38 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Metabase",
+	"url": "https://metabase.com/",
+	"at": "jobs",
+	"building": "business intelligence for everyone",
+	"products": [
+		{
+			"name": "Metabase",
+			"url": "https://metabase.com/"
+		},
+		{
+			"name": "Metabase Cloud",
+			"url": "https://metabase.com/"
+		}
+	],
+	"socials": ["https://github.com/metabase", "https://x.com/metabase"],
+	"offices": ["san-francisco", "remote"],
+	"headcount": 150,
+	"founded": 2015,
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["clojure", "typescript"],
+			"url": "https://metabase.com/careers/backend-engineer"
+		},
+		{
+			"position": "frontend-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["typescript", "javascript"],
+			"url": "https://metabase.com/careers/frontend-engineer"
+		}
+	],
+	"updated": "2026-09-18T09:00:00.000Z"
+}

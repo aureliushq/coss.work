@@ -1,0 +1,27 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Nebuly",
+	"url": "https://nebuly.com/",
+	"at": "jobs",
+	"building": "user analytics for LLMs",
+	"products": [
+		{
+			"name": "Nebuly Platform",
+			"url": "https://nebuly.com/"
+		}
+	],
+	"socials": ["https://github.com/nebuly-ai", "https://x.com/nebuly_ai"],
+	"offices": ["milan", "remote"],
+	"headcount": 30,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["python", "kubernetes", "aws", "pytorch"],
+			"url": "https://nebuly.com/careers/backend-engineer"
+		}
+	],
+	"updated": "2026-09-16T18:00:00.000Z"
+}

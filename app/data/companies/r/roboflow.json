@@ -1,0 +1,40 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Roboflow",
+	"url": "https://roboflow.com/",
+	"at": "jobs",
+	"building": "computer vision developer tools",
+	"products": [
+		{
+			"name": "Roboflow",
+			"url": "https://roboflow.com/"
+		},
+		{
+			"name": "Supervision",
+			"url": "https://roboflow.com/"
+		},
+		{
+			"name": "Inference",
+			"url": "https://roboflow.com/"
+		}
+	],
+	"socials": ["https://github.com/roboflow", "https://x.com/roboflow"],
+	"offices": ["des-moines", "remote"],
+	"headcount": 80,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [140000, 190000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["python", "docker", "pytorch"],
+			"url": "https://roboflow.com/careers/software-engineer"
+		}
+	],
+	"updated": "2026-09-18T06:00:00.000Z"
+}

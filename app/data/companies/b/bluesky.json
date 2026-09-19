@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Bluesky",
+	"url": "https://bsky.social/",
+	"at": "jobs",
+	"building": "decentralised social network",
+	"products": [
+		{
+			"name": "Bluesky",
+			"url": "https://bsky.social/"
+		},
+		{
+			"name": "AT Protocol",
+			"url": "https://bsky.social/"
+		}
+	],
+	"socials": ["https://github.com/bluesky-social"],
+	"offices": ["seattle", "remote"],
+	"headcount": 30,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "typescript-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["typescript", "javascript", "go"],
+			"url": "https://bsky.social/careers/typescript-engineer"
+		}
+	],
+	"updated": "2026-09-16T21:00:00.000Z"
+}

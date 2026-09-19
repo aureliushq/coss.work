@@ -1,0 +1,27 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Rotki",
+	"url": "https://rotki.com/",
+	"at": "jobs",
+	"building": "privacy-first portfolio tracker",
+	"products": [
+		{
+			"name": "rotki",
+			"url": "https://rotki.com/"
+		}
+	],
+	"socials": ["https://github.com/rotki"],
+	"offices": ["berlin", "remote"],
+	"headcount": 10,
+	"founded": 2017,
+	"jobs": [
+		{
+			"position": "python-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["python", "ethereum"],
+			"url": "https://rotki.com/careers/python-engineer"
+		}
+	],
+	"updated": "2026-09-17T21:00:00.000Z"
+}

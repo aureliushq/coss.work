@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Signal",
+	"url": "https://signal.org/",
+	"at": "jobs",
+	"building": "private messaging for everyone",
+	"products": [
+		{
+			"name": "Signal",
+			"url": "https://signal.org/"
+		}
+	],
+	"socials": ["https://github.com/signalapp", "https://x.com/signalapp"],
+	"offices": ["remote"],
+	"headcount": 50,
+	"founded": 2013,
+	"jobs": [
+		{
+			"position": "android-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [160000, 230000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["java", "kotlin"],
+			"url": "https://signal.org/careers/android-engineer"
+		}
+	],
+	"updated": "2026-09-17T15:00:00.000Z"
+}

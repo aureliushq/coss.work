@@ -1,0 +1,27 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Nango",
+	"url": "https://nango.dev/",
+	"at": "jobs",
+	"building": "product integrations infrastructure",
+	"products": [
+		{
+			"name": "Nango",
+			"url": "https://nango.dev/"
+		}
+	],
+	"socials": ["https://github.com/NangoHQ", "https://x.com/NangoHQ"],
+	"offices": ["san-francisco", "remote"],
+	"headcount": 15,
+	"founded": 2022,
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["typescript", "javascript", "node-js"],
+			"url": "https://nango.dev/careers/backend-engineer"
+		}
+	],
+	"updated": "2026-09-17T05:00:00.000Z"
+}

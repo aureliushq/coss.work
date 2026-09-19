@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "BoxyHQ",
+	"url": "https://boxyhq.com/",
+	"at": "jobs",
+	"building": "enterprise security for developers",
+	"products": [
+		{
+			"name": "SAML Jackson",
+			"url": "https://boxyhq.com/"
+		},
+		{
+			"name": "Retraced",
+			"url": "https://boxyhq.com/"
+		}
+	],
+	"socials": ["https://github.com/boxyhq", "https://x.com/boxyhq"],
+	"offices": ["remote"],
+	"headcount": 10,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["javascript", "go"],
+			"url": "https://boxyhq.com/careers/software-engineer"
+		}
+	],
+	"updated": "2026-09-16T13:00:00.000Z"
+}

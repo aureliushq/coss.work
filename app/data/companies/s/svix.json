@@ -1,0 +1,48 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Svix",
+	"url": "https://svix.com/",
+	"at": "jobs",
+	"building": "webhooks as a service",
+	"products": [
+		{
+			"name": "Svix",
+			"url": "https://svix.com/"
+		},
+		{
+			"name": "Svix Bridge",
+			"url": "https://svix.com/"
+		}
+	],
+	"socials": ["https://github.com/svix", "https://x.com/SvixHQ"],
+	"offices": ["remote"],
+	"headcount": 20,
+	"founded": 2021,
+	"jobs": [
+		{
+			"position": "frontend-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [140000, 190000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "react"],
+			"url": "https://svix.com/careers/frontend-engineer"
+		},
+		{
+			"position": "rust-engineer",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [150000, 200000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["rust"],
+			"url": "https://svix.com/careers/rust-engineer"
+		}
+	],
+	"updated": "2026-09-17T06:00:00.000Z"
+}

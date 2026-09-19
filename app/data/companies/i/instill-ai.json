@@ -1,0 +1,36 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Instill AI",
+	"url": "https://instill-ai.com/",
+	"at": "jobs",
+	"building": "unstructured data AI pipelines",
+	"products": [
+		{
+			"name": "Instill Core",
+			"url": "https://instill-ai.com/"
+		},
+		{
+			"name": "Instill Cloud",
+			"url": "https://instill-ai.com/"
+		}
+	],
+	"socials": ["https://github.com/instill-ai", "https://x.com/instill_tech"],
+	"offices": ["london", "remote"],
+	"headcount": 20,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [80000, 110000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": ["gcp", "docker", "go", "python"],
+			"url": "https://instill-ai.com/careers/backend-engineer"
+		}
+	],
+	"updated": "2026-09-18T11:00:00.000Z"
+}

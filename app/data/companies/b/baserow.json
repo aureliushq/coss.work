@@ -1,0 +1,32 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Baserow",
+	"url": "https://baserow.io/",
+	"at": "jobs",
+	"building": "no-code database platform",
+	"products": [
+		{
+			"name": "Baserow",
+			"url": "https://baserow.io/"
+		}
+	],
+	"socials": ["https://github.com/baserow", "https://x.com/baserow"],
+	"offices": ["amsterdam", "remote"],
+	"headcount": 30,
+	"founded": 2020,
+	"jobs": [
+		{
+			"position": "full-stack-engineer",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [70000, 95000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": ["python", "docker", "vue-js"],
+			"url": "https://baserow.io/careers/full-stack-engineer"
+		}
+	],
+	"updated": "2026-09-18T07:00:00.000Z"
+}

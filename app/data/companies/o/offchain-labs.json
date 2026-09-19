@@ -1,0 +1,31 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Offchain Labs",
+	"url": "https://offchain.io/",
+	"at": "jobs",
+	"building": "Ethereum scaling with rollups",
+	"products": [
+		{
+			"name": "Arbitrum",
+			"url": "https://offchain.io/"
+		},
+		{
+			"name": "Stylus",
+			"url": "https://offchain.io/"
+		}
+	],
+	"socials": ["https://github.com/OffchainLabs"],
+	"offices": ["new-york", "remote"],
+	"headcount": 150,
+	"founded": 2018,
+	"jobs": [
+		{
+			"position": "rust-engineer",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["rust", "ethereum"],
+			"url": "https://offchain.io/careers/rust-engineer"
+		}
+	],
+	"updated": "2026-09-18T00:00:00.000Z"
+}
