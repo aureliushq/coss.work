@@ -17,6 +17,7 @@ const app = run({
 	async processClientEntryPreloads(preloads) {
 		if (await detectMultipleImportMapSupport()) return preloads
 
+		/* oxlint-disable no-floating-promises */
 		preloadShim(preloads)
 		return []
 	},

@@ -21,7 +21,7 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 	) => {
 		event.preventDefault()
 		pending = true
-		handle.update()
+		await handle.update()
 		const form = event.currentTarget
 		const response = await fetch(form.action, {
 			method: 'post',
@@ -30,7 +30,7 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 		})
 		pending = false
 		done = response.ok
-		handle.update()
+		await handle.update()
 	}
 
 	return () => {

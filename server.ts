@@ -24,6 +24,7 @@ const server = http.createServer(
 
 server.listen(port, () => {
 	if (process.env.REMIX_NODE_HMR) {
+		/* oxlint-disable no-floating-promises */
 		import('remix/node-hmr/runtime').then((nodeHmr) => nodeHmr.emitServerReady())
 	}
 
