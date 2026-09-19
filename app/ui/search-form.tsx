@@ -32,7 +32,7 @@ export function SearchForm(
 					</div>
 					{showLabel && (
 						<button type='submit' mix={solidButton()}>
-							search
+							find jobs
 						</button>
 					)}
 				</div>

@@ -8,7 +8,6 @@ import { routes } from '../../routes.ts'
 const subscribeFormSchema = f.object({
 	email: f.field(s.string().pipe(c.email())),
 	stack: f.field(s.defaulted(s.string(), 'any')),
-	salary: f.field(s.defaulted(s.string(), '100k')),
 })
 
 export default createController(routes.subscribe, {

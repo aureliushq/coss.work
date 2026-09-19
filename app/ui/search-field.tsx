@@ -37,7 +37,6 @@ export const fieldFrameStyle = css({
 	'--rmx-input-height': '34px',
 	'--rmx-input-icon-color': 'var(--text-muted)',
 	'--rmx-input-icon-size': '12px',
-	'borderRadius': '3px',
 	'background': 'var(--field-bg)',
 	'&:not(:focus-within)': { boxShadow: 'none' },
 	'color': 'var(--text)',

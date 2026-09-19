@@ -8,7 +8,6 @@ export function StatusDot() {
 				display: 'inline-block',
 				width: '5px',
 				height: '5px',
-				borderRadius: '50%',
 				background: 'var(--success)',
 				verticalAlign: 'middle',
 			})}

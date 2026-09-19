@@ -9,7 +9,6 @@ import { fieldFrameStyle, fieldInputStyle } from '../../../ui/search-field.tsx'
 import { solidButton } from '../../../ui/solid-button.ts'
 
 const STACKS = ['Rust', 'Go', 'TypeScript', 'Python', 'Ruby', 'C++', 'Solidity', 'K8s']
-const SALARIES = ['100k', '150k', '200k']
 
 export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm(handle: Handle) {
 	let done = false
@@ -41,8 +40,7 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 				mix={[
 					css({
 						'display': 'grid',
-						'gridTemplateColumns':
-							'minmax(0, 1.9fr) minmax(0, 1fr) minmax(0, 1fr) auto',
+						'gridTemplateColumns': 'minmax(0, 1.9fr) minmax(0, 1fr) auto',
 						'gap': '8px',
 						'alignItems': 'end',
 						'@media (max-width: 560px)': { gridTemplateColumns: '1fr 1fr' },
@@ -51,7 +49,7 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 				]}
 			>
 				<div mix={css({ '@media (max-width: 560px)': { gridColumn: '1 / -1' } })}>
-					<FieldLabel for='subscribe-email'>email me companies</FieldLabel>
+					<FieldLabel for='subscribe-email'>email me new companies</FieldLabel>
 					<div mix={[input.root({ size: 'lg' }), fieldFrameStyle]}>
 						<LockIcon />
 						<input
@@ -80,20 +78,6 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 						))}
 					</Select>
 				</div>
-				<div>
-					<FieldLabel for='subscribe-salary'>&amp; pay min salary</FieldLabel>
-					<Select
-						id='subscribe-salary'
-						name='salary'
-						defaultLabel='$100k+/yr'
-						defaultValue='100k'
-						mix={selectTriggerStyle}
-					>
-						{SALARIES.map((salary) => (
-							<Option key={salary} label={`$${salary}+/yr`} value={salary} />
-						))}
-					</Select>
-				</div>
 				<button disabled={pending} type='submit' mix={solidButton()}>
 					{pending ? 'subscribing…' : done ? 'subscribed ✓' : 'subscribe'}
 				</button>
@@ -105,7 +89,6 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 const selectTriggerStyle = css({
 	'width': '100%',
 	'height': '34px',
-	'borderRadius': '3px',
 	'background': 'var(--field-bg)',
 	'color': 'var(--text)',
 	'fontFamily': 'var(--font-mono)',

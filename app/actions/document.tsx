@@ -33,7 +33,7 @@ export function Document(handle: Handle<DocumentProps>) {
 					/>
 					<link
 						rel='stylesheet'
-						href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;600&display=swap'
+						href='https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap'
 					/>
 					<title>{title}</title>
 					{head}
@@ -52,7 +52,8 @@ export function Document(handle: Handle<DocumentProps>) {
 }
 
 const bodyStyle = css({
-	'& *, & *::before, & *::after': { boxSizing: 'border-box' },
+	// Square corners everywhere, including remix/ui popovers whose radii aren't configurable.
+	'& *, & *::before, & *::after': { boxSizing: 'border-box', borderRadius: '0 !important' },
 	'margin': 0,
 	'background': 'var(--page-bg)',
 	'color': 'var(--text)',

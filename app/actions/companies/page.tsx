@@ -63,7 +63,6 @@ function CompanyHeader(handle: Handle<{ company: Company }>) {
 				<h1
 					mix={css({
 						margin: 0,
-						fontFamily: 'var(--font-display)',
 						fontSize: '24px',
 						fontWeight: 600,
 						lineHeight: 1.1,

@@ -21,7 +21,15 @@ export function HomePage(handle: Handle<{ companies: Company[]; query: string }>
 		let { companies, query } = handle.props
 
 		return (
-			<Document title='coss.work · work at commercial open-source companies'>
+			<Document
+				title='coss.work · jobs at commercial open-source companies'
+				head={
+					<meta
+						name='description'
+						content='engineering jobs at commercial open-source companies. search by stack (Rust, Go, TypeScript, Kubernetes…) and apply.'
+					/>
+				}
+			>
 				<Hero query={query} />
 				<CompanyTable companies={companies} query={query} />
 				<SiteFooter />
@@ -40,19 +48,28 @@ function Hero(handle: Handle<{ query: string }>) {
 				gap: '48px',
 			})}
 		>
-			<h1
-				mix={css({
-					margin: 0,
-					fontFamily: 'var(--font-display)',
-					fontSize: 'clamp(30px, 7vw, 40px)',
-					fontWeight: 600,
-					lineHeight: 1.1,
-					letterSpacing: '-0.02em',
-					textAlign: 'center',
-				})}
-			>
-				work at commercial open-source companies
-			</h1>
+			<header mix={css({ textAlign: 'center' })}>
+				<h1
+					mix={css({
+						margin: 0,
+						fontSize: 'clamp(30px, 7vw, 40px)',
+						fontWeight: 600,
+						lineHeight: 1.1,
+						letterSpacing: '-0.02em',
+					})}
+				>
+					get paid to work on open source
+				</h1>
+				<p
+					mix={css({
+						margin: '8px 0 0',
+						color: 'var(--text-muted)',
+						fontSize: '14px',
+					})}
+				>
+					engineering jobs at companies that build in the open
+				</p>
+			</header>
 			<SearchForm
 				id='hero-search'
 				label='what do you want to work with?'

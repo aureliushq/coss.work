@@ -3,8 +3,7 @@ import { css } from 'remix/ui'
 // Design tokens shared by the atoms in app/ui. Colours follow the document's
 // `color-scheme: light dark`, the same mechanism the remix/ui primitives use.
 export const themeStyle = css({
-	'--font-mono': "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-	'--font-display': 'Outfit, ui-sans-serif, system-ui, sans-serif',
+	'--font-mono': "'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
 	'--page-bg': 'light-dark(#f6f6f6, #1f2023)',
 	'--card-bg': 'light-dark(#ffffff, #25262a)',
 	'--border': 'light-dark(#ededed, #2e2f33)',

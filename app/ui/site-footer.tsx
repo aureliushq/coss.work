@@ -46,7 +46,6 @@ export function SiteFooter() {
 						mix={css({
 							color: 'inherit',
 							textDecoration: 'none',
-							fontFamily: 'var(--font-display)',
 							fontSize: '20px',
 							fontWeight: 600,
 							letterSpacing: '-0.02em',
@@ -103,13 +102,12 @@ function SubscribeSection() {
 				<h2
 					mix={css({
 						margin: 0,
-						fontFamily: 'var(--font-display)',
 						fontSize: '20px',
 						fontWeight: 600,
 						letterSpacing: '-0.01em',
 					})}
 				>
-					comfortable? let’s{' '}
+					not looking yet?{' '}
 					<mark
 						mix={css({
 							background: 'var(--highlight)',
@@ -117,12 +115,12 @@ function SubscribeSection() {
 							padding: '0 2px',
 						})}
 					>
-						shake that up
+						let the jobs come to you
 					</mark>{' '}
-					a bit 🎲
+					📬
 				</h2>
 				<p mix={css({ margin: '4px 0 0', color: 'var(--text-muted)' })}>
-					keep an eye on the market / unsub anytime
+					new open-source companies in your stack / unsub anytime
 				</p>
 			</header>
 			<SubscribeForm />
@@ -147,7 +145,6 @@ function PostJobSection() {
 				<h2
 					mix={css({
 						margin: 0,
-						fontFamily: 'var(--font-display)',
 						fontSize: '14px',
 						fontWeight: 600,
 						letterSpacing: '-0.01em',
@@ -156,11 +153,11 @@ function PostJobSection() {
 					hiring at an open-source company?
 				</h2>
 				<p mix={css({ margin: '2px 0 0', color: 'var(--text-muted)' })}>
-					list your jobs for free with a pull request
+					reach engineers who want to work on open source
 				</p>
 			</header>
 			<a href={REPO_URL} rel='noopener noreferrer' target='_blank' mix={outlineButton()}>
-				post a job
+				add your company
 			</a>
 		</section>
 	)
@@ -274,7 +271,6 @@ const directoryHeadingStyle = css({
 	'gap': '4px',
 	'margin': '0 0 8px',
 	'color': 'var(--text-muted)',
-	'fontFamily': 'var(--font-display)',
 	'fontSize': '10px',
 	'fontWeight': 500,
 	'textTransform': 'uppercase',

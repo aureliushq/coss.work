@@ -8,7 +8,6 @@ export function FieldLabel(handle: Handle<{ children: RemixNode; for?: string }>
 				display: 'block',
 				marginBottom: '8px',
 				color: 'var(--text-muted)',
-				fontFamily: 'var(--font-display)',
 				fontSize: '10px',
 				fontWeight: 500,
 				letterSpacing: '0.02em',

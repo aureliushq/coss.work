@@ -3,7 +3,6 @@ import button from 'remix/ui/button'
 
 const outlineStyle = css({
 	'--rmx-button-shadow': '3px 3px 0 var(--border)',
-	'borderRadius': '3px',
 	'border': '1px solid var(--border)',
 	'background': 'var(--card-bg)',
 	'color': 'var(--text)',

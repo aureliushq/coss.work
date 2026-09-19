@@ -3,7 +3,6 @@ import button from 'remix/ui/button'
 
 const solidStyle = css({
 	'--rmx-button-shadow': '0 0 0 0 transparent',
-	'borderRadius': '4px',
 	'border': 0,
 	'background': 'var(--solid-bg)',
 	'color': 'var(--solid-text)',
