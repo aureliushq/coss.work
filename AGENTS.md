@@ -7,8 +7,8 @@ This app was scaffolded with `remix new`. Use these conventions when continuing 
 ```sh
 npm i
 npm run dev
-npm run hmr
-npm run start
+npm run build
+npm run preview
 npm test
 npm run typecheck
 ```
@@ -25,9 +25,9 @@ Refer to ./.agents/skills/remix/SKILL.md
 - `app/ui/` holds shared atomic UI (theme tokens, fields, badges, sparkline, icons)
 - `app/data/` holds data modules shared across routes
 - `app/routes.ts` defines the shared route contract used by server and browser modules for type-safe hrefs
-- `app/router.ts` wires routes to route handlers and installs the standard Remix UI renderer used by actions
-- `app/assets.ts` owns the server-side asset pipeline used by the asset route and render middleware
-- Root `public/` contains static files served unchanged from the app root
+- `app/router.ts` wires routes to route handlers and installs the standard Remix UI renderer used by actions, and default-exports the router as the Cloudflare Worker fetch handler
+- `vite.config.ts` (Pitlane `remix()` + `@cloudflare/vite-plugin`) and `wrangler.jsonc` configure the Worker build, `vp dev` and `vp preview`
+- Root `public/` contains static files served unchanged from the app root as Workers static assets
 
 ## Route Ownership
 

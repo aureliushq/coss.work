@@ -1,0 +1,7 @@
+{
+	"name": "coss-work",
+	"main": "app/router.ts",
+	"assets": { "directory": "dist/client" },
+	"compatibility_date": "2026-04-02",
+	"compatibility_flags": ["nodejs_compat"],
+}

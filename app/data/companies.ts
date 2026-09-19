@@ -1,4 +1,3 @@
-import { readdir, readFile } from 'node:fs/promises'
 import { basename } from 'node:path'
 
 import positions from './positions.json' with { type: 'json' }
@@ -58,17 +57,16 @@ let categoryNames: Record<Job['category'], string> = {
 	'systems': 'Systems',
 }
 
-let companiesDir = new URL('./companies/', import.meta.url)
-let files = (await readdir(companiesDir, { recursive: true })).filter((file) =>
-	file.endsWith('.json'),
-)
+// Bundled at build time: Workers has no project filesystem to read these from at runtime.
+let files = import.meta.glob<Omit<Company, 'slug'>>('./companies/**/*.json', {
+	eager: true,
+	import: 'default',
+})
 
-let companies: Company[] = await Promise.all(
-	files.map(async (file) => ({
-		...JSON.parse(await readFile(new URL(file, companiesDir), 'utf8')),
-		slug: basename(file, '.json'),
-	})),
-)
+let companies: Company[] = Object.entries(files).map(([file, company]) => ({
+	...company,
+	slug: basename(file, '.json'),
+}))
 companies.sort((a, b) => b.updated.localeCompare(a.updated))
 
 // Unique tech ids across all of a company's jobs.

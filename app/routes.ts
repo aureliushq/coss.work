@@ -1,7 +1,6 @@
 import { form, get, post, route } from 'remix/routes'
 
 export const routes = route({
-	assets: get('/assets/*path'),
 	home: '/',
 	companies: {
 		show: get('/companies/:slug'),

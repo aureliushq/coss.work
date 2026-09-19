@@ -1,6 +1,16 @@
+import { cloudflare } from '@cloudflare/vite-plugin'
+import { remix } from '@pitlane/dev'
 import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
+	plugins: [
+		remix({
+			clientEntry: 'app/actions/public/entry.ts',
+			serverEntry: 'app/router.ts',
+			serverHandler: false,
+		}),
+		cloudflare({ viteEnvironment: { name: 'ssr' } }),
+	],
 	staged: {
 		'*': 'vp check --fix',
 	},

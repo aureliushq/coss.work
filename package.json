@@ -5,9 +5,9 @@
 	"scripts": {
 		"check": "vp check",
 		"check:fix": "vp check --fix",
-		"dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
-		"hmr": "NODE_ENV=development node hmr.ts",
-		"start": "NODE_ENV=production node --import remix/node-tsx server.ts",
+		"dev": "vp dev",
+		"build": "vp build",
+		"preview": "vp preview",
 		"test": "NODE_ENV=test node --import remix/node-tsx --test",
 		"typecheck": "tsc --noEmit",
 		"validate:companies": "node app/data/validate-companies.ts",
@@ -17,13 +17,16 @@
 		"remix": "^3.0.0-rc.2"
 	},
 	"devDependencies": {
+		"@cloudflare/vite-plugin": "^1.56.0",
+		"@pitlane/dev": "^0.6.1",
 		"@types/node": "latest",
 		"ajv": "^8.20.0",
 		"ajv-formats": "^3.0.1",
 		"jsonc-parser": "^3.3.1",
 		"typescript": "latest",
 		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9",
-		"vite-plus": "0.2.9"
+		"vite-plus": "0.2.9",
+		"wrangler": "^4.135.0"
 	},
 	"overrides": {
 		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9"

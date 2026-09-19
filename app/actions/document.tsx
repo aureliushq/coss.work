@@ -1,8 +1,6 @@
 import type { Handle, RemixNode } from 'remix/ui'
 import { css } from 'remix/ui'
-import { ImportMap } from 'remix/ui/server'
 
-import { scriptEntry } from '../assets.ts'
 import { themeStyle } from '../ui/theme.ts'
 
 export interface DocumentProps {
@@ -16,7 +14,6 @@ const DEFAULT_TITLE = readAppDisplayName('Coss.work')
 export function Document(handle: Handle<DocumentProps>) {
 	return () => {
 		let { children, head, title = DEFAULT_TITLE } = handle.props
-		let { href, importMap, preloads } = scriptEntry
 
 		return (
 			<html lang='en'>
@@ -37,11 +34,6 @@ export function Document(handle: Handle<DocumentProps>) {
 					/>
 					<title>{title}</title>
 					{head}
-					<ImportMap value={importMap} />
-					{preloads.map((preloadHref) => (
-						<link key={preloadHref} rel='modulepreload' href={preloadHref} />
-					))}
-					<script type='module' src={href}></script>
 				</head>
 				<body mix={[themeStyle, bodyStyle]}>
 					<main mix={mainStyle}>{children}</main>

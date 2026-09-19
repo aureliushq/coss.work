@@ -1,6 +1,5 @@
 import { formData } from 'remix/middleware/form-data'
 import { render } from 'remix/middleware/render'
-import { staticFiles } from 'remix/middleware/static'
 import { createRouter, type MiddlewareContext } from 'remix/router'
 
 import companiesController from './actions/companies/controller.tsx'
@@ -8,11 +7,10 @@ import controller from './actions/controller.tsx'
 import { notFound } from './actions/not-found-page.tsx'
 import subscribeController from './actions/subscribe/controller.tsx'
 import techController from './actions/tech/controller.tsx'
-import { assets } from './assets.ts'
 import { routes } from './routes.ts'
 
 const formDataMiddleware = formData()
-const renderMiddleware = render({ assets })
+const renderMiddleware = render()
 type AppContext = MiddlewareContext<[typeof formDataMiddleware, typeof renderMiddleware]>
 
 declare module 'remix/router' {
@@ -23,10 +21,13 @@ declare module 'remix/router' {
 
 export const router = createRouter<AppContext>({
 	defaultHandler: notFound,
-	middleware: [staticFiles('./public', { index: false }), formDataMiddleware, renderMiddleware],
+	middleware: [formDataMiddleware, renderMiddleware],
 })
 
 router.map(routes, controller)
 router.map(routes.companies, companiesController)
 router.map(routes.subscribe, subscribeController)
 router.map(routes.tech, techController)
+
+// The Worker's fetch handler. Public files are served as Workers static assets before it runs.
+export default router
