@@ -1,0 +1,28 @@
+name: Validate companies
+
+on:
+    pull_request:
+        paths:
+            - 'app/data/**'
+    push:
+        branches: [main]
+        paths:
+            - 'app/data/**'
+
+permissions:
+    contents: read
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: 1.4.2
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            # The validator only needs plain JS packages, so skip install scripts (git hooks etc.).
+            - run: bun install --frozen-lockfile --ignore-scripts
+            - run: bun run validate:companies

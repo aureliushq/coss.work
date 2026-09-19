@@ -10,6 +10,7 @@
 		"start": "NODE_ENV=production node --import remix/node-tsx server.ts",
 		"test": "NODE_ENV=test node --import remix/node-tsx --test",
 		"typecheck": "tsc --noEmit",
+		"validate:companies": "node app/data/validate-companies.ts",
 		"prepare": "vp config"
 	},
 	"dependencies": {
@@ -17,6 +18,9 @@
 	},
 	"devDependencies": {
 		"@types/node": "latest",
+		"ajv": "^8.20.0",
+		"ajv-formats": "^3.0.1",
+		"jsonc-parser": "^3.3.1",
 		"typescript": "latest",
 		"vite": "npm:@voidzero-dev/vite-plus-core@0.2.9",
 		"vite-plus": "0.2.9"
