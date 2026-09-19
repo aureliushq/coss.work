@@ -12,7 +12,8 @@ import { TextLink } from './text-link.tsx'
 export function SiteFooter() {
 	return () => (
 		<>
-			<SubscribeSection />
+			{/* Parked until email alerts have a real backend. */}
+			{/* <SubscribeSection /> */}
 			<PostJobSection />
 			<Directory />
 			<footer
@@ -38,7 +39,7 @@ export function SiteFooter() {
 						mix={css({
 							color: 'inherit',
 							textDecoration: 'none',
-							fontSize: '20px',
+							fontSize: '1.125rem',
 							fontWeight: 600,
 							letterSpacing: '-0.02em',
 						})}
@@ -51,7 +52,7 @@ export function SiteFooter() {
 							'alignItems': 'center',
 							'gap': '12px',
 							'color': 'var(--text-muted)',
-							'fontSize': '10px',
+							'fontSize': 'var(--type-small)',
 							'& a': {
 								color: 'inherit',
 								display: 'inline-flex',
@@ -77,6 +78,7 @@ export function SiteFooter() {
 	)
 }
 
+// oxlint-disable-next-line no-unused-vars -- parked until email alerts have a real backend
 function SubscribeSection() {
 	return () => (
 		<section
@@ -91,7 +93,7 @@ function SubscribeSection() {
 				<h2
 					mix={css({
 						margin: 0,
-						fontSize: '20px',
+						fontSize: '1.125rem',
 						fontWeight: 600,
 						letterSpacing: '-0.01em',
 					})}
@@ -134,7 +136,7 @@ function PostJobSection() {
 				<h2
 					mix={css({
 						margin: 0,
-						fontSize: '14px',
+						fontSize: '0.875rem',
 						fontWeight: 600,
 						letterSpacing: '-0.01em',
 					})}
@@ -197,13 +199,17 @@ function Directory() {
 		<nav
 			aria-label='Browse jobs'
 			mix={css({
-				width: '100%',
-				maxWidth: '760px',
-				display: 'grid',
-				gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
-				justifyContent: 'space-between',
-				gap: '32px',
-				whiteSpace: 'nowrap',
+				'width': '100%',
+				'maxWidth': '760px',
+				'display': 'grid',
+				'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr',
+				'justifyContent': 'space-between',
+				'gap': '32px',
+				'whiteSpace': 'nowrap',
+				'@media (max-width: 560px)': {
+					gridTemplateColumns: 'repeat(2, 1fr)',
+					gap: '24px 16px',
+				},
 			})}
 		>
 			{DIRECTORY.map((column) => (
@@ -260,8 +266,9 @@ const directoryHeadingStyle = css({
 	'gap': '4px',
 	'margin': '0 0 8px',
 	'color': 'var(--text-muted)',
-	'fontSize': '10px',
+	'fontSize': 'var(--type-small)',
 	'fontWeight': 500,
+	'letterSpacing': '0.02em',
 	'textTransform': 'uppercase',
-	'& svg': { width: '10px', height: '10px' },
+	'& svg': { width: '0.85em', height: '0.85em' },
 })

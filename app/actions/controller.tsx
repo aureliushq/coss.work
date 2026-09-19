@@ -3,7 +3,7 @@ import * as f from 'remix/data-schema/form-data'
 import { createController } from 'remix/router'
 
 import { assets } from '../assets.ts'
-import { listCompanies } from '../data/companies.ts'
+import { listCompanies, popularStacks } from '../data/companies.ts'
 import { routes } from '../routes.ts'
 import { HomePage } from './home-page.tsx'
 
@@ -19,10 +19,12 @@ export default createController(routes, {
 			)
 		},
 		async home(context) {
-			let { q } = s.parse(homeSearchSchema, context.url.searchParams)
+			let q = s.parse(homeSearchSchema, context.url.searchParams).q.trim()
 			let companies = await listCompanies(q)
 
-			return context.render(<HomePage companies={companies} query={q} />)
+			return context.render(
+				<HomePage companies={companies} query={q} stacks={popularStacks(5)} />,
+			)
 		},
 	},
 })

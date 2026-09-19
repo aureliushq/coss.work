@@ -18,7 +18,7 @@ export function IconLink(
 					'color': 'inherit',
 					'textDecoration': 'none',
 					'textUnderlineOffset': '2px',
-					'& svg': { width: '10px', height: '10px' },
+					'& svg': { width: '0.85em', height: '0.85em' },
 					'&:hover, &:focus-visible': { textDecoration: 'underline' },
 				})}
 			>

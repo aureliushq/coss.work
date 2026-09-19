@@ -4,11 +4,13 @@ import { css } from 'remix/ui'
 // `color-scheme: light dark`, the same mechanism the remix/ui primitives use.
 export const themeStyle = css({
 	'--font-mono': "'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+	'--type-small': '0.625rem',
+	'--type-body': '0.75rem',
 	'--page-bg': 'light-dark(#f6f6f6, #1f2023)',
 	'--card-bg': 'light-dark(#ffffff, #25262a)',
 	'--border': 'light-dark(#ededed, #2e2f33)',
 	'--text': 'light-dark(#222222, #e8e8e8)',
-	'--text-muted': 'light-dark(#8a8a8a, #8e8e93)',
+	'--text-muted': 'light-dark(#6b6b6b, #8e8e93)',
 	'--field-bg': 'light-dark(#ececec, #2b2c30)',
 	'--badge-bg': 'light-dark(#ececec, #34353a)',
 	'--sparkline-fill': 'light-dark(#efefef, #2e2f33)',

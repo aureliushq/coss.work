@@ -5,6 +5,7 @@ import { createRouter, type MiddlewareContext } from 'remix/router'
 
 import companiesController from './actions/companies/controller.tsx'
 import controller from './actions/controller.tsx'
+import { notFound } from './actions/not-found-page.tsx'
 import subscribeController from './actions/subscribe/controller.tsx'
 import { assets } from './assets.ts'
 import { routes } from './routes.ts'
@@ -20,6 +21,7 @@ declare module 'remix/router' {
 }
 
 export const router = createRouter<AppContext>({
+	defaultHandler: notFound,
 	middleware: [staticFiles('./public', { index: false }), formDataMiddleware, renderMiddleware],
 })
 

@@ -8,6 +8,7 @@ const solidStyle = css({
 	'color': 'var(--solid-text)',
 	'textShadow': 'none',
 	'fontFamily': 'var(--font-mono)',
+	'fontSize': 'var(--type-body)',
 	'fontWeight': 700,
 	'paddingInline': '14px',
 	'height': '34px',

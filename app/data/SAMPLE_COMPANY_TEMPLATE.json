@@ -34,7 +34,7 @@
 			"salary": {
 				"amount": [100000, 200000],
 				"range": "yearly || monthly || hourly",
-				"currency": "usd || eur"
+				"currency": "usd || eur || gbp || cad || aud || chf || inr"
 			},
 			"equity": [0.1, 0.2],
 			"tech": ["look in data/tech.json for ids"],

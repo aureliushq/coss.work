@@ -25,7 +25,6 @@ const tableStyle = css({
 		padding: '14px 8px 10px',
 		textAlign: 'left',
 		fontWeight: 700,
-		fontSize: '11px',
 	},
 	'& td': {
 		padding: '0 8px',

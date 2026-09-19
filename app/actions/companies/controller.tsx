@@ -2,6 +2,7 @@ import { createController } from 'remix/router'
 
 import { getCompany } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
+import { notFound } from '../not-found-page.tsx'
 import { CompanyPage } from './page.tsx'
 
 export default createController(routes.companies, {
@@ -10,7 +11,7 @@ export default createController(routes.companies, {
 			let company = await getCompany(context.params.slug)
 
 			if (company === undefined) {
-				return new Response('Company not found', { status: 404 })
+				return notFound(context)
 			}
 
 			return context.render(<CompanyPage company={company} />)

@@ -20,7 +20,7 @@ export type Job = {
 	salary?: {
 		amount: [number, number]
 		range: 'yearly' | 'monthly' | 'hourly'
-		currency: 'usd' | 'eur'
+		currency: 'usd' | 'eur' | 'gbp' | 'cad' | 'aud' | 'chf' | 'inr'
 	}
 	equity?: [number, number]
 	tech: string[]
@@ -94,6 +94,13 @@ export function jobTitle(job: Job) {
 	return LEVEL_PREFIX[job.level] + positionName(job.position)
 }
 
+// `$`, `€`, `£`, `CA$`, `A$`, `CHF`, `₹`.
+export function currencySymbol(salary: NonNullable<Job['salary']>) {
+	return new Intl.NumberFormat('en', { style: 'currency', currency: salary.currency })
+		.formatToParts(0)
+		.find((part) => part.type === 'currency')!.value
+}
+
 // Office ids are slugs (`san-francisco`); there is no locations.json to look them up in yet.
 export function officeName(id: string) {
 	return id.replace(
@@ -110,11 +117,24 @@ export async function listCompanies(query: string) {
 	let needle = query.trim().toLowerCase()
 	if (needle === '') return companies
 
-	return companies.filter(
-		(company) =>
-			company.name.toLowerCase().includes(needle) ||
-			stackFor(company).some((tech) => tech.toLowerCase().includes(needle)),
-	)
+	// A known tech name matches exactly, so "go" doesn't pull in Django, Google Cloud or Nango.
+	let exact = Object.values(techNames).some((name) => name.toLowerCase() === needle)
+	let matches = (value: string) =>
+		exact ? value.toLowerCase() === needle : value.toLowerCase().includes(needle)
+
+	return companies.filter((company) => matches(company.name) || stackFor(company).some(matches))
+}
+
+// Tech names used by the most companies, for one-click searches.
+export function popularStacks(limit: number) {
+	let counts = new Map<string, number>()
+	for (let company of companies) {
+		for (let tech of stackFor(company)) counts.set(tech, (counts.get(tech) ?? 0) + 1)
+	}
+	return [...counts]
+		.sort(([a, x], [b, y]) => y - x || a.localeCompare(b))
+		.slice(0, limit)
+		.map(([tech]) => tech)
 }
 
 export async function getCompany(slug: string) {

@@ -54,11 +54,15 @@ export function Document(handle: Handle<DocumentProps>) {
 const bodyStyle = css({
 	// Square corners everywhere, including remix/ui popovers whose radii aren't configurable.
 	'& *, & *::before, & *::after': { boxSizing: 'border-box', borderRadius: '0 !important' },
+	'& :is(h1, h2, h3)': { textWrap: 'balance' },
+	'& ::selection': { background: 'var(--highlight)', color: 'var(--text)' },
 	'margin': 0,
 	'background': 'var(--page-bg)',
 	'color': 'var(--text)',
 	'fontFamily': 'var(--font-mono)',
-	'fontSize': '12px',
+	'caretColor': 'var(--text)',
+	'scrollbarColor': 'var(--border) transparent',
+	'fontSize': 'var(--type-body)',
 	'lineHeight': 1.5,
 	'WebkitFontSmoothing': 'antialiased',
 })

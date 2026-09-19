@@ -36,12 +36,14 @@ export function SearchField(handle: Handle<SearchFieldProps>) {
 export const fieldFrameStyle = css({
 	'--rmx-input-height': '34px',
 	'--rmx-input-icon-color': 'var(--text-muted)',
-	'--rmx-input-icon-size': '12px',
+	'--rmx-input-icon-size': '1em',
 	'background': 'var(--field-bg)',
 	'&:not(:focus-within)': { boxShadow: 'none' },
 	'color': 'var(--text)',
 	'fontFamily': 'var(--font-mono)',
-	'fontSize': '12px',
+	'fontSize': 'var(--type-body)',
+	// iOS Safari zooms the page when a focused input is under 16px.
+	'@media (pointer: coarse)': { fontSize: '1rem' },
 	'fontFeatureSettings': 'normal',
 	'textShadow': 'none',
 })

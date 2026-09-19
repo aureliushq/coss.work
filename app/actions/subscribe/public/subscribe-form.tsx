@@ -92,7 +92,7 @@ const selectTriggerStyle = css({
 	'background': 'var(--field-bg)',
 	'color': 'var(--text)',
 	'fontFamily': 'var(--font-mono)',
-	'fontSize': '12px',
+	'fontSize': 'var(--type-body)',
 	'fontFeatureSettings': 'normal',
 	'textShadow': 'none',
 	'&:not(:focus-visible):not([aria-expanded="true"])': { boxShadow: 'none' },

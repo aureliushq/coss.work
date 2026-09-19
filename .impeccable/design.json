@@ -1,0 +1,346 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-09-19T15:00:00Z",
+	"title": "Design System: coss.work",
+	"extensions": {
+		"colorMeta": {
+			"carbon": {
+				"role": "primary",
+				"displayName": "Carbon",
+				"canonical": "light-dark(#2b2b2b, #111111)",
+				"tonalRamp": [
+					"#111111",
+					"#1f1f1f",
+					"#2b2b2b",
+					"#444444",
+					"#666666",
+					"#8a8a8a",
+					"#bdbdbd",
+					"#ededed"
+				]
+			},
+			"carbon-text": {
+				"role": "primary",
+				"displayName": "Carbon Text",
+				"canonical": "#ffffff",
+				"tonalRamp": [
+					"#222222",
+					"#444444",
+					"#666666",
+					"#8a8a8a",
+					"#b0b0b0",
+					"#d6d6d6",
+					"#f0f0f0",
+					"#ffffff"
+				]
+			},
+			"marker-yellow": {
+				"role": "tertiary",
+				"displayName": "Marker Yellow",
+				"canonical": "light-dark(#fdf0c4, #34353a)",
+				"tonalRamp": [
+					"#3d3210",
+					"#6b5a1c",
+					"#9c8430",
+					"#c8aa45",
+					"#e6cd6e",
+					"#f5e19a",
+					"#fdf0c4",
+					"#fffaea"
+				]
+			},
+			"signal-green": {
+				"role": "tertiary",
+				"displayName": "Signal Green",
+				"canonical": "#22c55e",
+				"tonalRamp": [
+					"#052e16",
+					"#14532d",
+					"#166534",
+					"#15803d",
+					"#22c55e",
+					"#4ade80",
+					"#86efac",
+					"#dcfce7"
+				]
+			},
+			"ink": {
+				"role": "neutral",
+				"displayName": "Ink",
+				"canonical": "light-dark(#222222, #e8e8e8)",
+				"tonalRamp": [
+					"#111111",
+					"#222222",
+					"#3a3a3a",
+					"#555555",
+					"#777777",
+					"#a0a0a0",
+					"#cccccc",
+					"#e8e8e8"
+				]
+			},
+			"ink-muted": {
+				"role": "neutral",
+				"displayName": "Ink Muted",
+				"canonical": "light-dark(#6b6b6b, #8e8e93)",
+				"tonalRamp": [
+					"#2a2a2a",
+					"#3d3d3d",
+					"#525252",
+					"#6b6b6b",
+					"#8a8a8a",
+					"#a6a6a6",
+					"#c4c4c4",
+					"#e2e2e2"
+				]
+			},
+			"page-grey": {
+				"role": "neutral",
+				"displayName": "Page Grey",
+				"canonical": "light-dark(#f6f6f6, #1f2023)",
+				"tonalRamp": [
+					"#1f2023",
+					"#2e2f33",
+					"#4a4b50",
+					"#707175",
+					"#a3a3a6",
+					"#d4d4d6",
+					"#ececec",
+					"#f6f6f6"
+				]
+			},
+			"sheet": {
+				"role": "neutral",
+				"displayName": "Sheet",
+				"canonical": "light-dark(#ffffff, #25262a)",
+				"tonalRamp": [
+					"#25262a",
+					"#34353a",
+					"#505155",
+					"#77787c",
+					"#a8a8ab",
+					"#d6d6d8",
+					"#f2f2f2",
+					"#ffffff"
+				]
+			},
+			"hairline": {
+				"role": "neutral",
+				"displayName": "Hairline",
+				"canonical": "light-dark(#ededed, #2e2f33)",
+				"tonalRamp": [
+					"#2e2f33",
+					"#3f4045",
+					"#56575c",
+					"#77787c",
+					"#a0a0a3",
+					"#c8c8ca",
+					"#dedede",
+					"#ededed"
+				]
+			},
+			"field-grey": {
+				"role": "neutral",
+				"displayName": "Field Grey",
+				"canonical": "light-dark(#ececec, #2b2c30)",
+				"tonalRamp": [
+					"#2b2c30",
+					"#3c3d42",
+					"#55565b",
+					"#76777b",
+					"#9e9ea1",
+					"#c6c6c8",
+					"#dcdcdc",
+					"#ececec"
+				]
+			},
+			"badge-grey": {
+				"role": "neutral",
+				"displayName": "Badge Grey",
+				"canonical": "light-dark(#ececec, #34353a)",
+				"tonalRamp": [
+					"#34353a",
+					"#44454a",
+					"#5b5c61",
+					"#7a7b7f",
+					"#a1a1a4",
+					"#c8c8ca",
+					"#dcdcdc",
+					"#ececec"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Home hero headline only."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Company name on company pages."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Section headings such as the subscribe prompt."
+			},
+			"title-sm": {
+				"displayName": "Title Small",
+				"purpose": "Secondary section headings."
+			},
+			"lede": {
+				"displayName": "Lede",
+				"purpose": "The muted line under the hero headline."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "All running text, table cells, inputs, buttons."
+			},
+			"table-head": {
+				"displayName": "Table Head",
+				"purpose": "Table column headers."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Field labels and directory headings; uppercase via CSS."
+			},
+			"micro": {
+				"displayName": "Micro",
+				"purpose": "Badges, row index numbers, footer meta."
+			}
+		},
+		"shadows": [
+			{
+				"name": "keycap-offset",
+				"value": "3px 3px 0 var(--border)",
+				"purpose": "Outline button only. Presses to 1px 1px 0 on hover and active."
+			}
+		],
+		"motion": [],
+		"breakpoints": [
+			{
+				"name": "narrow",
+				"value": "560px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Solid Button",
+			"kind": "button",
+			"refersTo": "button-solid",
+			"description": "The one loud action per form: find jobs, subscribe.",
+			"html": "<button class=\"ds-btn-solid\" type=\"button\">find jobs</button>",
+			"css": ".ds-btn-solid { height: 34px; padding: 0 14px; border: 0; border-radius: 0; background: var(--solid-bg, #2b2b2b); color: var(--solid-text, #ffffff); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; font-weight: 700; cursor: pointer; } .ds-btn-solid:hover, .ds-btn-solid:active { opacity: 0.9; } .ds-btn-solid:focus-visible { outline: 2px solid var(--text, #222222); outline-offset: 2px; }"
+		},
+		{
+			"name": "Outline Button",
+			"kind": "button",
+			"refersTo": "button-outline",
+			"description": "Quiet keycap button for off-site actions such as add your company.",
+			"html": "<a class=\"ds-btn-outline\" href=\"#\">add your company</a>",
+			"css": ".ds-btn-outline { display: inline-flex; align-items: center; height: 38px; padding: 0 14px; border: 1px solid var(--border, #ededed); border-radius: 0; background: var(--card-bg, #ffffff); color: var(--text, #222222); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400; text-decoration: none; box-shadow: 3px 3px 0 var(--border, #ededed); } .ds-btn-outline:hover, .ds-btn-outline:active { box-shadow: 1px 1px 0 var(--border, #ededed); } .ds-btn-outline:focus-visible { outline: 2px solid var(--text, #222222); outline-offset: 2px; }"
+		},
+		{
+			"name": "Search Field",
+			"kind": "input",
+			"refersTo": "input-field",
+			"description": "Borderless grey field with a muted leading icon; used for search and email.",
+			"html": "<label class=\"ds-field-label\" for=\"ds-q\">what do you want to work with?</label><div class=\"ds-input\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/></svg><input id=\"ds-q\" type=\"search\" placeholder=\"Rust, Solidity, React, Kubernetes…\"></div>",
+			"css": ".ds-field-label { display: block; margin-bottom: 8px; color: var(--text-muted, #6b6b6b); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; } .ds-input { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; background: var(--field-bg, #ececec); color: var(--text-muted, #6b6b6b); border-radius: 0; } .ds-input input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--text, #222222); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; outline: none; } .ds-input input::placeholder { color: var(--text-muted, #6b6b6b); } .ds-input:focus-within { outline: 2px solid var(--text, #222222); outline-offset: 2px; }"
+		},
+		{
+			"name": "Badge",
+			"kind": "chip",
+			"refersTo": "badge",
+			"description": "Tiny grey tag for a glyph or count, e.g. $ or +3.",
+			"html": "<span class=\"ds-badge\" aria-label=\"salary listed\">$</span> <span class=\"ds-badge\" aria-label=\"3 more roles\">+3</span>",
+			"css": ".ds-badge { display: inline-block; padding: 0 4px; background: var(--badge-bg, #ececec); color: var(--text-muted, #6b6b6b); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 1.4; vertical-align: middle; border-radius: 0; }"
+		},
+		{
+			"name": "Company Table",
+			"kind": "card",
+			"refersTo": "table-card",
+			"description": "The signature component: a white sheet of 34px rows with hairline dividers.",
+			"html": "<section class=\"ds-table-card\"><table><thead><tr><th></th><th>Company</th><th>Stack</th><th>Hiring</th><th class=\"ds-r\"><span class=\"ds-dot\"></span> ⋯</th></tr></thead><tbody><tr><td class=\"ds-idx\">1</td><td><a href=\"#\">Airbyte</a></td><td>Java, Python</td><td>Senior Backend Engineer <span class=\"ds-badge\">$</span></td><td class=\"ds-r\"><a href=\"#\" class=\"ds-u\">apply</a></td></tr><tr><td class=\"ds-idx\">2</td><td><a href=\"#\">ClickHouse</a></td><td>C++, Go</td><td>Systems Engineer <span class=\"ds-badge\">+2</span></td><td class=\"ds-r\"><a href=\"#\" class=\"ds-u\">apply</a></td></tr></tbody></table></section>",
+			"css": ".ds-table-card { width: 100%; max-width: 760px; overflow-x: auto; padding: 0 12px; background: var(--card-bg, #ffffff); color: var(--text, #222222); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 1.5; } .ds-table-card table { width: 100%; border-collapse: collapse; white-space: nowrap; } .ds-table-card th { padding: 14px 8px 10px; text-align: left; font-weight: 700; } .ds-table-card td { height: 34px; padding: 0 8px; border-top: 1px solid var(--border, #ededed); } .ds-table-card a { color: inherit; text-decoration: none; text-underline-offset: 2px; } .ds-table-card a:hover, .ds-table-card a:focus-visible, .ds-table-card a.ds-u { text-decoration: underline; } .ds-table-card .ds-idx { color: var(--text-muted, #6b6b6b); font-size: 10px; text-align: right; } .ds-table-card .ds-r { text-align: right; } .ds-dot { display: inline-block; width: 5px; height: 5px; background: #22c55e; vertical-align: middle; } .ds-badge { display: inline-block; padding: 0 4px; background: var(--badge-bg, #ececec); color: var(--text-muted, #6b6b6b); font-size: 10px; line-height: 1.4; vertical-align: middle; }"
+		},
+		{
+			"name": "Directory",
+			"kind": "nav",
+			"refersTo": "field-label",
+			"description": "Browse-by columns: uppercase label heading over a plain link list.",
+			"html": "<nav class=\"ds-dir\"><div><h3>languages</h3><ul><li><a href=\"#\">Rust</a></li><li><a href=\"#\">Go</a></li><li><a href=\"#\">C <span>&amp;</span> C++</a></li></ul></div><div><h3>type</h3><ul><li><a href=\"#\">Frontend</a></li><li><a href=\"#\">Backend</a></li><li><a href=\"#\">DevOps</a></li></ul></div></nav>",
+			"css": ".ds-dir { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--text, #222222); } .ds-dir h3 { margin: 0 0 8px; color: var(--text-muted, #6b6b6b); font-size: 10px; font-weight: 500; text-transform: uppercase; } .ds-dir ul { list-style: none; margin: 0; padding: 0; line-height: 1.7; } .ds-dir a { color: inherit; text-decoration: none; text-underline-offset: 2px; } .ds-dir a:hover, .ds-dir a:focus-visible { text-decoration: underline; } .ds-dir a span { color: var(--text-muted, #6b6b6b); }"
+		},
+		{
+			"name": "Marker Heading",
+			"kind": "custom",
+			"refersTo": "title",
+			"description": "Section title with one phrase in Marker Yellow. Parked with the subscribe section until email alerts ship.",
+			"html": "<h2 class=\"ds-marker-h\">not looking yet? <mark>let the jobs come to you</mark></h2>",
+			"css": ".ds-marker-h { margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text, #222222); } .ds-marker-h mark { padding: 0 2px; background: var(--highlight, #fdf0c4); color: inherit; }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Terminal Index",
+		"overview": "coss.work reads like `ls -la` for open-source jobs. One mono typeface, one narrow column, one white sheet of rows on grey paper. Every company is a line; every fact sits in a cell. The page trusts the engineer to scan, so it removes everything that is not data: no logos, no cards, no hero art.\n\nDensity is high but calm. Body text is 12px, rows are 34px tall, and contrast steps down through three greys instead of rising through colour. The only loud element on a page is the dark `find jobs` button. Colour appears in two tiny doses: yellow text selection (and the parked marker phrase), and a 5px green status square.\n\nIt is mono without the costume. The system borrows the terminal's honesty (plain text, lowercase, fixed width), not its props. It must never look like a generic SaaS job board (rounded cards, logo grids, gradient heroes, pill \"Apply now\" buttons), like hacker cosplay (green-on-black, scanlines, fake prompts), or like recruiter spam (urgency badges, \"hot job\", countdowns, ads dressed as listings).",
+		"keyCharacteristics": [
+			"Geist Mono for everything, 12px (0.75rem) base. Sizes are in rem, so user font settings apply.",
+			"Square corners everywhere, enforced globally.",
+			"Flat surfaces; depth from grey steps, not shadows.",
+			"One 760px centred column.",
+			"Lowercase voice in headings, buttons, and labels (company and tech names keep their own case).",
+			"Light and dark themes from one token set via `light-dark()`.",
+			"Onboarding is the first search: one muted line of popular stacks under the hero search, a result caption, and a no-results cell that points back to it."
+		],
+		"rules": [
+			{
+				"name": "The Two Drops Rule",
+				"body": "Yellow and green are the only hues. Each appears at most once per section, at small size. Never use them for fills, borders, or large areas.",
+				"section": "colors"
+			},
+			{
+				"name": "The Grey Ladder Rule",
+				"body": "Hierarchy comes from Page Grey → Sheet → Field Grey and Ink → Ink Muted. Do not add a new colour to separate things; use the next grey step.",
+				"section": "colors"
+			},
+			{
+				"name": "The One Family Rule",
+				"body": "Geist Mono only. Never add a sans or serif for \"readability\" or \"headlines\".",
+				"section": "typography"
+			},
+			{
+				"name": "The Lowercase Voice Rule",
+				"body": "UI copy is lowercase (headings, buttons, links, placeholders). Proper nouns and tech names keep their case. Table headers and data values (categories, job types) keep Title Case. Uppercase is reserved for 10px labels, applied by CSS.",
+				"section": "typography"
+			},
+			{
+				"name": "The Weight-Not-Pixels Rule",
+				"body": "Never separate two roles by 1px. If size alone cannot carry the difference, keep the size and change weight or case (Table Head vs Body, Label vs Micro).",
+				"section": "typography"
+			},
+			{
+				"name": "The Flat Sheet Rule",
+				"body": "No blurred shadows, no glows, no glassmorphism. The keycap offset is the single allowed shadow, and it stays in the Hairline colour.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"**Do** use Geist Mono at `var(--type-body)` for new UI text, and step hierarchy only with the existing sizes: `var(--type-small)` (10px), `var(--type-body)` (12px), 0.875rem, 1.125rem, 1.375rem, and the hero clamp. Use rem, never px, for font sizes.",
+			"**Do** keep every corner square. The global reset already enforces it; don't fight it.",
+			"**Do** put new lists of companies or jobs in a Table Card with 34px rows and Hairline dividers.",
+			"**Do** write UI copy in lowercase, short and literal (`apply`, `find jobs`, `add your company`).",
+			"**Do** use existing tokens (`var(--text-muted)`, `var(--field-bg)`, …) so both themes work.",
+			"**Do** keep content inside the 760px column."
+		],
+		"donts": [
+			"**Don't** make it look like a generic SaaS job board: no rounded cards, company logo grids, gradient heroes, or pill \"Apply now\" buttons.",
+			"**Don't** do hacker cosplay: no green-on-black, scanlines, blinking cursors, or fake shell prompts.",
+			"**Don't** add recruiter-spam signals: no \"hot job\" or urgency badges, no countdowns, no ads styled as listings.",
+			"**Don't** add blurred shadows, glows, or new hues. Use the Grey Ladder.",
+			"**Don't** add a second typeface.",
+			"**Don't** add a second loud button to a section. One Carbon button per form."
+		],
+		"searchGuidance": "Onboarding is the first search, not a tour. Under the hero search, one muted line reads `try Go · TypeScript · Python · C++ · Kubernetes`: the five stacks most companies hire for, computed from the data (`popularStacks`). Names are Ink text links to `/?q=<stack>`, separated by muted ` · `. The active stack renders as plain text. No chips, no pills. A query that equals a known tech name matches exactly (`go` never returns Django or Nango); any other query matches substrings."
+	}
+}

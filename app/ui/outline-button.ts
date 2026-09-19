@@ -9,6 +9,7 @@ const outlineStyle = css({
 	'textShadow': 'none',
 	'textDecoration': 'none',
 	'fontFamily': 'var(--font-mono)',
+	'fontSize': 'var(--type-body)',
 	'fontWeight': 400,
 	'paddingInline': '14px',
 	'height': '38px',

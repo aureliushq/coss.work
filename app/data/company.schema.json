@@ -94,7 +94,7 @@
 					"properties": {
 						"amount": { "$ref": "#/definitions/range" },
 						"range": { "enum": ["yearly", "monthly", "hourly"] },
-						"currency": { "enum": ["usd", "eur"] }
+						"currency": { "enum": ["usd", "eur", "gbp", "cad", "aud", "chf", "inr"] }
 					}
 				},
 				"equity": {

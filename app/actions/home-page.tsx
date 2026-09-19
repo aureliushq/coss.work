@@ -2,7 +2,9 @@ import { css, type Handle } from 'remix/ui'
 
 import {
 	// activityFor,
+	currencySymbol,
 	jobTitle,
+	REPO_URL,
 	stackFor,
 	type Company,
 } from '../data/companies.ts'
@@ -14,11 +16,14 @@ import { SiteFooter } from '../ui/site-footer.tsx'
 import { StatusDot } from '../ui/status-dot.tsx'
 import { TableCard } from '../ui/table-card.tsx'
 import { TextLink } from '../ui/text-link.tsx'
+import { visuallyHidden } from '../ui/visually-hidden.ts'
 import { Document } from './document.tsx'
 
-export function HomePage(handle: Handle<{ companies: Company[]; query: string }>) {
+export function HomePage(
+	handle: Handle<{ companies: Company[]; query: string; stacks: string[] }>,
+) {
 	return () => {
-		let { companies, query } = handle.props
+		let { companies, query, stacks } = handle.props
 
 		return (
 			<Document
@@ -30,7 +35,7 @@ export function HomePage(handle: Handle<{ companies: Company[]; query: string }>
 					/>
 				}
 			>
-				<Hero query={query} />
+				<Hero query={query} stacks={stacks} />
 				<CompanyTable companies={companies} query={query} />
 				<SiteFooter />
 			</Document>
@@ -38,7 +43,7 @@ export function HomePage(handle: Handle<{ companies: Company[]; query: string }>
 	}
 }
 
-function Hero(handle: Handle<{ query: string }>) {
+function Hero(handle: Handle<{ query: string; stacks: string[] }>) {
 	return () => (
 		<section
 			mix={css({
@@ -52,7 +57,7 @@ function Hero(handle: Handle<{ query: string }>) {
 				<h1
 					mix={css({
 						margin: 0,
-						fontSize: 'clamp(30px, 7vw, 40px)',
+						fontSize: 'clamp(1.75rem, 7vw, 2.25rem)',
 						fontWeight: 600,
 						lineHeight: 1.1,
 						letterSpacing: '-0.02em',
@@ -64,21 +69,56 @@ function Hero(handle: Handle<{ query: string }>) {
 					mix={css({
 						margin: '8px 0 0',
 						color: 'var(--text-muted)',
-						fontSize: '14px',
+						fontSize: '0.875rem',
 					})}
 				>
 					engineering jobs at companies that build in the open
 				</p>
 			</header>
-			<SearchForm
-				id='hero-search'
-				label='what do you want to work with?'
-				placeholder='Rust, Solidity, React, Kubernetes…'
-				query={handle.props.query}
-				showLabel
-			/>
+			<div mix={css({ display: 'grid', gap: '12px' })}>
+				<SearchForm
+					id='hero-search'
+					label='what do you want to work with?'
+					placeholder='Rust, Solidity, React, Kubernetes…'
+					query={handle.props.query}
+					showLabel
+				/>
+				<StackSuggestions query={handle.props.query} stacks={handle.props.stacks} />
+			</div>
 		</section>
 	)
+}
+
+// One-click searches for the stacks most companies hire for. The active one reads as selected.
+function StackSuggestions(handle: Handle<{ query: string; stacks: string[] }>) {
+	return () => {
+		let { query, stacks } = handle.props
+		let active = query.trim().toLowerCase()
+
+		return (
+			<p mix={css({ margin: 0, color: 'var(--text-muted)' })}>
+				try{' '}
+				{stacks.map((stack, index) => (
+					<span key={stack}>
+						{index > 0 && ' · '}
+						<span mix={css({ color: 'var(--text)' })}>
+							{stack.toLowerCase() === active ? (
+								stack
+							) : (
+								<TextLink
+									href={routes.home.href(undefined, {
+										searchParams: { q: stack },
+									})}
+								>
+									{stack}
+								</TextLink>
+							)}
+						</span>
+					</span>
+				))}
+			</p>
+		)
+	}
 }
 
 function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
@@ -87,6 +127,21 @@ function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
 
 		return (
 			<TableCard label='Companies hiring'>
+				{query !== '' && companies.length > 0 && (
+					<caption
+						mix={css({
+							padding: '14px 8px 0',
+							textAlign: 'left',
+							color: 'var(--text-muted)',
+							whiteSpace: 'normal',
+							overflowWrap: 'anywhere',
+						})}
+					>
+						{companies.length}{' '}
+						{companies.length === 1 ? 'company matches' : 'companies match'} “{query}” ·{' '}
+						<TextLink href={routes.home.href()}>clear</TextLink>
+					</caption>
+				)}
 				<thead>
 					<tr>
 						<th>
@@ -103,6 +158,7 @@ function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
 						<th>Hiring</th>
 						<th mix={css({ textAlign: 'right' })}>
 							<StatusDot /> <span aria-hidden='true'>⋯</span>
+							<span mix={visuallyHidden}>apply</span>
 						</th>
 					</tr>
 				</thead>
@@ -112,11 +168,34 @@ function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
 					))}
 					{companies.length === 0 && (
 						<tr>
-							<td
-								colSpan={6}
-								mix={css({ textAlign: 'center', color: 'var(--text-muted)' })}
-							>
-								no companies match “{query}”
+							<td colSpan={5}>
+								<div
+									mix={css({
+										padding: '24px 0',
+										display: 'grid',
+										gap: '4px',
+										textAlign: 'center',
+										whiteSpace: 'normal',
+										overflowWrap: 'anywhere',
+										color: 'var(--text-muted)',
+									})}
+								>
+									<p mix={css({ margin: 0, color: 'var(--text)' })}>
+										no companies match “{query}”
+									</p>
+									<p mix={css({ margin: 0 })}>
+										try a stack above, or{' '}
+										<TextLink href={routes.home.href()} underline>
+											see all companies
+										</TextLink>
+									</p>
+									<p mix={css({ margin: 0 })}>
+										know an open-source company hiring for it?{' '}
+										<TextLink href={REPO_URL} external underline>
+											add it
+										</TextLink>
+									</p>
+								</div>
 							</td>
 						</tr>
 					)}
@@ -130,13 +209,14 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 	return () => {
 		let { company, position } = handle.props
 		let [job, ...otherJobs] = company.jobs
+		let stack = stackFor(company).join(', ')
 
 		return (
 			<tr>
 				<td
 					mix={css({
 						color: 'var(--text-muted)',
-						fontSize: '9px',
+						fontSize: 'var(--type-small)',
 						textAlign: 'right',
 					})}
 				>
@@ -148,13 +228,14 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 					</TextLink>
 				</td>
 				<td
+					title={stack}
 					mix={css({
 						maxWidth: '150px',
 						overflow: 'hidden',
 						textOverflow: 'ellipsis',
 					})}
 				>
-					{stackFor(company).join(', ')}
+					{stack}
 				</td>
 				{/* <td> */}
 				{/* 	<Sparkline values={activityFor(company.slug)} /> */}
@@ -168,7 +249,9 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 						})}
 					>
 						{job && jobTitle(job)}
-						{job?.salary && <Badge label='salary listed'>$</Badge>}
+						{job?.salary && (
+							<Badge label='salary listed'>{currencySymbol(job.salary)}</Badge>
+						)}
 						{otherJobs.length > 0 && (
 							<Badge label={`${otherJobs.length} more roles`}>
 								+{otherJobs.length}
@@ -178,19 +261,10 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 				</td>
 				<td mix={css({ textAlign: 'right' })}>
 					<TextLink href={routes.job.show.href({ slug: company.slug })} underline>
-						apply
+						apply <span mix={visuallyHidden}>to {company.name}</span>
 					</TextLink>
 				</td>
 			</tr>
 		)
 	}
 }
-
-const visuallyHidden = css({
-	position: 'absolute',
-	width: '1px',
-	height: '1px',
-	overflow: 'hidden',
-	clip: 'rect(0 0 0 0)',
-	whiteSpace: 'nowrap',
-})

@@ -2,6 +2,7 @@ import { css, type Handle, type RemixNode } from 'remix/ui'
 
 import {
 	categoryName,
+	currencySymbol,
 	editUrl,
 	jobStack,
 	jobTitle,
@@ -24,6 +25,7 @@ import { SiteFooter } from '../../ui/site-footer.tsx'
 import { StatusDot } from '../../ui/status-dot.tsx'
 import { TableCard } from '../../ui/table-card.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
+import { visuallyHidden } from '../../ui/visually-hidden.ts'
 import { Document } from '../document.tsx'
 
 export function CompanyPage(handle: Handle<{ company: Company }>) {
@@ -59,11 +61,11 @@ function CompanyHeader(handle: Handle<{ company: Company }>) {
 		let x = social('x.com')
 
 		return (
-			<header mix={css({ display: 'grid', gap: '12px' })}>
+			<header mix={css({ display: 'grid', gap: '12px', overflowWrap: 'anywhere' })}>
 				<h1
 					mix={css({
 						margin: 0,
-						fontSize: '24px',
+						fontSize: '1.375rem',
 						fontWeight: 600,
 						lineHeight: 1.1,
 						letterSpacing: '-0.02em',
@@ -113,10 +115,10 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 			<p
 				mix={css({
 					'margin': 0,
-					'maxWidth': '560px',
+					'maxWidth': '70ch',
 					'& strong': { fontWeight: 700 },
 					'& a': { whiteSpace: 'nowrap' },
-					'& svg': { width: '10px', height: '10px', verticalAlign: 'middle' },
+					'& svg': { width: '0.85em', height: '0.85em', verticalAlign: 'middle' },
 				})}
 			>
 				{company.name} is building {company.building}
@@ -177,12 +179,13 @@ function JobsTable(handle: Handle<{ jobs: Job[] }>) {
 					</th>
 					<th mix={css({ textAlign: 'right' })}>
 						<StatusDot /> <span aria-hidden='true'>⋯</span>
+						<span mix={visuallyHidden}>apply</span>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
-				{handle.props.jobs.map((job) => (
-					<JobRow key={job.url} job={job} />
+				{handle.props.jobs.map((job, index) => (
+					<JobRow key={index} job={job} />
 				))}
 			</tbody>
 		</TableCard>
@@ -192,6 +195,7 @@ function JobsTable(handle: Handle<{ jobs: Job[] }>) {
 function JobRow(handle: Handle<{ job: Job }>) {
 	return () => {
 		let { job } = handle.props
+		let stack = jobStack(job).join(', ')
 
 		return (
 			<tr>
@@ -204,23 +208,26 @@ function JobRow(handle: Handle<{ job: Job }>) {
 						})}
 					>
 						{jobTitle(job)}
-						{job.salary && <Badge label='salary listed'>$</Badge>}
+						{job.salary && (
+							<Badge label='salary listed'>{currencySymbol(job.salary)}</Badge>
+						)}
 					</span>
 				</td>
 				<td>{categoryName(job.category)}</td>
 				<td>{job.type.charAt(0).toUpperCase() + job.type.slice(1)}</td>
 				<td
+					title={stack}
 					mix={css({
 						maxWidth: '150px',
 						overflow: 'hidden',
 						textOverflow: 'ellipsis',
 					})}
 				>
-					{jobStack(job).join(', ')}
+					{stack}
 				</td>
 				<td mix={css({ textAlign: 'right' })}>
 					<TextLink href={job.url} external underline>
-						apply
+						apply <span mix={visuallyHidden}>for {jobTitle(job)}</span>
 					</TextLink>
 				</td>
 			</tr>
