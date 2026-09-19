@@ -22,12 +22,12 @@ A minimal Remix application starter with a home page.
 ## Commands
 
 ```sh
-npm i
-npm run dev
-npm run build
-npm run preview
-npm test
-npm run typecheck
+bun i
+bun run dev
+bun run build
+bun run preview
+bun test
+bun run typecheck
 ```
 
 ## Deploying
