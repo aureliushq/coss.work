@@ -121,3 +121,37 @@ export function ContrastIcon() {
 		</Icon>
 	)
 }
+
+export function XLogoIcon() {
+	return () => (
+		<Icon>
+			<path d='m4 4 11.7 16H20L8.3 4zM4 20l6.8-6.8m2.4-2.4L20 4' />
+		</Icon>
+	)
+}
+
+export function PenIcon() {
+	return () => (
+		<Icon>
+			<path d='M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7' />
+			<path d='M18.4 2.6a1 1 0 0 1 3 3l-9 9a2 2 0 0 1-.9.5l-2.9.8a.5.5 0 0 1-.6-.6l.8-2.9a2 2 0 0 1 .5-.8z' />
+		</Icon>
+	)
+}
+
+export function ArrowLeft() {
+	return () => (
+		<Icon>
+			<path d='m12 19-7-7 7-7' />
+			<path d='M19 12H5' />
+		</Icon>
+	)
+}
+
+export function CloudIcon() {
+	return () => (
+		<Icon>
+			<path d='M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z' />
+		</Icon>
+	)
+}

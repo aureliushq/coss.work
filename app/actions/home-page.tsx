@@ -2,6 +2,8 @@ import { css, type Handle, type RemixNode } from 'remix/ui'
 
 import {
 	// activityFor,
+	positionName,
+	stackFor,
 	type Company,
 } from '../data/companies.ts'
 import { routes } from '../routes.ts'
@@ -12,6 +14,7 @@ import {
 	BirdIcon,
 	BookIcon,
 	ChevronDownIcon,
+	CloudIcon,
 	CodeIcon,
 	ContrastIcon,
 	GitHubIcon,
@@ -86,7 +89,7 @@ function Hero(handle: Handle<{ query: string }>) {
 		<section
 			mix={css({
 				width: '100%',
-				maxWidth: '500px',
+				maxWidth: '760px',
 				display: 'grid',
 				gap: '48px',
 			})}
@@ -210,6 +213,7 @@ function CompanyTable(handle: Handle<{ companies: Company[]; query: string }>) {
 function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 	return () => {
 		let { company, position } = handle.props
+		let [job, ...otherJobs] = company.jobs
 
 		return (
 			<tr>
@@ -234,7 +238,7 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 						textOverflow: 'ellipsis',
 					})}
 				>
-					{company.stack.join(', ')}
+					{stackFor(company).join(', ')}
 				</td>
 				{/* <td> */}
 				{/* 	<Sparkline values={activityFor(company.slug)} /> */}
@@ -247,11 +251,12 @@ function CompanyRow(handle: Handle<{ company: Company; position: number }>) {
 							alignItems: 'center',
 						})}
 					>
-						{company.role}
-						{company.salaryListed && <Badge label='salary listed'>$</Badge>}
-						{company.extraRoles > 0 && (
-							<Badge label={`${company.extraRoles} more roles`}>
-								+{company.extraRoles}
+						{job &&
+							`${job.level === 'senior' ? 'Sr ' : ''}${positionName(job.position)}`}
+						{job?.salary && <Badge label='salary listed'>$</Badge>}
+						{otherJobs.length > 0 && (
+							<Badge label={`${otherJobs.length} more roles`}>
+								+{otherJobs.length}
 							</Badge>
 						)}
 					</span>
@@ -319,31 +324,31 @@ const DIRECTORY: DirectoryColumn[] = [
 		title: 'languages',
 		icon: <BookIcon />,
 		route: routes.tech.show,
-		links: ['Rust & Go', 'TypeScript & JS', 'Python & Java', 'PHP & Ruby', 'C & C++'],
+		links: ['Rust', 'Go', 'TypeScript/JavaScript', 'Python', 'Java', 'PHP', 'Ruby', 'C & C++'],
 	},
 	{
 		title: 'tech',
 		icon: <LaptopIcon />,
 		route: routes.tech.show,
-		links: ['React & Next.js', 'Kubernetes', 'Terraform', 'Node & Redis', 'Postgres & MySQL'],
+		links: ['React', 'Kubernetes', 'Terraform', 'Node', 'Redis', 'PostgreSQL', 'MySQL'],
 	},
 	{
-		title: 'devs',
-		icon: <GitHubIcon />,
+		title: 'type',
+		icon: <CodeIcon />,
 		route: routes.title.show,
 		links: ['Frontend', 'Backend', 'Full-Stack', 'Mobile', 'DevOps'],
 	},
 	{
-		title: 'services',
-		icon: <CodeIcon />,
+		title: 'cloud',
+		icon: <CloudIcon />,
 		route: routes.tech.show,
-		links: ['AWS', 'Amazon RDS', 'Amazon ECS', 'GCP', 'Azure'],
+		links: ['AWS', 'GCP', 'Azure'],
 	},
 	{
 		title: 'offices',
 		icon: <GlobeIcon />,
 		route: routes.tech.show,
-		links: ['SF & NYC', 'Berlin & Paris', 'USA & Canada', 'India', 'Israel'],
+		links: ['SF', 'NYC', 'Berlin', 'Paris', 'USA', 'Canada', 'India', 'Israel'],
 	},
 ]
 
@@ -354,10 +359,10 @@ function Directory() {
 			mix={css({
 				width: '100%',
 				maxWidth: '760px',
-				display: 'flex',
-				flexWrap: 'wrap',
+				display: 'grid',
+				gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
 				justifyContent: 'space-between',
-				gap: '24px 16px',
+				gap: '32px',
 				whiteSpace: 'nowrap',
 			})}
 		>
