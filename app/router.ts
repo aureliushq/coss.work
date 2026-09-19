@@ -4,7 +4,6 @@ import { staticFiles } from 'remix/middleware/static'
 import { createRouter, type MiddlewareContext } from 'remix/router'
 
 import companiesController from './actions/companies/controller.tsx'
-import companiesEditController from './actions/companies/edit/controller.tsx'
 import controller from './actions/controller.tsx'
 import subscribeController from './actions/subscribe/controller.tsx'
 import { assets } from './assets.ts'
@@ -26,5 +25,4 @@ export const router = createRouter<AppContext>({
 
 router.map(routes, controller)
 router.map(routes.companies, companiesController)
-router.map(routes.companies.edit, companiesEditController)
 router.map(routes.subscribe, subscribeController)
