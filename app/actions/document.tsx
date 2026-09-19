@@ -1,7 +1,9 @@
+import { HMR } from 'pitlane:dev'
 import type { Handle, RemixNode } from 'remix/ui'
 import { css } from 'remix/ui'
 
 import { themeStyle } from '../ui/theme.ts'
+import clientAssets from './public/entry.ts?assets=client'
 
 export interface DocumentProps {
 	children?: RemixNode
@@ -34,8 +36,16 @@ export function Document(handle: Handle<DocumentProps>) {
 					/>
 					<title>{title}</title>
 					{head}
+					{clientAssets.css.map((attrs) => (
+						<link key={attrs.href} {...attrs} rel='stylesheet' />
+					))}
+					<script src={clientAssets.entry} type='module' />
+					{clientAssets.js.map((attrs) => (
+						<link key={attrs.href} {...attrs} rel='modulepreload' />
+					))}
 				</head>
 				<body mix={[themeStyle, bodyStyle]}>
+					<HMR />
 					<main mix={mainStyle}>{children}</main>
 				</body>
 			</html>
