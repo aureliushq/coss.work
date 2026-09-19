@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "protocol-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["typescript", "rust", "go"],

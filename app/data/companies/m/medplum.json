@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "full-stack-engineer",
+			"category": "full-stack",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["typescript", "react"],

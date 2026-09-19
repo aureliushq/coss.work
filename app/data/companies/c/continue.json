@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "founding-engineer",
+			"category": "full-stack",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

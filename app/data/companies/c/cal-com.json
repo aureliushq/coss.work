@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "full-stack-engineer",
+			"category": "full-stack",
 			"level": "senior",
 			"type": "full-time",
 			"salary": {

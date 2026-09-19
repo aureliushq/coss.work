@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "backend-engineer",
+			"category": "backend",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["typescript", "javascript", "node-js"],

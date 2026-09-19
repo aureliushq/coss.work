@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "software-engineer",
+			"category": "full-stack",
 			"level": "senior",
 			"type": "full-time",
 			"salary": {
@@ -29,6 +30,7 @@
 		},
 		{
 			"position": "devops-engineer",
+			"category": "devops",
 			"level": "any",
 			"type": "full-time",
 			"salary": {
@@ -41,6 +43,7 @@
 		},
 		{
 			"position": "frontend-engineer",
+			"category": "frontend",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

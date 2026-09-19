@@ -6,6 +6,15 @@ import tech from './tech.json' with { type: 'json' }
 
 export type Job = {
 	position: string
+	category:
+		| 'frontend'
+		| 'backend'
+		| 'full-stack'
+		| 'mobile'
+		| 'devops'
+		| 'data'
+		| 'security'
+		| 'systems'
 	level: 'any' | 'junior' | 'senior'
 	type: 'full-time' | 'part-time' | 'contract' | 'freelance'
 	salary?: {
@@ -34,8 +43,20 @@ export type Company = {
 	updated: string
 }
 
+export const REPO_URL = 'https://github.com/aureliushq/coss.work'
+
 let techNames: Record<string, string> = tech
 let positionNames: Record<string, string> = positions
+let categoryNames: Record<Job['category'], string> = {
+	'frontend': 'Frontend',
+	'backend': 'Backend',
+	'full-stack': 'Full-Stack',
+	'mobile': 'Mobile',
+	'devops': 'DevOps',
+	'data': 'Data',
+	'security': 'Security',
+	'systems': 'Systems',
+}
 
 let companiesDir = new URL('./companies/', import.meta.url)
 let files = (await readdir(companiesDir, { recursive: true })).filter((file) =>
@@ -52,12 +73,37 @@ companies.sort((a, b) => b.updated.localeCompare(a.updated))
 
 // Unique tech names across all of a company's jobs.
 export function stackFor(company: Company) {
-	let ids = new Set(company.jobs.flatMap((job) => job.tech))
-	return [...ids].map((id) => techNames[id] ?? id)
+	return [...new Set(company.jobs.flatMap(jobStack))]
+}
+
+export function jobStack(job: Job) {
+	return job.tech.map((id) => techNames[id] ?? id)
 }
 
 export function positionName(id: string) {
 	return positionNames[id] ?? id
+}
+
+export function categoryName(id: Job['category']) {
+	return categoryNames[id]
+}
+
+const LEVEL_PREFIX: Record<Job['level'], string> = { any: '', junior: 'Jr ', senior: 'Sr ' }
+
+export function jobTitle(job: Job) {
+	return LEVEL_PREFIX[job.level] + positionName(job.position)
+}
+
+// Office ids are slugs (`san-francisco`); there is no locations.json to look them up in yet.
+export function officeName(id: string) {
+	return id.replace(
+		/(^|-)(\w)/g,
+		(_, dash: string, char: string) => (dash ? ' ' : '') + char.toUpperCase(),
+	)
+}
+
+export function editUrl(company: Company) {
+	return `${REPO_URL}/blob/main/app/data/companies/${company.slug.charAt(0)}/${company.slug}.json`
 }
 
 export async function listCompanies(query: string) {

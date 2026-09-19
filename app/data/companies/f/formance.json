@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "compiler-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["go"],

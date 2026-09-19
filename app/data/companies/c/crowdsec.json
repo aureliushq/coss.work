@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "data-engineer",
+			"category": "data",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["python", "apache-kafka", "go"],

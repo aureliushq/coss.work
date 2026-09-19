@@ -25,6 +25,7 @@
 	"jobs": [
 		{
 			"position": "system-administrator",
+			"category": "devops",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["node-js", "kubernetes", "php"],

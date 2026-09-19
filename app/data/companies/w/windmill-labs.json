@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "rust-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

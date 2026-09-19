@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "frontend-engineer",
+			"category": "frontend",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["javascript", "react"],

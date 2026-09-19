@@ -66,11 +66,23 @@
 		"job": {
 			"type": "object",
 			"additionalProperties": false,
-			"required": ["position", "level", "type", "tech", "url"],
+			"required": ["position", "category", "level", "type", "tech", "url"],
 			"properties": {
 				"position": {
 					"type": "string",
 					"description": "Position id from app/data/positions.json."
+				},
+				"category": {
+					"enum": [
+						"frontend",
+						"backend",
+						"full-stack",
+						"mobile",
+						"devops",
+						"data",
+						"security",
+						"systems"
+					]
 				},
 				"level": { "enum": ["any", "junior", "senior"] },
 				"type": { "enum": ["full-time", "part-time", "contract", "freelance"] },

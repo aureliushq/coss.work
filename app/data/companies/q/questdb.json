@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "core-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["c", "java", "cpp"],

@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "cloud-software-engineer",
+			"category": "backend",
 			"level": "senior",
 			"type": "full-time",
 			"salary": {
@@ -33,6 +34,7 @@
 		},
 		{
 			"position": "core-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

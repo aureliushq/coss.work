@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "devops-engineer",
+			"category": "devops",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["kubernetes", "aws", "docker"],
@@ -28,6 +29,7 @@
 		},
 		{
 			"position": "python-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["python"],

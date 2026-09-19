@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "backend-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["python", "kubernetes", "aws", "pytorch"],

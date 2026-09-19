@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "blockchain-infrastructure-engineer",
+			"category": "systems",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["ethereum", "rust", "typescript"],

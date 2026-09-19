@@ -25,6 +25,7 @@
 	"jobs": [
 		{
 			"position": "blockchain-security-engineer",
+			"category": "security",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["ethereum", "go"],

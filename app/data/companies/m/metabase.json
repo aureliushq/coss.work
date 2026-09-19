@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "backend-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["clojure", "typescript"],
@@ -28,6 +29,7 @@
 		},
 		{
 			"position": "frontend-engineer",
+			"category": "frontend",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["typescript", "javascript"],

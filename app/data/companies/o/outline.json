@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "javascript-engineer",
+			"category": "full-stack",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["javascript"],

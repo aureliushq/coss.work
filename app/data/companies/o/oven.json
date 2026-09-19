@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "runtime-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["c", "cpp", "zig"],

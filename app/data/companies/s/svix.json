@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "frontend-engineer",
+			"category": "frontend",
 			"level": "any",
 			"type": "full-time",
 			"salary": {
@@ -33,6 +34,7 @@
 		},
 		{
 			"position": "rust-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "software-engineer",
+			"category": "systems",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["python", "c", "cpp", "rust"],

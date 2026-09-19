@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "staff-engineer",
+			"category": "full-stack",
 			"level": "senior",
 			"type": "full-time",
 			"salary": {

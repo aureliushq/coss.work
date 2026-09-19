@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "software-engineer",
+			"category": "backend",
 			"level": "senior",
 			"type": "full-time",
 			"tech": ["javascript", "go"],

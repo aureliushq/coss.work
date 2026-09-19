@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "python-engineer",
+			"category": "backend",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["python", "ethereum"],

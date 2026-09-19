@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "ruby-engineer",
+			"category": "full-stack",
 			"level": "any",
 			"type": "full-time",
 			"tech": ["ruby", "vue-js"],

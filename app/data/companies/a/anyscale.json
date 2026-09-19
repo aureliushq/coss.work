@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "software-engineer",
+			"category": "systems",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

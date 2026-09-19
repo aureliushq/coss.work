@@ -17,6 +17,7 @@
 	"jobs": [
 		{
 			"position": "android-engineer",
+			"category": "mobile",
 			"level": "any",
 			"type": "full-time",
 			"salary": {

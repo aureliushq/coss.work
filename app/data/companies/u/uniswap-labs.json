@@ -21,6 +21,7 @@
 	"jobs": [
 		{
 			"position": "smart-contract-engineer",
+			"category": "backend",
 			"level": "senior",
 			"type": "full-time",
 			"salary": {
