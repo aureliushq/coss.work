@@ -3,15 +3,7 @@ import { css, type Handle, type RemixNode } from 'remix/ui'
 import { SubscribeForm } from '../actions/subscribe/public/subscribe-form.tsx'
 import { REPO_URL } from '../data/companies.ts'
 import { routes } from '../routes.ts'
-import {
-	BookIcon,
-	CloudIcon,
-	CodeIcon,
-	ContrastIcon,
-	GitHubIcon,
-	GlobeIcon,
-	LaptopIcon,
-} from './icons.tsx'
+import { BookIcon, CloudIcon, CodeIcon, GitHubIcon, GlobeIcon, LaptopIcon } from './icons.tsx'
 import { outlineButton } from './outline-button.ts'
 import { SearchForm } from './search-form.tsx'
 import { TextLink } from './text-link.tsx'
@@ -75,9 +67,6 @@ export function SiteFooter() {
 							target='_blank'
 						>
 							<GitHubIcon />
-						</a>
-						<a href='#' aria-label='Theme'>
-							<ContrastIcon />
 						</a>
 						<a href='#'>privacy</a>
 						<span>© {new Date().getFullYear()}</span>
