@@ -15,6 +15,7 @@ import {
 } from 'jsonc-parser'
 
 import schema from './company.schema.json' with { type: 'json' }
+import locations from './locations.json' with { type: 'json' }
 import positions from './positions.json' with { type: 'json' }
 import tech from './tech.json' with { type: 'json' }
 
@@ -74,13 +75,37 @@ for (let file of files) {
 	}
 
 	// Checked even when the schema fails, so contributors see every error in one run.
-	let jobs: unknown[] = Array.isArray(company?.jobs) ? company.jobs : []
-	jobs.forEach((job: any, i) => {
-		if (typeof job?.position === 'string' && !Object.hasOwn(positions, job.position)) {
+	let offices: unknown[] = Array.isArray(company?.offices) ? company.offices : []
+	offices.forEach((id, i) => {
+		// `remote` is a sentinel office id, not a location.
+		if (typeof id === 'string' && id !== 'remote' && !Object.hasOwn(locations, id)) {
 			report(
-				offsetOf(['jobs', i, 'position']),
-				`jobs.${i}.position: unknown id "${job.position}", see app/data/positions.json`,
+				offsetOf(['offices', i]),
+				`offices.${i}: unknown id "${id}", see app/data/locations.json`,
 			)
+		}
+	})
+
+	let jobs: unknown[] = Array.isArray(company?.jobs) ? company.jobs : []
+	// Job page slugs are position-at-company, so one company cannot list a position twice.
+	let seenPositions = new Map<string, number>()
+	jobs.forEach((job: any, i) => {
+		if (typeof job?.position === 'string') {
+			if (!Object.hasOwn(positions, job.position)) {
+				report(
+					offsetOf(['jobs', i, 'position']),
+					`jobs.${i}.position: unknown id "${job.position}", see app/data/positions.json`,
+				)
+			}
+			let first = seenPositions.get(job.position)
+			if (first === undefined) {
+				seenPositions.set(job.position, i)
+			} else {
+				report(
+					offsetOf(['jobs', i, 'position']),
+					`jobs.${i}.position: "${job.position}" is already used by jobs.${first}`,
+				)
+			}
 		}
 		let ids: unknown[] = Array.isArray(job?.tech) ? job.tech : []
 		ids.forEach((id, j) => {

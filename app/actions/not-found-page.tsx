@@ -2,6 +2,7 @@ import type { RequestHandler, RouterTypes } from 'remix/router'
 import { css } from 'remix/ui'
 
 import { routes } from '../routes.ts'
+import { headlineStyle } from '../ui/headline.ts'
 import { SiteFooter } from '../ui/site-footer.tsx'
 import { TextLink } from '../ui/text-link.tsx'
 import { Document } from './document.tsx'
@@ -15,17 +16,7 @@ export function NotFoundPage() {
 					gap: '12px',
 				})}
 			>
-				<h1
-					mix={css({
-						margin: 0,
-						fontSize: '1.375rem',
-						fontWeight: 600,
-						lineHeight: 1.1,
-						letterSpacing: '-0.02em',
-					})}
-				>
-					page not found
-				</h1>
+				<h1 mix={headlineStyle}>page not found</h1>
 				<p mix={css({ margin: 0, color: 'var(--text-muted)' })}>
 					nothing lives at this address.{' '}
 					<TextLink href={routes.home.href()} underline>

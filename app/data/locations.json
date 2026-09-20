@@ -1,0 +1,52 @@
+{
+	"amsterdam": { "name": "Amsterdam", "country": "Netherlands" },
+	"austin": {
+		"name": "Austin",
+		"region": "Texas",
+		"country": "United States"
+	},
+	"bangalore": {
+		"name": "Bangalore",
+		"region": "Karnataka",
+		"country": "India"
+	},
+	"berlin": { "name": "Berlin", "country": "Germany" },
+	"des-moines": {
+		"name": "Des Moines",
+		"region": "Iowa",
+		"country": "United States"
+	},
+	"london": { "name": "London", "country": "United Kingdom" },
+	"madrid": { "name": "Madrid", "country": "Spain" },
+	"malmo": { "name": "Malmö", "country": "Sweden" },
+	"milan": { "name": "Milan", "country": "Italy" },
+	"nantes": { "name": "Nantes", "country": "France" },
+	"new-york": {
+		"name": "New York",
+		"region": "New York",
+		"country": "United States"
+	},
+	"paris": { "name": "Paris", "country": "France" },
+	"san-diego": {
+		"name": "San Diego",
+		"region": "California",
+		"country": "United States"
+	},
+	"san-francisco": {
+		"name": "San Francisco",
+		"region": "California",
+		"country": "United States"
+	},
+	"seattle": {
+		"name": "Seattle",
+		"region": "Washington",
+		"country": "United States"
+	},
+	"tel-aviv": { "name": "Tel Aviv", "country": "Israel" },
+	"turin": { "name": "Turin", "country": "Italy" },
+	"vancouver": {
+		"name": "Vancouver",
+		"region": "British Columbia",
+		"country": "Canada"
+	}
+}

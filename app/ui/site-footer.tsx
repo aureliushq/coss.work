@@ -159,7 +159,7 @@ function PostJobSection() {
 type DirectoryColumn = {
 	title: string
 	icon: RemixNode
-	route: typeof routes.tech.show | typeof routes.title.show
+	route: typeof routes.location.show | typeof routes.tech.show | typeof routes.title.show
 	links: string[]
 }
 
@@ -191,8 +191,8 @@ const DIRECTORY: DirectoryColumn[] = [
 	{
 		title: 'offices',
 		icon: <BuildingComplexIcon />,
-		route: routes.tech.show,
-		links: ['SF', 'NYC', 'Berlin', 'Paris', 'USA', 'Canada', 'India', 'Israel'],
+		route: routes.location.show,
+		links: ['SF', 'NYC', 'Berlin', 'Paris', 'London', 'Amsterdam', 'Seattle', 'Tel Aviv'],
 	},
 ]
 
@@ -256,10 +256,12 @@ function DirectoryLabel(handle: Handle<{ label: string }>) {
 	}
 }
 
-// Labels that group several techs link to the main one.
+// Labels that don't slugify to their id: grouped techs link to the main one, cities to their id.
 const SLUGS: Record<string, string> = {
 	'TypeScript/JavaScript': 'typescript',
 	'C & C++': 'cpp',
+	'SF': 'san-francisco',
+	'NYC': 'new-york',
 }
 
 function slugify(label: string) {

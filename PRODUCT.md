@@ -24,14 +24,14 @@ Curated and open. Only companies whose core product is open source are eligible.
 
 - Job hunters browse and search the site. They apply off-site through each job's `url`.
 - Companies contribute through GitHub: one JSON file per company at `app/data/companies/<first letter>/<slug>.json`, following `company.schema.json`. The `validate-companies` GitHub workflow annotates errors on the PR.
-- Tech and position names come from fixed id lists (`tech.json`, `positions.json`).
+- Tech, position and office names come from fixed id lists (`tech.json`, `positions.json`, `locations.json`).
 
 ## Capabilities and Constraints
 
 Current:
 
 - Home page: search by stack, table of hiring companies with stack, first role, salary flag, and extra-role count.
-- Company pages, and routes for job, tech, and title pages.
+- Company, job, tech, category and location pages. Every job has its own page with an apply link to the company's own posting.
 - Job data: position, category, level, type, optional salary range (USD, EUR, GBP, CAD, AUD, CHF, INR), optional equity, tech, apply URL.
 - Subscribe form (email + stack). Backend is a stub today.
 
