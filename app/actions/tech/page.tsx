@@ -1,12 +1,13 @@
 import { css, type Handle } from 'remix/ui'
 
-import { categoryName, officeName, REPO_URL, type Company } from '../../data/companies.ts'
+import { officeName, REPO_URL, type Company } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
 import { CompanyTable } from '../../ui/company-table.tsx'
+import { headlineStyle } from '../../ui/headline.ts'
 import { IconLink } from '../../ui/icon-link.tsx'
 import { ArrowLeft, ArrowUpRightIcon } from '../../ui/icons.tsx'
 import { SiteFooter } from '../../ui/site-footer.tsx'
-import { joinList, summaryStyle } from '../../ui/summary.ts'
+import { categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { Document } from '../document.tsx'
 
@@ -33,17 +34,7 @@ export function TechPage(handle: Handle<{ name: string; companies: Company[] }>)
 					})}
 				>
 					<header mix={css({ display: 'grid', gap: '12px', overflowWrap: 'anywhere' })}>
-						<h1
-							mix={css({
-								margin: 0,
-								fontSize: '1.375rem',
-								fontWeight: 600,
-								lineHeight: 1.1,
-								letterSpacing: '-0.02em',
-							})}
-						>
-							{name} Jobs
-						</h1>
+						<h1 mix={headlineStyle}>{name} Jobs</h1>
 						<nav aria-label={`${name} links`}>
 							<IconLink href={routes.home.href()} icon={<ArrowLeft />}>
 								home
@@ -81,7 +72,6 @@ function TechSummary(handle: Handle<{ name: string; companies: Company[] }>) {
 
 		let jobs = companies.flatMap((company) => company.jobs)
 		let products = companies.flatMap((company) => company.products.slice(0, 1))
-		let categories = [...new Set(jobs.map((job) => job.category))]
 		let allOffices = new Set(companies.flatMap((company) => company.offices))
 		let remote = allOffices.delete('remote')
 		let offices = [...allOffices]
@@ -98,12 +88,7 @@ function TechSummary(handle: Handle<{ name: string; companies: Company[] }>) {
 						</TextLink>
 					)),
 				)}
-				. {jobs.length} {workplace}{' '}
-				{joinList(
-					categories.map((category) => (
-						<strong>{categoryName(category).toLowerCase()}</strong>
-					)),
-				)}{' '}
+				. {jobs.length} {workplace} {categoryList(jobs)}{' '}
 				{jobs.length === 1 ? 'job is' : 'jobs are'} currently available
 				{offices.length > 0 && (
 					<>

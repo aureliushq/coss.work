@@ -32,7 +32,6 @@ export type Location = {
 	name: string
 	region?: string
 	country: string
-	countryCode: string
 }
 
 export type Company = {
@@ -112,13 +111,6 @@ export function currencySymbol(salary: NonNullable<Job['salary']>) {
 // Office ids come from locations.json. Callers drop `remote` first; it has no entry there.
 export function officeName(id: string) {
 	return locationsById[id]?.name ?? id
-}
-
-// `US` -> 🇺🇸. Regional indicator symbols sit 0x1f1a5 above the ASCII letters.
-export function countryFlag(countryCode: string) {
-	return countryCode
-		.toUpperCase()
-		.replace(/[A-Z]/g, (char) => String.fromCodePoint(char.charCodeAt(0) + 0x1f1a5))
 }
 
 export function editUrl(company: Company) {

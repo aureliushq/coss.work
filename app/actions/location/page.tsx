@@ -1,20 +1,13 @@
 import { css, type Handle } from 'remix/ui'
 
-import {
-	categoryName,
-	countryFlag,
-	REPO_URL,
-	stackFor,
-	techName,
-	type Company,
-	type Location,
-} from '../../data/companies.ts'
+import { REPO_URL, stackFor, techName, type Company, type Location } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
 import { CompanyTable } from '../../ui/company-table.tsx'
+import { headlineStyle } from '../../ui/headline.ts'
 import { IconLink } from '../../ui/icon-link.tsx'
 import { ArrowLeft } from '../../ui/icons.tsx'
 import { SiteFooter } from '../../ui/site-footer.tsx'
-import { joinList, summaryStyle } from '../../ui/summary.ts'
+import { categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { Document } from '../document.tsx'
 
@@ -41,17 +34,7 @@ export function LocationPage(handle: Handle<{ location: Location; companies: Com
 					})}
 				>
 					<header mix={css({ display: 'grid', gap: '12px', overflowWrap: 'anywhere' })}>
-						<h1
-							mix={css({
-								margin: 0,
-								fontSize: '1.375rem',
-								fontWeight: 600,
-								lineHeight: 1.1,
-								letterSpacing: '-0.02em',
-							})}
-						>
-							Jobs in {location.name}
-						</h1>
+						<h1 mix={headlineStyle}>Jobs in {location.name}</h1>
 						<div
 							mix={css({
 								display: 'flex',
@@ -67,7 +50,6 @@ export function LocationPage(handle: Handle<{ location: Location; companies: Com
 							</nav>
 							{/* Plain text, not a link: there are no country pages. */}
 							<span mix={css({ color: 'var(--text-muted)' })}>
-								<span aria-hidden='true'>{countryFlag(location.countryCode)}</span>{' '}
 								{location.country}
 							</span>
 						</div>
@@ -106,8 +88,6 @@ function LocationSummary(handle: Handle<{ location: Location; companies: Company
 			)
 		}
 
-		let jobs = companies.flatMap((company) => company.jobs)
-		let categories = [...new Set(jobs.map((job) => job.category))]
 		let stack = [...new Set(companies.flatMap(stackFor))].slice(0, SUMMARY_STACK_LIMIT)
 		let remote = companies.some((company) => company.offices.includes('remote'))
 		// "San Francisco, California, United States"; the region is only set where it helps.
@@ -119,12 +99,7 @@ function LocationSummary(handle: Handle<{ location: Location; companies: Company
 			<p mix={summaryStyle}>
 				{companies.length} open-source{' '}
 				{companies.length === 1 ? 'company is' : 'companies are'} hiring{' '}
-				{joinList(
-					categories.map((category) => (
-						<strong>{categoryName(category).toLowerCase()}</strong>
-					)),
-				)}{' '}
-				engineers to work with{' '}
+				{categoryList(companies.flatMap((company) => company.jobs))} engineers to work with{' '}
 				{joinList(stack.map((id) => <strong>{techName(id)}</strong>))}
 				{remote && ' remotely and'} in their {placeName} office.
 			</p>

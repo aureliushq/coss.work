@@ -12,6 +12,7 @@ import {
 } from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
 import { Badge } from '../../ui/badge.tsx'
+import { headlineStyle } from '../../ui/headline.ts'
 import { IconLink } from '../../ui/icon-link.tsx'
 import {
 	ArrowLeft,
@@ -23,7 +24,7 @@ import {
 } from '../../ui/icons.tsx'
 import { SiteFooter } from '../../ui/site-footer.tsx'
 import { StatusDot } from '../../ui/status-dot.tsx'
-import { joinList, summaryStyle } from '../../ui/summary.ts'
+import { categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { stackCellStyle, TableCard } from '../../ui/table-card.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { visuallyHidden } from '../../ui/visually-hidden.ts'
@@ -61,17 +62,7 @@ function CompanyHeader(handle: Handle<{ company: Company }>) {
 
 		return (
 			<header mix={css({ display: 'grid', gap: '12px', overflowWrap: 'anywhere' })}>
-				<h1
-					mix={css({
-						margin: 0,
-						fontSize: '1.375rem',
-						fontWeight: 600,
-						lineHeight: 1.1,
-						letterSpacing: '-0.02em',
-					})}
-				>
-					{company.name}
-				</h1>
+				<h1 mix={headlineStyle}>{company.name}</h1>
 				<nav
 					aria-label={`${company.name} links`}
 					mix={css({ display: 'flex', flexWrap: 'wrap', gap: '4px 12px' })}
@@ -105,7 +96,6 @@ function CompanyHeader(handle: Handle<{ company: Company }>) {
 function CompanySummary(handle: Handle<{ company: Company }>) {
 	return () => {
 		let { company } = handle.props
-		let categories = [...new Set(company.jobs.map((job) => job.category))]
 		let remote = company.offices.includes('remote')
 		let offices = company.offices.filter((office) => office !== 'remote')
 		let count = company.jobs.length
@@ -126,13 +116,8 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 						)
 					</>
 				)}
-				. Hiring for {count}{' '}
-				{joinList(
-					categories.map((category) => (
-						<strong>{categoryName(category).toLowerCase()}</strong>
-					)),
-				)}{' '}
-				engineering {count === 1 ? 'position' : 'positions'}
+				. Hiring for {count} {categoryList(company.jobs)} engineering{' '}
+				{count === 1 ? 'position' : 'positions'}
 				{remote && ' remotely'}
 				{offices.length > 0 && (
 					<>

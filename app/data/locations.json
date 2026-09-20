@@ -1,60 +1,52 @@
 {
-	"amsterdam": { "name": "Amsterdam", "country": "Netherlands", "countryCode": "NL" },
+	"amsterdam": { "name": "Amsterdam", "country": "Netherlands" },
 	"austin": {
 		"name": "Austin",
 		"region": "Texas",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
 	"bangalore": {
 		"name": "Bangalore",
 		"region": "Karnataka",
-		"country": "India",
-		"countryCode": "IN"
+		"country": "India"
 	},
-	"berlin": { "name": "Berlin", "country": "Germany", "countryCode": "DE" },
+	"berlin": { "name": "Berlin", "country": "Germany" },
 	"des-moines": {
 		"name": "Des Moines",
 		"region": "Iowa",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
-	"london": { "name": "London", "country": "United Kingdom", "countryCode": "GB" },
-	"madrid": { "name": "Madrid", "country": "Spain", "countryCode": "ES" },
-	"malmo": { "name": "Malmö", "country": "Sweden", "countryCode": "SE" },
-	"milan": { "name": "Milan", "country": "Italy", "countryCode": "IT" },
-	"nantes": { "name": "Nantes", "country": "France", "countryCode": "FR" },
+	"london": { "name": "London", "country": "United Kingdom" },
+	"madrid": { "name": "Madrid", "country": "Spain" },
+	"malmo": { "name": "Malmö", "country": "Sweden" },
+	"milan": { "name": "Milan", "country": "Italy" },
+	"nantes": { "name": "Nantes", "country": "France" },
 	"new-york": {
 		"name": "New York",
 		"region": "New York",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
-	"paris": { "name": "Paris", "country": "France", "countryCode": "FR" },
+	"paris": { "name": "Paris", "country": "France" },
 	"san-diego": {
 		"name": "San Diego",
 		"region": "California",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
 	"san-francisco": {
 		"name": "San Francisco",
 		"region": "California",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
 	"seattle": {
 		"name": "Seattle",
 		"region": "Washington",
-		"country": "United States",
-		"countryCode": "US"
+		"country": "United States"
 	},
-	"tel-aviv": { "name": "Tel Aviv", "country": "Israel", "countryCode": "IL" },
-	"turin": { "name": "Turin", "country": "Italy", "countryCode": "IT" },
+	"tel-aviv": { "name": "Tel Aviv", "country": "Israel" },
+	"turin": { "name": "Turin", "country": "Italy" },
 	"vancouver": {
 		"name": "Vancouver",
 		"region": "British Columbia",
-		"country": "Canada",
-		"countryCode": "CA"
+		"country": "Canada"
 	}
 }

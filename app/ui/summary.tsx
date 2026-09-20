@@ -1,5 +1,7 @@
 import { css, type RemixNode } from 'remix/ui'
 
+import { categoryName, type Job } from '../data/companies.ts'
+
 // Prose summary under a page title: bold facts, unbroken links, inline icons.
 export const summaryStyle = css({
 	'margin': 0,
@@ -20,4 +22,13 @@ export function joinList(nodes: RemixNode[]) {
 	return listFormat
 		.formatToParts(nodes.map((_, index) => String(index)))
 		.map((part) => (part.type === 'element' ? nodes[Number(part.value)] : part.value))
+}
+
+// "frontend, backend and devops": the categories these jobs hire for, in the order they appear.
+export function categoryList(jobs: Job[]) {
+	let categories = [...new Set(jobs.map((job) => job.category))]
+
+	return joinList(
+		categories.map((category) => <strong>{categoryName(category).toLowerCase()}</strong>),
+	)
 }
