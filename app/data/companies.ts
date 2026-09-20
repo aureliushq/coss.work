@@ -55,15 +55,48 @@ export const REPO_URL = 'https://github.com/aureliushq/coss.work'
 let techNames: Record<string, string> = tech
 let positionNames: Record<string, string> = positions
 let locationsById: Record<string, Location> = locations
-let categoryNames: Record<Job['category'], string> = {
-	'frontend': 'Frontend',
-	'backend': 'Backend',
-	'full-stack': 'Full-Stack',
-	'mobile': 'Mobile',
-	'devops': 'DevOps',
-	'data': 'Data',
-	'security': 'Security',
-	'systems': 'Systems',
+// Display name and the explainer paragraph on each category's own page.
+let categories: Record<Job['category'], { name: string; description: string }> = {
+	'frontend': {
+		name: 'Frontend',
+		description:
+			'Frontend jobs cover the part of a product people actually see and use. Frontend engineers build interfaces from components, markup and styles, keep them fast on slow networks and old devices, and make them work with a keyboard and a screen reader. The work runs from design systems and state management to bundle size, rendering performance and browser bugs.',
+	},
+	'backend': {
+		name: 'Backend',
+		description:
+			'Backend jobs cover the server side of a product: the APIs, the business rules and the data underneath them. Backend engineers design schemas, write queries that stay fast as tables grow, and handle queues, caching and background work. Much of the job is keeping a service correct and available while it is being changed.',
+	},
+	'full-stack': {
+		name: 'Full-Stack',
+		description:
+			'Full-stack jobs span both ends of a web application. Full-stack engineers own a feature from the interface down to the schema, which means moving between a component tree, an API and a database in the same day. These roles suit engineers who would rather ship a whole change than hand it across a team boundary.',
+	},
+	'mobile': {
+		name: 'Mobile',
+		description:
+			'Mobile jobs cover apps that ship to a phone or tablet, native or cross-platform. Mobile engineers work within the constraints the platform sets: battery, offline use, background limits and an app store review between them and their users. Older releases stay in the wild, so compatibility and migrations matter more than on the web.',
+	},
+	'devops': {
+		name: 'DevOps',
+		description:
+			'DevOps jobs cover how software is built, shipped and run. DevOps engineers own the pipelines, the infrastructure that runs the product, and the monitoring that says whether it is healthy. The work is mostly automation: making a deploy boring, a rollback quick, and a failure something that pages the right person with the right context.',
+	},
+	'data': {
+		name: 'Data',
+		description:
+			'Data jobs cover moving data from where it is produced to where it is useful. Data engineers build pipelines, model warehouses and keep the numbers trustworthy as sources change underneath them. The work ranges from batch and streaming ingestion to the tests and lineage that let everyone else rely on the result.',
+	},
+	'security': {
+		name: 'Security',
+		description:
+			'Security jobs cover keeping a product and its users safe from people trying to break in. Security engineers review designs and code for weaknesses, build the authentication, secrets and audit machinery, and respond when something goes wrong. Open-source work adds a public dimension: reports arrive from strangers, and fixes ship in the open.',
+	},
+	'systems': {
+		name: 'Systems',
+		description:
+			'Systems jobs cover the layers other software is built on: runtimes, databases, compilers, kernels and networking. Systems engineers work close to the machine, where memory, concurrency and latency are the problem rather than a detail. Correctness is expensive to get wrong here, so the work leans on careful design, benchmarks and tests.',
+	},
 }
 
 // Bundled at build time: Workers has no project filesystem to read these from at runtime.
@@ -92,7 +125,11 @@ export function positionName(id: string) {
 }
 
 export function categoryName(id: Job['category']) {
-	return categoryNames[id]
+	return categories[id].name
+}
+
+export function categoryDescription(id: Job['category']) {
+	return categories[id].description
 }
 
 const LEVEL_PREFIX: Record<Job['level'], string> = { any: '', junior: 'Jr ', senior: 'Sr ' }
@@ -111,6 +148,20 @@ export function currencySymbol(salary: NonNullable<Job['salary']>) {
 // Office ids come from locations.json. Callers drop `remote` first; it has no entry there.
 export function officeName(id: string) {
 	return locationsById[id]?.name ?? id
+}
+
+const RANGE_SUFFIX: Record<NonNullable<Job['salary']>['range'], string> = {
+	yearly: '/yr',
+	monthly: '/mo',
+	hourly: '/hr',
+}
+
+// "$200k-370k/yr USD".
+export function salaryRange(salary: NonNullable<Job['salary']>) {
+	let compact = new Intl.NumberFormat('en', { notation: 'compact' })
+	let [min, max] = salary.amount.map((amount) => compact.format(amount).toLowerCase())
+
+	return `${currencySymbol(salary)}${min}\u2013${max}${RANGE_SUFFIX[salary.range]} ${salary.currency.toUpperCase()}`
 }
 
 export function editUrl(company: Company) {
@@ -161,6 +212,33 @@ export async function getTech(slug: string) {
 	})
 
 	return { name, companies: hiring }
+}
+
+// "frontend-engineer-at-gradle". The validator keeps position ids unique within a company.
+export function jobSlug(company: Company, job: Job) {
+	return `${job.position}-at-${company.slug}`
+}
+
+export async function getJob(slug: string) {
+	for (let company of companies) {
+		let job = company.jobs.find((job) => jobSlug(company, job) === slug)
+		if (job !== undefined) return { company, job }
+	}
+
+	return undefined
+}
+
+// Companies hiring in a category, trimmed to the jobs in it.
+export async function getCategory(slug: string) {
+	if (!Object.hasOwn(categories, slug)) return undefined
+	let category = slug as Job['category']
+
+	let hiring = companies.flatMap((company) => {
+		let jobs = company.jobs.filter((job) => job.category === category)
+		return jobs.length > 0 ? [{ ...company, jobs }] : []
+	})
+
+	return { category, companies: hiring }
 }
 
 // Companies with an office in a location. `offices` is company-level, so every job counts.

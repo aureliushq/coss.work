@@ -3,6 +3,7 @@ import { css, type Handle, type RemixNode } from 'remix/ui'
 import {
 	// activityFor,
 	currencySymbol,
+	jobSlug,
 	jobTitle,
 	stackFor,
 	techName,
@@ -154,9 +155,14 @@ function CompanyRow(handle: Handle<{ company: Company; position?: number }>) {
 					</span>
 				</td>
 				<td mix={css({ textAlign: 'right' })}>
-					<TextLink href={routes.job.show.href({ slug: company.slug })} underline>
-						apply <span mix={visuallyHidden}>to {company.name}</span>
-					</TextLink>
+					{job && (
+						<TextLink
+							href={routes.job.show.href({ slug: jobSlug(company, job) })}
+							underline
+						>
+							apply <span mix={visuallyHidden}>to {company.name}</span>
+						</TextLink>
+					)}
 				</td>
 			</tr>
 		)

@@ -1,6 +1,8 @@
 import { css, type RemixNode } from 'remix/ui'
 
-import { categoryName, type Job } from '../data/companies.ts'
+import { categoryName, type Company, type Job } from '../data/companies.ts'
+import { ArrowUpRightIcon } from './icons.tsx'
+import { TextLink } from './text-link.tsx'
 
 // Prose summary under a page title: bold facts, unbroken links, inline icons.
 export const summaryStyle = css({
@@ -30,5 +32,27 @@ export function categoryList(jobs: Job[]) {
 
 	return joinList(
 		categories.map((category) => <strong>{categoryName(category).toLowerCase()}</strong>),
+	)
+}
+
+// "Gradle is building build automation for developers (Gradle Build Tool and Develocity)".
+export function buildingLine(company: Company) {
+	return (
+		<>
+			{company.name} is building {company.building}
+			{company.products.length > 0 && (
+				<>
+					{' ('}
+					{joinList(
+						company.products.map((product) => (
+							<TextLink href={product.url} external>
+								{product.name} <ArrowUpRightIcon />
+							</TextLink>
+						)),
+					)}
+					)
+				</>
+			)}
+		</>
 	)
 }
