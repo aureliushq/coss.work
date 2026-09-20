@@ -137,7 +137,13 @@ function CompanySummary(handle: Handle<{ company: Company }>) {
 				{offices.length > 0 && (
 					<>
 						{remote && ','} with offices in{' '}
-						{joinList(offices.map((office) => <strong>{officeName(office)}</strong>))}
+						{joinList(
+							offices.map((office) => (
+								<TextLink href={routes.location.show.href({ slug: office })}>
+									<strong>{officeName(office)}</strong>
+								</TextLink>
+							)),
+						)}
 					</>
 				)}
 				.

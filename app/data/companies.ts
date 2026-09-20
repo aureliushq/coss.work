@@ -1,5 +1,6 @@
 import { basename } from 'node:path'
 
+import locations from './locations.json' with { type: 'json' }
 import positions from './positions.json' with { type: 'json' }
 import tech from './tech.json' with { type: 'json' }
 
@@ -26,6 +27,14 @@ export type Job = {
 	url: string
 }
 
+// A city a company has an office in. `remote` is a sentinel office id, not a location.
+export type Location = {
+	name: string
+	region?: string
+	country: string
+	countryCode: string
+}
+
 export type Company = {
 	// Derived from the file name: `companies/<first letter>/<slug>.json`.
 	slug: string
@@ -46,6 +55,7 @@ export const REPO_URL = 'https://github.com/aureliushq/coss.work'
 
 let techNames: Record<string, string> = tech
 let positionNames: Record<string, string> = positions
+let locationsById: Record<string, Location> = locations
 let categoryNames: Record<Job['category'], string> = {
 	'frontend': 'Frontend',
 	'backend': 'Backend',
@@ -99,12 +109,16 @@ export function currencySymbol(salary: NonNullable<Job['salary']>) {
 		.find((part) => part.type === 'currency')!.value
 }
 
-// Office ids are slugs (`san-francisco`); there is no locations.json to look them up in yet.
+// Office ids come from locations.json. Callers drop `remote` first; it has no entry there.
 export function officeName(id: string) {
-	return id.replace(
-		/(^|-)(\w)/g,
-		(_, dash: string, char: string) => (dash ? ' ' : '') + char.toUpperCase(),
-	)
+	return locationsById[id]?.name ?? id
+}
+
+// `US` -> 🇺🇸. Regional indicator symbols sit 0x1f1a5 above the ASCII letters.
+export function countryFlag(countryCode: string) {
+	return countryCode
+		.toUpperCase()
+		.replace(/[A-Z]/g, (char) => String.fromCodePoint(char.charCodeAt(0) + 0x1f1a5))
 }
 
 export function editUrl(company: Company) {
@@ -155,6 +169,14 @@ export async function getTech(slug: string) {
 	})
 
 	return { name, companies: hiring }
+}
+
+// Companies with an office in a location. `offices` is company-level, so every job counts.
+export async function getLocation(slug: string) {
+	let location = locationsById[slug]
+	if (location === undefined) return undefined
+
+	return { location, companies: companies.filter((company) => company.offices.includes(slug)) }
 }
 
 const ACTIVITY_POINTS = 24

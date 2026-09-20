@@ -25,19 +25,19 @@ To update or remove a listing, click **edit** on your company page, or change or
 
 All fields are required.
 
-| Field       | Value                                                   |
-| ----------- | ------------------------------------------------------- |
-| `name`      | Company name                                            |
-| `url`       | Company website                                         |
-| `at`        | Short label, for example `"jobs"`                       |
-| `building`  | What the company is building, in 5 words or fewer       |
-| `products`  | List of `{ "name", "url" }`                             |
-| `socials`   | Profile URLs, for example `https://github.com/<org>`    |
-| `offices`   | Location ids, for example `"san-francisco"`, `"remote"` |
-| `headcount` | Whole number                                            |
-| `founded`   | Year                                                    |
-| `jobs`      | At least one job (see below)                            |
-| `updated`   | ISO 8601 timestamp of the last edit                     |
+| Field       | Value                                                                 |
+| ----------- | --------------------------------------------------------------------- |
+| `name`      | Company name                                                          |
+| `url`       | Company website                                                       |
+| `at`        | Short label, for example `"jobs"`                                     |
+| `building`  | What the company is building, in 5 words or fewer                     |
+| `products`  | List of `{ "name", "url" }`                                           |
+| `socials`   | Profile URLs, for example `https://github.com/<org>`                  |
+| `offices`   | Ids from [`locations.json`](app/data/locations.json), plus `"remote"` |
+| `headcount` | Whole number                                                          |
+| `founded`   | Year                                                                  |
+| `jobs`      | At least one job (see below)                                          |
+| `updated`   | ISO 8601 timestamp of the last edit                                   |
 
 ### Job fields
 
@@ -84,9 +84,9 @@ Not yet. Email alerts by stack are planned.
 
 Open a pull request with the fix, or [open an issue](https://github.com/aureliushq/coss.work/issues).
 
-### My tech or position is not in the list.
+### My tech, position or office is not in the list.
 
-Add it to [`tech.json`](app/data/tech.json) or [`positions.json`](app/data/positions.json) in the same pull request.
+Add it to [`tech.json`](app/data/tech.json), [`positions.json`](app/data/positions.json) or [`locations.json`](app/data/locations.json) in the same pull request.
 
 ### Can I use the data?
 

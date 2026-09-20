@@ -9,6 +9,9 @@ export const routes = route({
 	job: {
 		show: get('/jobs/:slug'),
 	},
+	location: {
+		show: get('/locations/:slug'),
+	},
 	subscribe: {
 		edit: post('/subscribe'),
 	},

@@ -4,6 +4,7 @@ import { createRouter, type MiddlewareContext } from 'remix/router'
 
 import companiesController from './actions/companies/controller.tsx'
 import controller from './actions/controller.tsx'
+import locationController from './actions/location/controller.tsx'
 import { notFound } from './actions/not-found-page.tsx'
 import subscribeController from './actions/subscribe/controller.tsx'
 import techController from './actions/tech/controller.tsx'
@@ -26,6 +27,7 @@ export const router = createRouter<AppContext>({
 
 router.map(routes, controller)
 router.map(routes.companies, companiesController)
+router.map(routes.location, locationController)
 router.map(routes.subscribe, subscribeController)
 router.map(routes.tech, techController)
 

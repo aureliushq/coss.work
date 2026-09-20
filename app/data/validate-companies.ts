@@ -15,6 +15,7 @@ import {
 } from 'jsonc-parser'
 
 import schema from './company.schema.json' with { type: 'json' }
+import locations from './locations.json' with { type: 'json' }
 import positions from './positions.json' with { type: 'json' }
 import tech from './tech.json' with { type: 'json' }
 
@@ -74,6 +75,17 @@ for (let file of files) {
 	}
 
 	// Checked even when the schema fails, so contributors see every error in one run.
+	let offices: unknown[] = Array.isArray(company?.offices) ? company.offices : []
+	offices.forEach((id, i) => {
+		// `remote` is a sentinel office id, not a location.
+		if (typeof id === 'string' && id !== 'remote' && !Object.hasOwn(locations, id)) {
+			report(
+				offsetOf(['offices', i]),
+				`offices.${i}: unknown id "${id}", see app/data/locations.json`,
+			)
+		}
+	})
+
 	let jobs: unknown[] = Array.isArray(company?.jobs) ? company.jobs : []
 	jobs.forEach((job: any, i) => {
 		if (typeof job?.position === 'string' && !Object.hasOwn(positions, job.position)) {

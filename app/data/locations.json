@@ -1,0 +1,60 @@
+{
+	"amsterdam": { "name": "Amsterdam", "country": "Netherlands", "countryCode": "NL" },
+	"austin": {
+		"name": "Austin",
+		"region": "Texas",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"bangalore": {
+		"name": "Bangalore",
+		"region": "Karnataka",
+		"country": "India",
+		"countryCode": "IN"
+	},
+	"berlin": { "name": "Berlin", "country": "Germany", "countryCode": "DE" },
+	"des-moines": {
+		"name": "Des Moines",
+		"region": "Iowa",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"london": { "name": "London", "country": "United Kingdom", "countryCode": "GB" },
+	"madrid": { "name": "Madrid", "country": "Spain", "countryCode": "ES" },
+	"malmo": { "name": "Malmö", "country": "Sweden", "countryCode": "SE" },
+	"milan": { "name": "Milan", "country": "Italy", "countryCode": "IT" },
+	"nantes": { "name": "Nantes", "country": "France", "countryCode": "FR" },
+	"new-york": {
+		"name": "New York",
+		"region": "New York",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"paris": { "name": "Paris", "country": "France", "countryCode": "FR" },
+	"san-diego": {
+		"name": "San Diego",
+		"region": "California",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"san-francisco": {
+		"name": "San Francisco",
+		"region": "California",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"seattle": {
+		"name": "Seattle",
+		"region": "Washington",
+		"country": "United States",
+		"countryCode": "US"
+	},
+	"tel-aviv": { "name": "Tel Aviv", "country": "Israel", "countryCode": "IL" },
+	"turin": { "name": "Turin", "country": "Italy", "countryCode": "IT" },
+	"vancouver": {
+		"name": "Vancouver",
+		"region": "British Columbia",
+		"country": "Canada",
+		"countryCode": "CA"
+	}
+}
