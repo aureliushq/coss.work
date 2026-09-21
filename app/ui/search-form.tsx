@@ -31,7 +31,12 @@ export function SearchForm(
 						/>
 					</div>
 					{showLabel && (
-						<button type='submit' mix={solidButton()}>
+						<button
+							type='submit'
+							mix={solidButton()}
+							data-track='search_submit'
+							data-source={id}
+						>
 							find jobs
 						</button>
 					)}

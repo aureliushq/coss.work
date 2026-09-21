@@ -3,6 +3,7 @@ import type { Handle, RemixNode } from 'remix/ui'
 import { css } from 'remix/ui'
 
 import { themeStyle } from '../ui/theme.ts'
+import { OpenPanelScript } from './openpanel.tsx'
 import clientAssets from './public/entry.ts?assets=client'
 
 export interface DocumentProps {
@@ -36,6 +37,7 @@ export function Document(handle: Handle<DocumentProps>) {
 					/>
 					<title>{title}</title>
 					{head}
+					<OpenPanelScript />
 					{clientAssets.css.map((attrs) => (
 						<link key={attrs.href} {...attrs} rel='stylesheet' />
 					))}
