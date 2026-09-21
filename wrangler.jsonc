@@ -10,7 +10,7 @@
 	// which keeps local dev out of the dashboard. The api url is the self-hosted
 	// instance plus /api, e.g. "https://analytics.example.com/api".
 	"vars": {
-		"OPENPANEL_CLIENT_ID": "",
-		"OPENPANEL_API_URL": "",
+		"OPENPANEL_CLIENT_ID": "a54dc8ec-5556-4635-8714-b06359250952",
+		"OPENPANEL_API_URL": "https://op.aurelius.ink/api",
 	},
 }
