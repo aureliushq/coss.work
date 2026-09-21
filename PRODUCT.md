@@ -49,7 +49,7 @@ Rules:
 
 ## Evidence on Hand
 
-- 51 company files in `app/data/companies/`, all dummy test data. No real listings yet.
+- `app/data/companies/` is empty. No real listings yet, and the dummy test data has been removed.
 - No testimonials, placement numbers, traffic figures, or partner logos exist. Do not invent them.
 
 ## Product Principles

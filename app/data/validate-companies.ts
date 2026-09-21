@@ -21,9 +21,14 @@ import tech from './tech.json' with { type: 'json' }
 
 let validate = addFormats.default(new Ajv({ allErrors: true })).compile(schema)
 let companiesDir = fileURLToPath(new URL('./companies/', import.meta.url))
-let files = (await readdir(companiesDir, { recursive: true })).filter((file) =>
-	file.endsWith('.json'),
+// The directory only exists once someone has added a company, so a missing one is not an error.
+let entries = await readdir(companiesDir, { recursive: true }).catch(
+	(error: NodeJS.ErrnoException) => {
+		if (error.code === 'ENOENT') return []
+		throw error
+	},
 )
+let files = entries.filter((file) => file.endsWith('.json'))
 let errorCount = 0
 
 for (let file of files) {

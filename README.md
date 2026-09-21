@@ -13,8 +13,8 @@ Get paid to work on open source.
 
 ## Post a job
 
-1. Copy [`app/data/companies/c/cal-com.json`](app/data/companies/c/cal-com.json) to `app/data/companies/<first letter>/<slug>.json`. The slug can use only lowercase letters, digits and dashes.
-2. Fill in your company and your open roles. Keep the `"$schema"` line so that your editor can autocomplete the fields.
+1. Copy [`app/data/SAMPLE_COMPANY_TEMPLATE.json`](app/data/SAMPLE_COMPANY_TEMPLATE.json) to `app/data/companies/<first letter>/<slug>.json`. The slug can use only lowercase letters, digits and dashes.
+2. Fill in your company and your open roles. Keep the `"$schema"` line so that your editor can autocomplete the fields. Its path is already correct for the folder you copied the file into.
 3. Set `updated` to the current time in ISO 8601 format, for example `2026-09-19T12:00:00.000Z`. Listings show newest first.
 4. Optional: run `bun run validate:companies` to check the file locally.
 5. Open a pull request. The **Validate companies** check marks errors on the matching lines under "Files changed".

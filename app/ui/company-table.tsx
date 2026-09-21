@@ -12,7 +12,7 @@ import {
 import { routes } from '../routes.ts'
 import { Badge } from './badge.tsx'
 // import { Sparkline } from "./sparkline.tsx";
-import { StatusDot } from './status-dot.tsx'
+// import { StatusDot } from './status-dot.tsx'
 import { stackCellStyle, TableCard } from './table-card.tsx'
 import { TextLink } from './text-link.tsx'
 import { visuallyHidden } from './visually-hidden.ts'
@@ -60,7 +60,8 @@ export function CompanyTable(
 						{/* </th> */}
 						<th>Hiring</th>
 						<th mix={css({ textAlign: 'right' })}>
-							<StatusDot /> <span aria-hidden='true'>⋯</span>
+							{/* Parked until the columns can actually be filtered. */}
+							{/* <StatusDot /> <span aria-hidden='true'>⋯</span> */}
 							<span mix={visuallyHidden}>apply</span>
 						</th>
 					</tr>
