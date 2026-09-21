@@ -5,4 +5,12 @@
 	"assets": { "directory": "dist/client" },
 	"compatibility_date": "2026-04-02",
 	"compatibility_flags": ["nodejs_compat"],
+	// OpenPanel. The client id is shipped to the browser, so these are plain
+	// vars, not secrets. Either one empty means no analytics script is rendered,
+	// which keeps local dev out of the dashboard. The api url is the self-hosted
+	// instance plus /api, e.g. "https://analytics.example.com/api".
+	"vars": {
+		"OPENPANEL_CLIENT_ID": "",
+		"OPENPANEL_API_URL": "",
+	},
 }
