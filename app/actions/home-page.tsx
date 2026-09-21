@@ -38,30 +38,50 @@ export function HomePage(
 							</>
 						)
 					}
-					empty={
-						<>
-							<p mix={css({ margin: 0, color: 'var(--text)' })}>
-								no companies match “{query}”
-							</p>
-							<p mix={css({ margin: 0 })}>
-								try a stack above, or{' '}
-								<TextLink href={routes.home.href()} underline>
-									see all companies
-								</TextLink>
-							</p>
-							<p mix={css({ margin: 0 })}>
-								know an open-source company hiring for it?{' '}
-								<TextLink href={REPO_URL} external underline>
-									add it
-								</TextLink>
-							</p>
-						</>
-					}
+					empty={query === '' ? <NoListingsYet /> : <NoMatches query={query} />}
 				/>
 				<SiteFooter />
 			</Document>
 		)
 	}
+}
+
+// Nothing is listed yet, so there is nothing to search. Point people at the repo instead.
+function NoListingsYet() {
+	return () => (
+		<>
+			<p mix={css({ margin: 0, color: 'var(--text)' })}>no listings yet</p>
+			<p mix={css({ margin: 0 })}>the first open-source companies are being added</p>
+			<p mix={css({ margin: 0 })}>
+				hiring at one?{' '}
+				<TextLink href={REPO_URL} external underline>
+					add it
+				</TextLink>
+			</p>
+		</>
+	)
+}
+
+function NoMatches(handle: Handle<{ query: string }>) {
+	return () => (
+		<>
+			<p mix={css({ margin: 0, color: 'var(--text)' })}>
+				no companies match “{handle.props.query}”
+			</p>
+			<p mix={css({ margin: 0 })}>
+				try a stack above, or{' '}
+				<TextLink href={routes.home.href()} underline>
+					see all companies
+				</TextLink>
+			</p>
+			<p mix={css({ margin: 0 })}>
+				know an open-source company hiring for it?{' '}
+				<TextLink href={REPO_URL} external underline>
+					add it
+				</TextLink>
+			</p>
+		</>
+	)
 }
 
 function Hero(handle: Handle<{ query: string; stacks: string[] }>) {

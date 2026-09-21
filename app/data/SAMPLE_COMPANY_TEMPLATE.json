@@ -1,4 +1,5 @@
 {
+	"$schema": "../../company.schema.json",
 	"name": "Example",
 	"url": "https://example.com/",
 	"at": "support",

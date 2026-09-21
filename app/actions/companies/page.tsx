@@ -15,7 +15,7 @@ import { Badge } from '../../ui/badge.tsx'
 import { CompanyLinks } from '../../ui/company-links.tsx'
 import { headlineStyle } from '../../ui/headline.ts'
 import { SiteFooter } from '../../ui/site-footer.tsx'
-import { StatusDot } from '../../ui/status-dot.tsx'
+// import { StatusDot } from '../../ui/status-dot.tsx'
 import { buildingLine, categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { stackCellStyle, TableCard } from '../../ui/table-card.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
@@ -96,14 +96,11 @@ function JobsTable(handle: Handle<{ company: Company }>) {
 				<tr>
 					<th>Hiring</th>
 					<th>Type</th>
-					<th>
-						Employment <StatusDot />
-					</th>
-					<th>
-						Stack <StatusDot />
-					</th>
+					<th>Employment</th>
+					<th>Stack</th>
 					<th mix={css({ textAlign: 'right' })}>
-						<StatusDot /> <span aria-hidden='true'>⋯</span>
+						{/* Parked until the columns can actually be filtered. */}
+						{/* <StatusDot /> <span aria-hidden='true'>⋯</span> */}
 						<span mix={visuallyHidden}>apply</span>
 					</th>
 				</tr>

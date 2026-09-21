@@ -182,17 +182,28 @@ export async function listCompanies(query: string) {
 	)
 }
 
-// Tech names used by the most companies, for one-click searches.
+// Shown until enough companies are listed to rank stacks by themselves.
+const DEFAULT_STACKS = ['rust', 'go', 'typescript', 'python', 'kubernetes']
+
+// Tech names used by the most companies, for one-click searches. Topped up from the defaults
+// so the line is never empty or near-empty while the board is still filling up.
 export function popularStacks(limit: number) {
 	let counts = new Map<string, number>()
 	for (let company of companies) {
 		for (let tech of stackFor(company).map(techName))
 			counts.set(tech, (counts.get(tech) ?? 0) + 1)
 	}
-	return [...counts]
+
+	let ranked = [...counts]
 		.sort(([a, x], [b, y]) => y - x || a.localeCompare(b))
-		.slice(0, limit)
 		.map(([tech]) => tech)
+
+	for (let id of DEFAULT_STACKS.map(techName)) {
+		if (ranked.length >= limit) break
+		if (!ranked.includes(id)) ranked.push(id)
+	}
+
+	return ranked.slice(0, limit)
 }
 
 export async function getCompany(slug: string) {
