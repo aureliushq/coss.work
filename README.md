@@ -68,17 +68,13 @@ Companies whose core product is open source.
 
 No. Leave `salary` and `equity` out if they are not public.
 
-### Can I pay for a higher place on the list?
-
-No. Money never buys a place on the list. Paid featured listings may come later, but they will only add emphasis.
-
 ### How are listings ordered?
 
 By `updated`, newest first.
 
 ### Can I get job alerts?
 
-Not yet. Email alerts by stack are planned.
+Not yet. Email alerts by tech stack are planned.
 
 ### A listing is wrong or out of date. What do I do?
 
