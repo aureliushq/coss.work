@@ -8,15 +8,17 @@ import clientAssets from './public/entry.ts?assets=client'
 
 export interface DocumentProps {
 	children?: RemixNode
-	head?: RemixNode
+	description?: string
 	title?: string
 }
 
 const DEFAULT_TITLE = readAppDisplayName('Coss.work')
+// Crawlers need an absolute URL for the share image.
+const OG_IMAGE_URL = 'https://assets.coss.work/www/assets/og.png'
 
 export function Document(handle: Handle<DocumentProps>) {
 	return () => {
-		let { children, head, title = DEFAULT_TITLE } = handle.props
+		let { children, description, title = DEFAULT_TITLE } = handle.props
 
 		return (
 			<html lang='en'>
@@ -41,7 +43,16 @@ export function Document(handle: Handle<DocumentProps>) {
 						href='https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap'
 					/>
 					<title>{title}</title>
-					{head}
+					{description && <meta name='description' content={description} />}
+					<meta property='og:title' content={title} />
+					{description && <meta property='og:description' content={description} />}
+					<meta property='og:site_name' content='coss.work' />
+					<meta property='og:type' content='website' />
+					<meta property='og:image' content={OG_IMAGE_URL} />
+					<meta property='og:image:width' content='1200' />
+					<meta property='og:image:height' content='630' />
+					<meta name='twitter:card' content='summary_large_image' />
+					<meta name='twitter:image' content={OG_IMAGE_URL} />
 					<OpenPanelScript />
 					{clientAssets.css.map((attrs) => (
 						<link key={attrs.href} {...attrs} rel='stylesheet' />
@@ -62,7 +73,10 @@ export function Document(handle: Handle<DocumentProps>) {
 
 const bodyStyle = css({
 	// Square corners everywhere, including remix/ui popovers whose radii aren't configurable.
-	'& *, & *::before, & *::after': { boxSizing: 'border-box', borderRadius: '0 !important' },
+	'& *, & *::before, & *::after': {
+		boxSizing: 'border-box',
+		borderRadius: '0 !important',
+	},
 	'& :is(h1, h2, h3)': { textWrap: 'balance' },
 	'& ::selection': { background: 'var(--highlight)', color: 'var(--text)' },
 	'margin': 0,

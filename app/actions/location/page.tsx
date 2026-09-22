@@ -18,12 +18,7 @@ export function LocationPage(handle: Handle<{ location: Location; companies: Com
 		return (
 			<Document
 				title={`Jobs in ${location.name}`}
-				head={
-					<meta
-						name='description'
-						content={`Engineering jobs at commercial open-source companies with an office in ${location.name}.`}
-					/>
-				}
+				description={`Engineering jobs at commercial open-source companies with an office in ${location.name}.`}
 			>
 				<div
 					mix={css({

@@ -27,7 +27,10 @@ export function CompanyPage(handle: Handle<{ company: Company }>) {
 		let { company } = handle.props
 
 		return (
-			<Document title={`${company.name} Jobs`}>
+			<Document
+				title={`${company.name} Jobs`}
+				description={`${company.name} is building ${company.building}. See its engineering jobs and apply.`}
+			>
 				<div
 					mix={css({
 						display: 'flex',

@@ -18,12 +18,7 @@ export function TechPage(handle: Handle<{ name: string; companies: Company[] }>)
 		return (
 			<Document
 				title={`${name} Jobs`}
-				head={
-					<meta
-						name='description'
-						content={`${name} jobs at commercial open-source companies.`}
-					/>
-				}
+				description={`${name} jobs at commercial open-source companies.`}
 			>
 				<div
 					mix={css({

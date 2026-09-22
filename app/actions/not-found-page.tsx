@@ -9,7 +9,10 @@ import { Document } from './document.tsx'
 
 export function NotFoundPage() {
 	return () => (
-		<Document title='not found · coss.work'>
+		<Document
+			title='not found · coss.work'
+			description='this page does not exist on coss.work.'
+		>
 			<header
 				mix={css({
 					display: 'grid',

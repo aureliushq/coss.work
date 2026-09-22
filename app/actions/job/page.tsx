@@ -19,12 +19,7 @@ export function JobPage(handle: Handle<{ company: Company; job: Job }>) {
 		return (
 			<Document
 				title={title}
-				head={
-					<meta
-						name='description'
-						content={`${company.name} is hiring a ${jobTitle(job)}. Apply at ${host}.`}
-					/>
-				}
+				description={`${company.name} is hiring a ${jobTitle(job)}. Apply at ${host}.`}
 			>
 				<div
 					mix={css({
