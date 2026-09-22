@@ -75,7 +75,6 @@ export function SiteFooter() {
 						>
 							<GitHubIcon />
 						</a>
-						<a href='#'>privacy</a>
 						<span>© {new Date().getFullYear()}</span>
 					</div>
 				</div>

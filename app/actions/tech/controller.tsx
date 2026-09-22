@@ -14,7 +14,9 @@ export default createController(routes.tech, {
 				return notFound(context)
 			}
 
-			return context.render(<TechPage name={tech.name} companies={tech.companies} />)
+			return context.render(
+				<TechPage slug={context.params.slug} name={tech.name} companies={tech.companies} />,
+			)
 		},
 	},
 })

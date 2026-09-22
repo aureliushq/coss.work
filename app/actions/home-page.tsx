@@ -16,7 +16,8 @@ export function HomePage(
 
 		return (
 			<Document
-				title='coss.work · jobs at commercial open-source companies'
+				title='jobs at commercial open-source companies'
+				path={routes.home.href()}
 				description='engineering jobs at commercial open-source companies. search by stack (Rust, Go, TypeScript, Kubernetes…) and apply.'
 			>
 				<Hero query={query} stacks={stacks} />

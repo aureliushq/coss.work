@@ -11,13 +11,17 @@ import { categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { Document } from '../document.tsx'
 
-export function LocationPage(handle: Handle<{ location: Location; companies: Company[] }>) {
+export function LocationPage(
+	handle: Handle<{ slug: string; location: Location; companies: Company[] }>,
+) {
 	return () => {
-		let { companies, location } = handle.props
+		let { companies, location, slug } = handle.props
 
 		return (
 			<Document
 				title={`Jobs in ${location.name}`}
+				path={routes.location.show.href({ slug })}
+				noindex={companies.length === 0}
 				description={`Engineering jobs at commercial open-source companies with an office in ${location.name}.`}
 			>
 				<div

@@ -9,16 +9,24 @@ import clientAssets from './public/entry.ts?assets=client'
 export interface DocumentProps {
 	children?: RemixNode
 	description?: string
+	// Route path for the canonical link and og:url. Left out on pages that shouldn't be indexed.
+	path?: string
+	// For pages with nothing listed yet, so they stay out of search results.
+	noindex?: boolean
+	// Page title without the site name, which is appended.
 	title?: string
 }
 
 const DEFAULT_TITLE = readAppDisplayName('Coss.work')
+export const SITE_URL = 'https://coss.work'
 // Crawlers need an absolute URL for the share image.
 const OG_IMAGE_URL = 'https://assets.coss.work/www/assets/og.png'
 
 export function Document(handle: Handle<DocumentProps>) {
 	return () => {
-		let { children, description, title = DEFAULT_TITLE } = handle.props
+		let { children, description, noindex, path, title } = handle.props
+		let fullTitle = title === undefined ? DEFAULT_TITLE : `${title} · coss.work`
+		let url = path === undefined ? undefined : new URL(path, SITE_URL).href
 
 		return (
 			<html lang='en'>
@@ -42,9 +50,12 @@ export function Document(handle: Handle<DocumentProps>) {
 						rel='stylesheet'
 						href='https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap'
 					/>
-					<title>{title}</title>
+					<title>{fullTitle}</title>
 					{description && <meta name='description' content={description} />}
-					<meta property='og:title' content={title} />
+					{noindex && <meta name='robots' content='noindex' />}
+					{url && <link rel='canonical' href={url} />}
+					<meta property='og:title' content={title ?? fullTitle} />
+					{url && <meta property='og:url' content={url} />}
 					{description && <meta property='og:description' content={description} />}
 					<meta property='og:site_name' content='coss.work' />
 					<meta property='og:type' content='website' />

@@ -2,6 +2,7 @@ import { form, get, post, route } from 'remix/routes'
 
 export const routes = route({
 	home: '/',
+	sitemap: get('/sitemap.xml'),
 	companies: {
 		show: get('/companies/:slug'),
 		edit: form('/companies/:slug/edit'),

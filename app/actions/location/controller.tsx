@@ -15,7 +15,11 @@ export default createController(routes.location, {
 			}
 
 			return context.render(
-				<LocationPage location={found.location} companies={found.companies} />,
+				<LocationPage
+					slug={context.params.slug}
+					location={found.location}
+					companies={found.companies}
+				/>,
 			)
 		},
 	},

@@ -28,6 +28,8 @@ export function TitlePage(handle: Handle<{ category: Job['category']; companies:
 		return (
 			<Document
 				title={`${name} Jobs`}
+				path={routes.title.show.href({ slug: category })}
+				noindex={companies.length === 0}
 				description={`${name} engineering jobs at commercial open-source companies.`}
 			>
 				<div

@@ -29,6 +29,7 @@ export function CompanyPage(handle: Handle<{ company: Company }>) {
 		return (
 			<Document
 				title={`${company.name} Jobs`}
+				path={routes.companies.show.href({ slug: company.slug })}
 				description={`${company.name} is building ${company.building}. See its engineering jobs and apply.`}
 			>
 				<div
