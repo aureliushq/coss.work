@@ -44,8 +44,8 @@ export type Company = {
 	products: { name: string; url: string }[]
 	socials: string[]
 	offices: string[]
-	headcount: number
-	founded: number
+	headcount?: number
+	founded?: number
 	jobs: Job[]
 	updated: string
 }

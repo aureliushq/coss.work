@@ -12,8 +12,6 @@
 		"products",
 		"socials",
 		"offices",
-		"headcount",
-		"founded",
 		"jobs",
 		"updated"
 	],
@@ -49,8 +47,16 @@
 			"description": "Location ids.",
 			"items": { "type": "string" }
 		},
-		"headcount": { "type": "integer", "minimum": 1 },
-		"founded": { "type": "integer", "minimum": 1900 },
+		"headcount": {
+			"type": "integer",
+			"minimum": 1,
+			"description": "Number of employees."
+		},
+		"founded": {
+			"type": "integer",
+			"minimum": 1900,
+			"description": "Year the company was founded."
+		},
 		"jobs": {
 			"type": "array",
 			"minItems": 1,
