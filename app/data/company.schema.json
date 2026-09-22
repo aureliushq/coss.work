@@ -94,7 +94,7 @@
 				"type": { "enum": ["full-time", "part-time", "contract", "freelance"] },
 				"salary": {
 					"type": "object",
-					"description": "Leave out if the salary is not listed.",
+					"description": "Pay range for the job.",
 					"additionalProperties": false,
 					"required": ["amount", "range", "currency"],
 					"properties": {
@@ -105,7 +105,7 @@
 				},
 				"equity": {
 					"$ref": "#/definitions/range",
-					"description": "Equity range in percent. Leave out if none."
+					"description": "Equity range in percent."
 				},
 				"tech": {
 					"type": "array",
