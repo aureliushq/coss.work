@@ -1,0 +1,84 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Infisical",
+	"url": "https://infisical.com/",
+	"at": "jobs",
+	"building": "open-source security infrastructure platform",
+	"products": [
+		{
+			"name": "Infisical",
+			"url": "https://github.com/Infisical/infisical"
+		},
+		{
+			"name": "Infisical PKI",
+			"url": "https://infisical.com/docs/documentation/platform/pki/overview"
+		},
+		{
+			"name": "Infisical KMS",
+			"url": "https://infisical.com/docs/documentation/platform/kms/overview"
+		},
+		{
+			"name": "Infisical PAM",
+			"url": "https://infisical.com/docs/documentation/platform/pam/overview"
+		}
+	],
+	"socials": ["https://github.com/Infisical", "https://x.com/infisical"],
+	"offices": ["remote", "san-francisco"],
+	"jobs": [
+		{
+			"position": "full-stack-engineer",
+			"category": "full-stack",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [180000, 250000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "react", "node-js", "go"],
+			"url": "https://jobs.ashbyhq.com/infisical/3b1dd1a3-e5e7-46e5-b1d2-862f672d8878"
+		},
+		{
+			"position": "full-stack-engineer",
+			"category": "full-stack",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [100000, 180000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "react", "node-js", "go"],
+			"url": "https://jobs.ashbyhq.com/infisical/782b9da8-20e1-48b2-919e-6c5430c58628"
+		},
+		{
+			"position": "design-engineer",
+			"team": "Site",
+			"category": "frontend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [100000, 180000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "javascript", "react", "next-js", "node-js"],
+			"url": "https://jobs.ashbyhq.com/infisical/558d171f-9730-47d6-8d35-1026c2c3e316"
+		},
+		{
+			"position": "design-engineer",
+			"team": "Brand",
+			"category": "frontend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [100000, 180000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "javascript", "react", "next-js", "node-js"],
+			"url": "https://jobs.ashbyhq.com/infisical/361a7451-0cfe-491e-b07a-80eac6e29a43"
+		}
+	],
+	"updated": "2026-09-22T03:29:53.000Z"
+}
