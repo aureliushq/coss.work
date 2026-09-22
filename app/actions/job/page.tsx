@@ -1,6 +1,13 @@
 import { css, type Handle } from 'remix/ui'
 
-import { jobTitle, salaryRange, techName, type Company, type Job } from '../../data/companies.ts'
+import {
+	jobSlug,
+	jobTitle,
+	salaryRange,
+	techName,
+	type Company,
+	type Job,
+} from '../../data/companies.ts'
 import { routes } from '../../routes.ts'
 import { CompanyLinks } from '../../ui/company-links.tsx'
 import { headlineStyle } from '../../ui/headline.ts'
@@ -19,6 +26,7 @@ export function JobPage(handle: Handle<{ company: Company; job: Job }>) {
 		return (
 			<Document
 				title={title}
+				path={routes.job.show.href({ slug: jobSlug(company, job) })}
 				description={`${company.name} is hiring a ${jobTitle(job)}. Apply at ${host}.`}
 			>
 				<div

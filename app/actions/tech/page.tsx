@@ -11,13 +11,15 @@ import { categoryList, joinList, summaryStyle } from '../../ui/summary.tsx'
 import { TextLink } from '../../ui/text-link.tsx'
 import { Document } from '../document.tsx'
 
-export function TechPage(handle: Handle<{ name: string; companies: Company[] }>) {
+export function TechPage(handle: Handle<{ slug: string; name: string; companies: Company[] }>) {
 	return () => {
-		let { companies, name } = handle.props
+		let { companies, name, slug } = handle.props
 
 		return (
 			<Document
 				title={`${name} Jobs`}
+				path={routes.tech.show.href({ slug })}
+				noindex={companies.length === 0}
 				description={`${name} jobs at commercial open-source companies.`}
 			>
 				<div
