@@ -6,6 +6,8 @@ import tech from './tech.json' with { type: 'json' }
 
 export type Job = {
 	position: string
+	// Tells apart jobs with the same position and level, e.g. "Scrape" in "Product Engineer, Scrape".
+	team?: string
 	category:
 		| 'frontend'
 		| 'backend'
@@ -140,7 +142,8 @@ const LEVEL_PREFIX: Record<Job['level'], string> = {
 }
 
 export function jobTitle(job: Job) {
-	return LEVEL_PREFIX[job.level] + positionName(job.position)
+	let title = LEVEL_PREFIX[job.level] + positionName(job.position)
+	return job.team === undefined ? title : `${title}, ${job.team}`
 }
 
 // `$`, `€`, `£`, `CA$`, `A$`, `CHF`, `₹`.
@@ -235,11 +238,21 @@ export async function getTech(slug: string) {
 	return { name, companies: hiring }
 }
 
-// "frontend-engineer-at-gradle", "senior-frontend-engineer-at-gradle". `any` adds no level.
+// "frontend-engineer-at-gradle", "senior-frontend-engineer-at-gradle",
+// "product-engineer-scrape-at-firecrawl". `any` adds no level.
 // The validator keeps these unique within a company.
 export function jobSlug(company: Company, job: Job) {
 	let prefix = job.level === 'any' ? '' : `${job.level}-`
-	return `${prefix}${job.position}-at-${company.slug}`
+	let team = job.team === undefined ? '' : `-${slugify(job.team)}`
+	return `${prefix}${job.position}${team}-at-${company.slug}`
+}
+
+// "Infra/Systems" → "infra-systems".
+function slugify(text: string) {
+	return text
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '')
 }
 
 export async function getJob(slug: string) {

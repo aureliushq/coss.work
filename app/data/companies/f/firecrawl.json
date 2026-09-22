@@ -1,0 +1,166 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Firecrawl",
+	"url": "https://www.firecrawl.dev/",
+	"at": "jobs",
+	"building": "web data API for AI",
+	"products": [
+		{
+			"name": "Firecrawl",
+			"url": "https://github.com/firecrawl/firecrawl"
+		}
+	],
+	"socials": ["https://github.com/firecrawl", "https://x.com/firecrawl"],
+	"offices": ["san-francisco", "toronto"],
+	"jobs": [
+		{
+			"position": "product-engineer",
+			"team": "Scrape",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/83249105-3b1e-41fc-a991-4fd41670ffca"
+		},
+		{
+			"position": "product-engineer",
+			"team": "Parse",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/4fed8a26-d8e1-47b1-9283-59e547e6e02a"
+		},
+		{
+			"position": "product-engineer",
+			"team": "Agent",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/84c209e5-d65c-4b27-b42f-c53507461acd"
+		},
+		{
+			"position": "product-engineer",
+			"team": "Marketplace",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/5dd71524-6f88-453a-94a0-9521351981ab"
+		},
+		{
+			"position": "infrastructure-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/6840bbee-aae5-4846-97a2-ec2e764ee75b"
+		},
+		{
+			"position": "backend-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/762b4426-b4aa-4377-96d3-51f40c59cbf7"
+		},
+		{
+			"position": "software-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["javascript", "typescript", "python", "playwright", "puppeteer"],
+			"url": "https://jobs.ashbyhq.com/firecrawl/5a7ce67e-0b71-428a-b774-e7c05e7841b6"
+		},
+		{
+			"position": "platform-engineer",
+			"category": "security",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [235000, 260000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["typescript", "node-js"],
+			"url": "https://jobs.ashbyhq.com/firecrawl/30856716-e88c-48ba-8d55-efaec9c0713a"
+		},
+		{
+			"position": "machine-learning-engineer",
+			"category": "data",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [250000, 290000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["python", "apache-spark", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/firecrawl/72f9dc1d-65db-48c9-b3d9-c6ccdb997006"
+		},
+		{
+			"position": "research-engineer",
+			"team": "Evals",
+			"category": "data",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [250000, 290000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/firecrawl/25092c0e-9a32-4191-af79-050738213704"
+		},
+		{
+			"position": "devops-engineer",
+			"category": "devops",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [246000, 271000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["kubernetes", "docker", "terraform", "gcp", "aws", "azure"],
+			"url": "https://jobs.ashbyhq.com/firecrawl/fe538f2b-7dd5-4d8d-941e-f8014a911652"
+		}
+	],
+	"updated": "2026-09-22T03:29:53.000Z"
+}

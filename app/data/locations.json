@@ -43,6 +43,11 @@
 		"country": "United States"
 	},
 	"tel-aviv": { "name": "Tel Aviv", "country": "Israel" },
+	"toronto": {
+		"name": "Toronto",
+		"region": "Ontario",
+		"country": "Canada"
+	},
 	"turin": { "name": "Turin", "country": "Italy" },
 	"vancouver": {
 		"name": "Vancouver",
