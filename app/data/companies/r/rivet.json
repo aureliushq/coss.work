@@ -1,0 +1,47 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Rivet",
+	"url": "https://rivet.dev/",
+	"at": "jobs",
+	"building": "open-source infrastructure for AI",
+	"products": [
+		{
+			"name": "Rivet Actors",
+			"url": "https://rivet.dev/actors/"
+		},
+		{
+			"name": "agentOS",
+			"url": "https://rivet.dev/agentos/"
+		},
+		{
+			"name": "Rivet Workflows",
+			"url": "https://rivet.dev/workflows/"
+		}
+	],
+	"socials": ["https://github.com/rivet-dev", "https://x.com/rivet_dev"],
+	"offices": ["remote"],
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [80000, 150000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [
+				"rust",
+				"typescript",
+				"foundationdb",
+				"postgresql",
+				"clickhouse",
+				"nats",
+				"sqlite"
+			],
+			"url": "https://www.workatastartup.com/application?signup_job_id=104561"
+		}
+	],
+	"updated": "2026-09-22T03:29:53.000Z"
+}
