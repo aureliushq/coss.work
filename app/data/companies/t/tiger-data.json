@@ -1,0 +1,87 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Tiger Data",
+	"url": "https://www.tigerdata.com/",
+	"at": "jobs",
+	"building": "the fastest PostgreSQL platform",
+	"products": [
+		{
+			"name": "TimescaleDB",
+			"url": "https://www.tigerdata.com/timescaledb"
+		},
+		{
+			"name": "Tiger Cloud",
+			"url": "https://www.tigerdata.com/cloud"
+		}
+	],
+	"socials": ["https://github.com/timescale", "https://x.com/TigerDatabase"],
+	"offices": ["remote"],
+	"jobs": [
+		{
+			"position": "test-tooling-engineer",
+			"category": "devops",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["github-actions", "python", "postgresql", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/tigerdata/e6223d80-1f6e-44ae-a9c8-160cfd368049"
+		},
+		{
+			"position": "database-engineer",
+			"category": "devops",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["postgresql", "kubernetes", "go", "linux"],
+			"url": "https://jobs.ashbyhq.com/tigerdata/8c701831-c4cf-4cc8-a9f0-0afa30474c08"
+		},
+		{
+			"position": "platform-engineer",
+			"category": "devops",
+			"level": "senior",
+			"type": "full-time",
+			"tech": [
+				"go",
+				"kubernetes",
+				"postgresql",
+				"helm",
+				"github-actions",
+				"prometheus",
+				"opentelemetry",
+				"terraform",
+				"pulumi",
+				"bash",
+				"rust",
+				"aws",
+				"azure",
+				"grpc",
+				"protobuf",
+				"linux"
+			],
+			"url": "https://jobs.ashbyhq.com/tigerdata/9f71650b-230b-4316-ab4e-abe0ebc6385f"
+		},
+		{
+			"position": "security-engineer",
+			"category": "security",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["go", "rust", "python", "kubernetes", "postgresql"],
+			"url": "https://jobs.ashbyhq.com/tigerdata/ce3e0bab-5756-4b41-929e-536c566d087c"
+		},
+		{
+			"position": "engineering-manager",
+			"category": "systems",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["c", "cpp", "postgresql"],
+			"url": "https://jobs.ashbyhq.com/tigerdata/c5cc6bf7-7ec7-429b-bdab-96319944b226"
+		},
+		{
+			"position": "software-engineer",
+			"category": "full-stack",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["react", "typescript", "go", "ansible", "postgresql", "linux"],
+			"url": "https://jobs.ashbyhq.com/tigerdata/d07c7cb2-c304-455c-9941-55e14f8a92c5"
+		}
+	],
+	"updated": "2026-09-22T01:49:12.000Z"
+}
