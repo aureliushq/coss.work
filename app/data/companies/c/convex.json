@@ -1,0 +1,81 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Convex",
+	"url": "https://www.convex.dev/",
+	"at": "jobs",
+	"building": "open-source reactive backend platform",
+	"products": [
+		{
+			"name": "Convex",
+			"url": "https://github.com/get-convex/convex-backend"
+		}
+	],
+	"socials": ["https://github.com/get-convex", "https://x.com/convex"],
+	"offices": ["san-francisco"],
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"team": "Infra/Systems",
+			"category": "systems",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["rust"],
+			"url": "https://jobs.ashbyhq.com/convex-dev/67235a39-db9a-4c1a-a260-94760ede4661"
+		},
+		{
+			"position": "software-engineer",
+			"team": "Infra/Systems",
+			"category": "systems",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["rust"],
+			"url": "https://jobs.ashbyhq.com/convex-dev/bf15f4b0-c476-4aca-b7b6-7b960c9de33b"
+		},
+		{
+			"position": "software-engineer",
+			"team": "API Platform",
+			"category": "full-stack",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["typescript", "react"],
+			"url": "https://jobs.ashbyhq.com/convex-dev/54fed7d5-33c5-429c-8100-e2ba345dce52"
+		},
+		{
+			"position": "software-engineer",
+			"team": "AI",
+			"category": "full-stack",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["typescript"],
+			"url": "https://jobs.ashbyhq.com/convex-dev/dae7eefa-e97a-466f-9413-38ceeac8435b"
+		},
+		{
+			"position": "software-engineer",
+			"team": "Product",
+			"category": "full-stack",
+			"level": "any",
+			"type": "full-time",
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/convex-dev/3f1fd59b-99bb-490f-bb98-62b27443de81"
+		},
+		{
+			"position": "engineering-manager",
+			"team": "Infra/Systems",
+			"category": "systems",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["rust"],
+			"url": "https://jobs.ashbyhq.com/convex-dev/d82f63c9-490f-43d1-b30a-91fece4d39da"
+		},
+		{
+			"position": "engineering-manager",
+			"team": "API/Product",
+			"category": "full-stack",
+			"level": "any",
+			"type": "full-time",
+			"tech": [],
+			"url": "https://jobs.ashbyhq.com/convex-dev/25c60b55-9184-43de-b7fc-9fb085d07fb1"
+		}
+	],
+	"updated": "2026-09-22T03:29:53.000Z"
+}
