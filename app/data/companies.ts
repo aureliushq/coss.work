@@ -163,8 +163,13 @@ const RANGE_SUFFIX: Record<NonNullable<Job['salary']>['range'], string> = {
 
 // "$200k-370k/yr USD".
 export function salaryRange(salary: NonNullable<Job['salary']>) {
-	let compact = new Intl.NumberFormat('en', { notation: 'compact' })
-	let [min, max] = salary.amount.map((amount) => compact.format(amount).toLowerCase())
+	// INR uses lakh and crore ("₹40L–1Cr"), written as Indian companies post them.
+	let indian = salary.currency === 'inr'
+	let compact = new Intl.NumberFormat(indian ? 'en-IN' : 'en', { notation: 'compact' })
+	let [min, max] = salary.amount.map((amount) => {
+		let value = compact.format(amount)
+		return indian ? value : value.toLowerCase()
+	})
 
 	return `${currencySymbol(salary)}${min}\u2013${max}${RANGE_SUFFIX[salary.range]} ${salary.currency.toUpperCase()}`
 }
