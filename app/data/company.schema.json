@@ -78,6 +78,11 @@
 					"type": "string",
 					"description": "Position id from app/data/positions.json."
 				},
+				"team": {
+					"type": "string",
+					"minLength": 1,
+					"description": "Team or focus that tells apart jobs with the same position and level, e.g. \"Scrape\" for \"Product Engineer, Scrape\"."
+				},
 				"category": {
 					"enum": [
 						"frontend",

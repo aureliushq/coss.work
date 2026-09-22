@@ -54,15 +54,21 @@ export function JobPage(handle: Handle<{ company: Company; job: Job }>) {
 						<p mix={[summaryStyle, css({ justifySelf: 'stretch' })]}>
 							{company.name} is looking for a {job.type}{' '}
 							<strong>{jobTitle(job)}</strong>
-							{job.salary && <> ({salaryRange(job.salary)})</>}. Experience in{' '}
-							{joinList(
-								job.tech.map((id) => (
-									<TextLink href={routes.tech.show.href({ slug: id })}>
-										<strong>{techName(id)}</strong>
-									</TextLink>
-								)),
-							)}{' '}
-							is preferred.
+							{job.salary && <> ({salaryRange(job.salary)})</>}.
+							{job.tech.length > 0 && (
+								<>
+									{' '}
+									Experience in{' '}
+									{joinList(
+										job.tech.map((id) => (
+											<TextLink href={routes.tech.show.href({ slug: id })}>
+												<strong>{techName(id)}</strong>
+											</TextLink>
+										)),
+									)}{' '}
+									is preferred.
+								</>
+							)}
 						</p>
 						<a
 							href={job.url}

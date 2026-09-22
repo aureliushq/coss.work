@@ -92,8 +92,8 @@ for (let file of files) {
 	})
 
 	let jobs: unknown[] = Array.isArray(company?.jobs) ? company.jobs : []
-	// Job page slugs are [level-]position-at-company, so one company cannot list the same
-	// level and position twice. Mirrors jobSlug in companies.ts, which can't be imported here.
+	// Job page slugs are [level-]position[-team]-at-company, so one company cannot list the same
+	// level, position and team twice. Mirrors jobSlug in companies.ts, which can't be imported here.
 	let seenSlugs = new Map<string, number>()
 	jobs.forEach((job: any, i) => {
 		if (typeof job?.position === 'string') {
@@ -104,6 +104,12 @@ for (let file of files) {
 				)
 			}
 			let slug = job.level === 'any' ? job.position : `${job.level}-${job.position}`
+			if (typeof job.team === 'string') {
+				slug += `-${job.team
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '-')
+					.replace(/^-|-$/g, '')}`
+			}
 			let first = seenSlugs.get(slug)
 			if (first === undefined) {
 				seenSlugs.set(slug, i)
