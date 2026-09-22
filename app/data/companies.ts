@@ -15,7 +15,7 @@ export type Job = {
 		| 'data'
 		| 'security'
 		| 'systems'
-	level: 'any' | 'junior' | 'senior'
+	level: 'any' | 'junior' | 'senior' | 'staff'
 	type: 'full-time' | 'part-time' | 'contract' | 'freelance'
 	salary?: {
 		amount: [number, number]
@@ -44,8 +44,8 @@ export type Company = {
 	products: { name: string; url: string }[]
 	socials: string[]
 	offices: string[]
-	headcount: number
-	founded: number
+	headcount?: number
+	founded?: number
 	jobs: Job[]
 	updated: string
 }
@@ -132,7 +132,12 @@ export function categoryDescription(id: Job['category']) {
 	return categories[id].description
 }
 
-const LEVEL_PREFIX: Record<Job['level'], string> = { any: '', junior: 'Jr ', senior: 'Sr ' }
+const LEVEL_PREFIX: Record<Job['level'], string> = {
+	any: '',
+	junior: 'Jr ',
+	senior: 'Sr ',
+	staff: 'Staff ',
+}
 
 export function jobTitle(job: Job) {
 	return LEVEL_PREFIX[job.level] + positionName(job.position)
@@ -158,8 +163,13 @@ const RANGE_SUFFIX: Record<NonNullable<Job['salary']>['range'], string> = {
 
 // "$200k-370k/yr USD".
 export function salaryRange(salary: NonNullable<Job['salary']>) {
-	let compact = new Intl.NumberFormat('en', { notation: 'compact' })
-	let [min, max] = salary.amount.map((amount) => compact.format(amount).toLowerCase())
+	// INR uses lakh and crore ("₹40L–1Cr"), written as Indian companies post them.
+	let indian = salary.currency === 'inr'
+	let compact = new Intl.NumberFormat(indian ? 'en-IN' : 'en', { notation: 'compact' })
+	let [min, max] = salary.amount.map((amount) => {
+		let value = compact.format(amount)
+		return indian ? value : value.toLowerCase()
+	})
 
 	return `${currencySymbol(salary)}${min}\u2013${max}${RANGE_SUFFIX[salary.range]} ${salary.currency.toUpperCase()}`
 }
@@ -225,9 +235,11 @@ export async function getTech(slug: string) {
 	return { name, companies: hiring }
 }
 
-// "frontend-engineer-at-gradle". The validator keeps position ids unique within a company.
+// "frontend-engineer-at-gradle", "senior-frontend-engineer-at-gradle". `any` adds no level.
+// The validator keeps these unique within a company.
 export function jobSlug(company: Company, job: Job) {
-	return `${job.position}-at-${company.slug}`
+	let prefix = job.level === 'any' ? '' : `${job.level}-`
+	return `${prefix}${job.position}-at-${company.slug}`
 }
 
 export async function getJob(slug: string) {

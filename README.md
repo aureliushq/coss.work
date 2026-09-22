@@ -23,7 +23,7 @@ To update or remove a listing, click **edit** on your company page, or change or
 
 ### Company fields
 
-All fields are required.
+All fields are required unless marked optional.
 
 | Field       | Value                                                                 |
 | ----------- | --------------------------------------------------------------------- |
@@ -34,8 +34,8 @@ All fields are required.
 | `products`  | List of `{ "name", "url" }`                                           |
 | `socials`   | Profile URLs, for example `https://github.com/<org>`                  |
 | `offices`   | Ids from [`locations.json`](app/data/locations.json), plus `"remote"` |
-| `headcount` | Whole number                                                          |
-| `founded`   | Year                                                                  |
+| `headcount` | Optional. Whole number                                                |
+| `founded`   | Optional. Year                                                        |
 | `jobs`      | At least one job (see below)                                          |
 | `updated`   | ISO 8601 timestamp of the last edit                                   |
 
@@ -45,7 +45,7 @@ All fields are required.
 | ---------- | -------------------------------------------------------------------------------------- |
 | `position` | Id from [`positions.json`](app/data/positions.json)                                    |
 | `category` | `frontend`, `backend`, `full-stack`, `mobile`, `devops`, `data`, `security`, `systems` |
-| `level`    | `any`, `junior`, `senior`                                                              |
+| `level`    | `any`, `junior`, `senior`, `staff`                                                     |
 | `type`     | `full-time`, `part-time`, `contract`, `freelance`                                      |
 | `tech`     | Ids from [`tech.json`](app/data/tech.json)                                             |
 | `url`      | Where to apply                                                                         |

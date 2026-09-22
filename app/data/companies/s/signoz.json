@@ -1,0 +1,115 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "SigNoz",
+	"url": "https://signoz.io/",
+	"at": "jobs",
+	"building": "open-source observability platform",
+	"products": [
+		{
+			"name": "SigNoz",
+			"url": "https://github.com/SigNoz/signoz"
+		},
+		{
+			"name": "SigNoz Cloud",
+			"url": "https://signoz.io/teams/"
+		}
+	],
+	"socials": ["https://github.com/SigNoz", "https://x.com/SigNozHQ"],
+	"offices": ["remote"],
+	"jobs": [
+		{
+			"position": "platform-engineer",
+			"category": "backend",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [4000000, 7000000],
+				"range": "yearly",
+				"currency": "inr"
+			},
+			"equity": [0.06, 0.15],
+			"tech": ["go", "opentelemetry", "clickhouse", "apache-kafka", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/e8c0ae83-391b-4c68-be61-ca32392d223f"
+		},
+		{
+			"position": "platform-engineer",
+			"category": "backend",
+			"level": "staff",
+			"type": "full-time",
+			"salary": {
+				"amount": [7000000, 10000000],
+				"range": "yearly",
+				"currency": "inr"
+			},
+			"equity": [0.06, 0.25],
+			"tech": ["go", "opentelemetry", "clickhouse", "apache-kafka", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/5ba2b181-0b62-49d9-b092-8e539ee1a7c7"
+		},
+		{
+			"position": "backend-engineer",
+			"category": "backend",
+			"level": "staff",
+			"type": "full-time",
+			"salary": {
+				"amount": [7000000, 10000000],
+				"range": "yearly",
+				"currency": "inr"
+			},
+			"equity": [0.06, 0.25],
+			"tech": ["go", "opentelemetry", "clickhouse", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/cad41ada-ef6b-4539-8f37-31666ea16ae7"
+		},
+		{
+			"position": "backend-engineer",
+			"category": "backend",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [4000000, 7000000],
+				"range": "yearly",
+				"currency": "inr"
+			},
+			"equity": [0.06, 0.15],
+			"tech": [
+				"go",
+				"python",
+				"fastapi",
+				"opentelemetry",
+				"clickhouse",
+				"apache-kafka",
+				"kubernetes"
+			],
+			"url": "https://jobs.ashbyhq.com/SigNoz/d8fd6b52-8499-4dad-9903-f231e39c996d"
+		},
+		{
+			"position": "frontend-engineer",
+			"category": "frontend",
+			"level": "staff",
+			"type": "full-time",
+			"tech": ["react", "typescript"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/f25ef5a6-c53f-4f30-9923-1d0cf52118b5"
+		},
+		{
+			"position": "frontend-engineer",
+			"category": "frontend",
+			"level": "senior",
+			"type": "full-time",
+			"tech": ["react", "typescript"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/bb540719-7344-4e98-88b9-92446d58f437"
+		},
+		{
+			"position": "site-reliability-engineer",
+			"category": "devops",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [5000000, 7000000],
+				"range": "yearly",
+				"currency": "inr"
+			},
+			"tech": ["kubernetes", "clickhouse", "go", "opentelemetry", "apache-kafka"],
+			"url": "https://jobs.ashbyhq.com/SigNoz/83d2c104-dde3-454d-bcc5-7cffdb816d55"
+		}
+	],
+	"updated": "2026-09-22T02:02:26.000Z"
+}

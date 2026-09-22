@@ -1,0 +1,85 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Temporal",
+	"url": "https://temporal.io/",
+	"at": "jobs",
+	"building": "durable execution for developers",
+	"products": [
+		{
+			"name": "Temporal",
+			"url": "https://temporal.io/"
+		},
+		{
+			"name": "Temporal Cloud",
+			"url": "https://temporal.io/cloud"
+		}
+	],
+	"socials": ["https://github.com/temporalio", "https://x.com/temporalio"],
+	"offices": ["remote"],
+	"jobs": [
+		{
+			"position": "software-engineer",
+			"category": "backend",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [140800, 231000],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [
+				"go",
+				"java",
+				"elasticsearch",
+				"clickhouse",
+				"apache-cassandra",
+				"postgresql",
+				"mysql",
+				"kubernetes",
+				"aws",
+				"azure",
+				"gcp"
+			],
+			"url": "https://jobs.ashbyhq.com/temporal/a6db83c0-46c3-415c-8161-621a77781d38"
+		},
+		{
+			"position": "software-engineer",
+			"category": "backend",
+			"level": "staff",
+			"type": "full-time",
+			"salary": {
+				"amount": [169600, 278250],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": ["go", "elasticsearch", "clickhouse"],
+			"url": "https://jobs.ashbyhq.com/temporal/f40a7b70-71c0-49f6-ba9f-1df2de9b46d9"
+		},
+		{
+			"position": "senior-staff-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"salary": {
+				"amount": [208000, 341250],
+				"range": "yearly",
+				"currency": "usd"
+			},
+			"tech": [
+				"go",
+				"java",
+				"elasticsearch",
+				"clickhouse",
+				"apache-cassandra",
+				"postgresql",
+				"mysql",
+				"kubernetes",
+				"aws",
+				"azure",
+				"gcp"
+			],
+			"url": "https://jobs.ashbyhq.com/temporal/b3ba030c-dcbb-4131-9edb-90a8e03849e8"
+		}
+	],
+	"updated": "2026-09-22T01:37:56.000Z"
+}

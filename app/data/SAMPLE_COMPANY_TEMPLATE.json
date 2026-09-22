@@ -30,7 +30,7 @@
 		{
 			"position": "look in data/positions.json for id",
 			"category": "frontend || backend || full-stack || mobile || devops || data || security || systems",
-			"level": "any || junior || senior",
+			"level": "any || junior || senior || staff",
 			"type": "full-time || part-time || contract || freelance",
 			"salary": {
 				"amount": [100000, 200000],

@@ -92,8 +92,9 @@ for (let file of files) {
 	})
 
 	let jobs: unknown[] = Array.isArray(company?.jobs) ? company.jobs : []
-	// Job page slugs are position-at-company, so one company cannot list a position twice.
-	let seenPositions = new Map<string, number>()
+	// Job page slugs are [level-]position-at-company, so one company cannot list the same
+	// level and position twice. Mirrors jobSlug in companies.ts, which can't be imported here.
+	let seenSlugs = new Map<string, number>()
 	jobs.forEach((job: any, i) => {
 		if (typeof job?.position === 'string') {
 			if (!Object.hasOwn(positions, job.position)) {
@@ -102,13 +103,14 @@ for (let file of files) {
 					`jobs.${i}.position: unknown id "${job.position}", see app/data/positions.json`,
 				)
 			}
-			let first = seenPositions.get(job.position)
+			let slug = job.level === 'any' ? job.position : `${job.level}-${job.position}`
+			let first = seenSlugs.get(slug)
 			if (first === undefined) {
-				seenPositions.set(job.position, i)
+				seenSlugs.set(slug, i)
 			} else {
 				report(
 					offsetOf(['jobs', i, 'position']),
-					`jobs.${i}.position: "${job.position}" is already used by jobs.${first}`,
+					`jobs.${i}.position: job slug "${slug}" is already used by jobs.${first}`,
 				)
 			}
 		}
