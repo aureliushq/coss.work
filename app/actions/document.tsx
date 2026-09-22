@@ -14,7 +14,7 @@ export interface DocumentProps {
 
 const DEFAULT_TITLE = readAppDisplayName('Coss.work')
 // Crawlers need an absolute URL for the share image.
-const OG_IMAGE_URL = 'https://coss.work/og.png'
+const OG_IMAGE_URL = 'https://assets.coss.work/www/assets/og.png'
 
 export function Document(handle: Handle<DocumentProps>) {
 	return () => {
@@ -73,7 +73,10 @@ export function Document(handle: Handle<DocumentProps>) {
 
 const bodyStyle = css({
 	// Square corners everywhere, including remix/ui popovers whose radii aren't configurable.
-	'& *, & *::before, & *::after': { boxSizing: 'border-box', borderRadius: '0 !important' },
+	'& *, & *::before, & *::after': {
+		boxSizing: 'border-box',
+		borderRadius: '0 !important',
+	},
 	'& :is(h1, h2, h3)': { textWrap: 'balance' },
 	'& ::selection': { background: 'var(--highlight)', color: 'var(--text)' },
 	'margin': 0,
