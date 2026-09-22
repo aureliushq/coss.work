@@ -28,12 +28,7 @@ export function TitlePage(handle: Handle<{ category: Job['category']; companies:
 		return (
 			<Document
 				title={`${name} Jobs`}
-				head={
-					<meta
-						name='description'
-						content={`${name} engineering jobs at commercial open-source companies.`}
-					/>
-				}
+				description={`${name} engineering jobs at commercial open-source companies.`}
 			>
 				<div
 					mix={css({

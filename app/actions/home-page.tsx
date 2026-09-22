@@ -17,12 +17,7 @@ export function HomePage(
 		return (
 			<Document
 				title='coss.work · jobs at commercial open-source companies'
-				head={
-					<meta
-						name='description'
-						content='engineering jobs at commercial open-source companies. search by stack (Rust, Go, TypeScript, Kubernetes…) and apply.'
-					/>
-				}
+				description='engineering jobs at commercial open-source companies. search by stack (Rust, Go, TypeScript, Kubernetes…) and apply.'
 			>
 				<Hero query={query} stacks={stacks} />
 				<CompanyTable
