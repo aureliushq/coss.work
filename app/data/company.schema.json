@@ -90,7 +90,7 @@
 						"systems"
 					]
 				},
-				"level": { "enum": ["any", "junior", "senior"] },
+				"level": { "enum": ["any", "junior", "senior", "staff"] },
 				"type": { "enum": ["full-time", "part-time", "contract", "freelance"] },
 				"salary": {
 					"type": "object",

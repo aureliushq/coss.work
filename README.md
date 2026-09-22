@@ -45,7 +45,7 @@ All fields are required unless marked optional.
 | ---------- | -------------------------------------------------------------------------------------- |
 | `position` | Id from [`positions.json`](app/data/positions.json)                                    |
 | `category` | `frontend`, `backend`, `full-stack`, `mobile`, `devops`, `data`, `security`, `systems` |
-| `level`    | `any`, `junior`, `senior`                                                              |
+| `level`    | `any`, `junior`, `senior`, `staff`                                                     |
 | `type`     | `full-time`, `part-time`, `contract`, `freelance`                                      |
 | `tech`     | Ids from [`tech.json`](app/data/tech.json)                                             |
 | `url`      | Where to apply                                                                         |

@@ -15,7 +15,7 @@ export type Job = {
 		| 'data'
 		| 'security'
 		| 'systems'
-	level: 'any' | 'junior' | 'senior'
+	level: 'any' | 'junior' | 'senior' | 'staff'
 	type: 'full-time' | 'part-time' | 'contract' | 'freelance'
 	salary?: {
 		amount: [number, number]
@@ -132,7 +132,12 @@ export function categoryDescription(id: Job['category']) {
 	return categories[id].description
 }
 
-const LEVEL_PREFIX: Record<Job['level'], string> = { any: '', junior: 'Jr ', senior: 'Sr ' }
+const LEVEL_PREFIX: Record<Job['level'], string> = {
+	any: '',
+	junior: 'Jr ',
+	senior: 'Sr ',
+	staff: 'Staff ',
+}
 
 export function jobTitle(job: Job) {
 	return LEVEL_PREFIX[job.level] + positionName(job.position)
@@ -225,9 +230,11 @@ export async function getTech(slug: string) {
 	return { name, companies: hiring }
 }
 
-// "frontend-engineer-at-gradle". The validator keeps position ids unique within a company.
+// "frontend-engineer-at-gradle", "senior-frontend-engineer-at-gradle". `any` adds no level.
+// The validator keeps these unique within a company.
 export function jobSlug(company: Company, job: Job) {
-	return `${job.position}-at-${company.slug}`
+	let prefix = job.level === 'any' ? '' : `${job.level}-`
+	return `${prefix}${job.position}-at-${company.slug}`
 }
 
 export async function getJob(slug: string) {
