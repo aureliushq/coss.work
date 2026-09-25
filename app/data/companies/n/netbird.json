@@ -1,0 +1,90 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "NetBird",
+	"url": "https://netbird.io/",
+	"at": "jobs",
+	"building": "open-source zero-trust network security",
+	"products": [
+		{
+			"name": "NetBird",
+			"url": "https://github.com/netbirdio/netbird"
+		},
+		{
+			"name": "NetBird Cloud",
+			"url": "https://app.netbird.io/"
+		}
+	],
+	"socials": ["https://github.com/netbirdio"],
+	"offices": ["berlin", "remote"],
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["go", "grpc", "kubernetes", "wireguard"],
+			"url": "https://jobs.ashbyhq.com/netbird/34a8f26f-7537-4321-b7b4-39146c68d7ad"
+		},
+		{
+			"position": "network-engineer",
+			"team": "Client",
+			"category": "systems",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["go", "grpc", "linux"],
+			"url": "https://jobs.ashbyhq.com/netbird/de9d26cf-1f24-41ea-9e81-33fb998c7f3e"
+		},
+		{
+			"position": "frontend-engineer",
+			"category": "frontend",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["javascript", "react", "next-js", "git"],
+			"url": "https://jobs.ashbyhq.com/netbird/e21bee56-f91c-49c4-b2af-80a162491223"
+		},
+		{
+			"position": "mobile-engineer",
+			"category": "mobile",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["swift", "kotlin", "java", "wireguard"],
+			"url": "https://jobs.ashbyhq.com/netbird/f637b989-a675-44db-a527-85b4462d4efc"
+		},
+		{
+			"position": "platform-engineer",
+			"category": "devops",
+			"level": "any",
+			"type": "full-time",
+			"tech": [
+				"kubernetes",
+				"terraform",
+				"pulumi",
+				"aws",
+				"gcp",
+				"prometheus",
+				"grafana",
+				"opentelemetry",
+				"grpc",
+				"wireguard"
+			],
+			"url": "https://jobs.ashbyhq.com/netbird/5b1ad324-dda1-4dc2-97e6-b8f7344c4127"
+		},
+		{
+			"position": "open-source-engineer",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["go", "typescript", "react", "docker", "kubernetes"],
+			"url": "https://jobs.ashbyhq.com/netbird/103f9e7d-e32b-4ac2-a041-501b470c9fc4"
+		},
+		{
+			"position": "engineering-manager",
+			"category": "backend",
+			"level": "any",
+			"type": "full-time",
+			"tech": ["go"],
+			"url": "https://jobs.ashbyhq.com/netbird/a97242f2-a80a-4680-b8c6-bd37200825a0"
+		}
+	],
+	"updated": "2026-09-25T07:40:00.000Z"
+}
