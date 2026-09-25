@@ -1,0 +1,78 @@
+{
+	"$schema": "../../company.schema.json",
+	"name": "Langfuse",
+	"url": "https://langfuse.com/",
+	"at": "jobs",
+	"building": "open-source LLM engineering platform",
+	"products": [
+		{
+			"name": "Langfuse",
+			"url": "https://github.com/langfuse/langfuse"
+		},
+		{
+			"name": "Langfuse Cloud",
+			"url": "https://cloud.langfuse.com/"
+		}
+	],
+	"socials": ["https://github.com/langfuse", "https://x.com/langfuse"],
+	"offices": ["remote"],
+	"jobs": [
+		{
+			"position": "backend-engineer",
+			"category": "backend",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [90000, 160000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": ["typescript", "clickhouse", "docker", "helm"],
+			"url": "https://jobs.ashbyhq.com/clickhouse/31500bec-b690-4795-b4d6-0dce06a4c180"
+		},
+		{
+			"position": "cloud-infrastructure-engineer",
+			"category": "devops",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [90000, 160000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": [
+				"aws",
+				"clickhouse",
+				"terraform",
+				"pulumi",
+				"docker",
+				"helm",
+				"kubernetes",
+				"datadog"
+			],
+			"url": "https://jobs.ashbyhq.com/clickhouse/cf36e6db-3939-4ff0-8bcf-a3bb200d9e46"
+		},
+		{
+			"position": "product-engineer",
+			"category": "full-stack",
+			"level": "senior",
+			"type": "full-time",
+			"salary": {
+				"amount": [90000, 160000],
+				"range": "yearly",
+				"currency": "eur"
+			},
+			"tech": [
+				"typescript",
+				"react",
+				"next-js",
+				"clickhouse",
+				"python",
+				"opentelemetry",
+				"terraform"
+			],
+			"url": "https://jobs.ashbyhq.com/clickhouse/0087feaa-a275-427d-bf4a-14a508708687"
+		}
+	],
+	"updated": "2026-09-25T07:40:02.000Z"
+}
