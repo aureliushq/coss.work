@@ -7,6 +7,7 @@ import { FieldLabel } from '../../../ui/field-label.tsx'
 import { LockIcon } from '../../../ui/icons.tsx'
 import { fieldFrameStyle, fieldInputStyle } from '../../../ui/search-field.tsx'
 import { solidButton } from '../../../ui/solid-button.ts'
+import { posthogLogger } from '../../public/posthog-logger.ts'
 
 const STACKS = ['Rust', 'Go', 'TypeScript', 'Python', 'Ruby', 'C++', 'Solidity', 'K8s']
 
@@ -22,14 +23,33 @@ export const SubscribeForm = clientEntry(import.meta.url, function SubscribeForm
 		pending = true
 		await handle.update()
 		const form = event.currentTarget
-		const response = await fetch(form.action, {
-			method: 'post',
-			body: new FormData(form),
-			signal,
+		const startedAt = performance.now()
+		posthogLogger.info('newsletter subscription submitted', {
+			event: 'newsletter_subscription',
+			outcome: 'started',
 		})
-		pending = false
-		done = response.ok
-		await handle.update()
+		try {
+			const response = await fetch(form.action, {
+				method: 'post',
+				body: new FormData(form),
+				signal,
+			})
+			pending = false
+			done = response.ok
+			posthogLogger.info('newsletter subscription completed', {
+				duration_ms: Math.round(performance.now() - startedAt),
+				event: 'newsletter_subscription',
+				http_status_code: response.status,
+				outcome: response.ok ? 'success' : 'failure',
+			})
+			await handle.update()
+		} catch (error) {
+			posthogLogger.error('newsletter subscription request failed', {
+				event: 'newsletter_subscription',
+				outcome: 'network_error',
+			})
+			throw error
+		}
 	}
 
 	return () => {

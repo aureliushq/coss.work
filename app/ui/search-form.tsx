@@ -18,7 +18,13 @@ export function SearchForm(
 		let { id, label, placeholder, query, showLabel = false } = handle.props
 
 		return (
-			<form action={routes.home.href()} method='get' role='search'>
+			<form
+				action={routes.home.href()}
+				method='get'
+				role='search'
+				data-track='search_submit'
+				data-source={id}
+			>
 				{showLabel && <FieldLabel for={id}>{label}</FieldLabel>}
 				<div mix={css({ display: 'flex', gap: '8px' })}>
 					<div mix={css({ flex: 1, minWidth: 0 })}>

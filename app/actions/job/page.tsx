@@ -77,6 +77,9 @@ export function JobPage(handle: Handle<{ company: Company; job: Job }>) {
 							href={job.url}
 							rel='noopener noreferrer'
 							target='_blank'
+							data-track='apply_click'
+							data-company={company.slug}
+							data-job={job.position}
 							mix={solidButton()}
 						>
 							apply at {host}

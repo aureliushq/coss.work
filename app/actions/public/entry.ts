@@ -1,3 +1,5 @@
+import './posthog.ts'
+import './capture-events.ts'
 import { run } from 'remix/ui'
 
 run({
