@@ -3,7 +3,6 @@ import type { Handle, RemixNode } from 'remix/ui'
 import { css } from 'remix/ui'
 
 import { themeStyle } from '../ui/theme.ts'
-import { OpenPanelScript } from './openpanel.tsx'
 import clientAssets from './public/entry.ts?assets=client'
 
 export interface DocumentProps {
@@ -64,7 +63,6 @@ export function Document(handle: Handle<DocumentProps>) {
 					<meta property='og:image:height' content='630' />
 					<meta name='twitter:card' content='summary_large_image' />
 					<meta name='twitter:image' content={OG_IMAGE_URL} />
-					<OpenPanelScript />
 					{clientAssets.css.map((attrs) => (
 						<link key={attrs.href} {...attrs} rel='stylesheet' />
 					))}

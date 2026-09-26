@@ -148,13 +148,7 @@ function PostJobSection() {
 					reach engineers who want to work on open source
 				</p>
 			</header>
-			<a
-				href={REPO_URL}
-				rel='noopener noreferrer'
-				target='_blank'
-				mix={outlineButton()}
-				data-track='add_company_click'
-			>
+			<a href={REPO_URL} rel='noopener noreferrer' target='_blank' mix={outlineButton()}>
 				add your company
 			</a>
 		</section>

@@ -1,7 +1,5 @@
 import { run } from 'remix/ui'
 
-import './openpanel.ts'
-
 run({
 	async loadModule(moduleUrl, exportName) {
 		let mod = await import(/* @vite-ignore */ moduleUrl)
