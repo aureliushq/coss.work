@@ -1,6 +1,6 @@
+import './posthog.ts'
+import './capture-events.ts'
 import { run } from 'remix/ui'
-
-import './openpanel.ts'
 
 run({
 	async loadModule(moduleUrl, exportName) {
